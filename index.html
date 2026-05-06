@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz de Filosofia — Prof. Krauss</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #1A1F5E;
+    --navy2:   #111433;
+    --gold:    #D4A017;
+    --goldlt:  #F0C542;
+    --white:   #FFFFFF;
+    --off:     #F0F2FB;
+    --slate:   #4A5080;
+    --slatel:  #8890C0;
+    --red:     #C0392B;
+    --green:   #1D6A3A;
+    --greenlt: #E8F7EE;
+    --redlt:   #FDECEA;
+    --shadow:  0 4px 24px rgba(26,31,94,.18);
+    --radius:  14px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--navy2);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212,160,23,.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,31,94,.8) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .app { position: relative; z-index: 1; }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+
+  /* ── CARD ── */
+  .card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: var(--radius);
+    backdrop-filter: blur(12px);
+    padding: 36px 40px;
+    width: 100%; max-width: 700px;
+    box-shadow: var(--shadow);
+  }
+  .card-white {
+    background: var(--white);
+    border: none;
+    color: var(--navy);
+    box-shadow: var(--shadow);
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .display { font-family: 'Playfair Display', serif; }
+  h1.display { font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; line-height: 1.1; }
+  h2.display { font-size: clamp(1.4rem,3vw,2rem); font-weight: 700; }
+  .subtitle { font-size: .95rem; color: var(--slatel); margin-top: 6px; }
+  .gold-text { color: var(--goldlt); }
+  .label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--slatel); }
+
+  /* ── LOGO BAR ── */
+  .logo-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .logo-icon {
+    width: 48px; height: 48px; background: var(--gold);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .logo-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.2; }
+  .logo-sub { font-size: .78rem; color: var(--slatel); }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 28px; border-radius: var(--radius-sm); border: none;
+    font-family: 'Source Sans 3', sans-serif; font-size: .95rem; font-weight: 600;
+    cursor: pointer; transition: all .18s ease; text-decoration: none;
+  }
+  .btn-gold { background: var(--gold); color: var(--navy2); }
+  .btn-gold:hover { background: var(--goldlt); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212,160,23,.4); }
+  .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.25); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--goldlt); }
+  .btn-navy { background: var(--navy); color: var(--white); }
+  .btn-navy:hover { background: #222870; transform: translateY(-1px); }
+  .btn-red { background: var(--red); color: var(--white); }
+  .btn-red:hover { background: #a93226; }
+  .btn-green { background: var(--green); color: var(--white); }
+  .btn-green:hover { background: #155a2e; }
+  .btn-sm { padding: 8px 16px; font-size: .83rem; }
+  .btn-block { width: 100%; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+  /* ── ROLE CARDS (home) ── */
+  .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .role-card {
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid rgba(255,255,255,.12);
+    border-radius: var(--radius);
+    padding: 28px 20px; text-align: center;
+    cursor: pointer; transition: all .2s ease;
+  }
+  .role-card:hover { border-color: var(--gold); background: rgba(212,160,23,.08); transform: translateY(-3px); }
+  .role-card .icon { font-size: 2.8rem; margin-bottom: 10px; }
+  .role-card .title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--white); }
+  .role-card .desc { font-size: .82rem; color: var(--slatel); margin-top: 4px; }
+
+  /* ── FORMS ── */
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: .83rem; font-weight: 600; color: var(--slatel); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+  input[type=text], input[type=password], textarea, select {
+    width: 100%; background: rgba(255,255,255,.07);
+    border: 1.5px solid rgba(255,255,255,.15);
+    border-radius: var(--radius-sm); padding: 11px 14px;
+    color: var(--white); font-family: 'Source Sans 3', sans-serif; font-size: .95rem;
+    transition: border-color .15s;
+    outline: none;
+  }
+  .card-white input, .card-white textarea, .card-white select {
+    background: var(--off); border-color: #dde; color: var(--navy); color: #333;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--gold); }
+  textarea { resize: vertical; min-height: 80px; }
+  select option { background: var(--navy2); color: var(--white); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap { width: 100%; background: rgba(255,255,255,.1); border-radius: 99px; height: 6px; margin-bottom: 6px; }
+  .progress-fill { height: 6px; background: linear-gradient(90deg, var(--gold), var(--goldlt)); border-radius: 99px; transition: width .5s ease; }
+  .progress-label { display: flex; justify-content: space-between; font-size: .78rem; color: var(--slatel); margin-bottom: 16px; }
+
+  /* ── QUIZ QUESTION ── */
+  .q-topic { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--goldlt); margin-bottom: 8px; }
+  .q-base {
+    background: rgba(255,255,255,.06); border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 14px 18px; font-size: .92rem; color: #d8deff;
+    font-style: italic; margin-bottom: 16px; line-height: 1.6;
+  }
+  .q-text { font-size: 1.05rem; line-height: 1.65; color: var(--white); margin-bottom: 22px; font-weight: 400; }
+
+  /* ── ALTERNATIVES ── */
+  .alt-list { display: flex; flex-direction: column; gap: 10px; }
+  .alt-btn {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid rgba(255,255,255,.12);
+    border-radius: var(--radius-sm); padding: 14px 16px;
+    cursor: pointer; transition: all .18s ease; text-align: left; width: 100%;
+    font-family: 'Source Sans 3', sans-serif; font-size: .93rem; color: var(--white);
+    line-height: 1.5;
+  }
+  .alt-btn:hover:not(:disabled) { border-color: var(--goldlt); background: rgba(212,160,23,.1); }
+  .alt-btn:disabled { cursor: default; }
+  .alt-letter {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(255,255,255,.1); color: var(--goldlt);
+    font-weight: 700; font-size: .88rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; border: 1.5px solid rgba(212,160,23,.4);
+    transition: all .18s;
+  }
+  .alt-btn.correct { border-color: var(--green); background: rgba(29,106,58,.2); }
+  .alt-btn.correct .alt-letter { background: var(--green); color: var(--white); border-color: var(--green); }
+  .alt-btn.wrong { border-color: var(--red); background: rgba(192,57,43,.15); }
+  .alt-btn.wrong .alt-letter { background: var(--red); color: var(--white); border-color: var(--red); }
+
+  /* ── EXPLANATION BOX ── */
+  .explanation {
+    margin-top: 10px; padding: 0 0 0 42px;
+    font-size: .84rem; line-height: 1.55;
+    display: none; animation: fadeIn .3s ease;
+  }
+  .explanation.correct { color: #6fcf97; }
+  .explanation.wrong   { color: #f4a49a; }
+  .explanation.neutral { color: var(--slatel); }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+
+  /* ── RESULT BANNER ── */
+  .result-banner {
+    display: none; align-items: center; gap: 12px;
+    padding: 16px 20px; border-radius: var(--radius-sm); margin-top: 24px;
+    animation: fadeIn .4s ease;
+  }
+  .result-banner.show { display: flex; }
+  .result-banner.acertou { background: rgba(29,106,58,.25); border: 1.5px solid var(--green); }
+  .result-banner.errou   { background: rgba(192,57,43,.2);  border: 1.5px solid var(--red); }
+  .result-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .result-title { font-weight: 700; font-size: 1rem; }
+  .result-text  { font-size: .88rem; opacity: .85; margin-top: 2px; line-height: 1.5; }
+
+  /* ── SCORE SUMMARY ── */
+  .score-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: conic-gradient(var(--gold) calc(var(--pct) * 1%), rgba(255,255,255,.1) 0);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; position: relative;
+  }
+  .score-inner {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: var(--navy2); display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--goldlt); line-height: 1; }
+  .score-den { font-size: .75rem; color: var(--slatel); }
+  .score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+  .score-stat { background: rgba(255,255,255,.05); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+  .score-stat .val { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--goldlt); }
+  .score-stat .lbl { font-size: .75rem; color: var(--slatel); margin-top: 2px; }
+
+  /* ── ADMIN PANEL ── */
+  .admin-header {
+    background: var(--navy); padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 10;
+  }
+  .admin-body { padding: 24px; max-width: 860px; margin: 0 auto; }
+  #screen-admin { display: none; flex-direction: column; min-height: 100vh; padding: 0; justify-content: flex-start; }
+  #screen-admin.active { display: flex; }
+
+  .q-list-item {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-sm); padding: 16px 18px; margin-bottom: 12px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .q-num { background: var(--gold); color: var(--navy2); font-weight: 700; font-size: .85rem;
+    width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .q-preview { flex: 1; }
+  .q-preview .topic { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--goldlt); font-weight: 700; }
+  .q-preview .text  { font-size: .9rem; color: var(--white); margin-top: 3px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .q-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.7);
+    display: none; align-items: center; justify-content: center;
+    z-index: 100; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: #1c2060; border: 1px solid rgba(255,255,255,.15);
+    border-radius: var(--radius); width: 100%; max-width: 720px;
+    max-height: 90vh; overflow-y: auto; padding: 32px 36px;
+    animation: fadeIn .25s ease;
+  }
+  .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--goldlt); margin-bottom: 20px; }
+
+  .alt-editor { background: rgba(255,255,255,.05); border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 10px; }
+  .alt-editor-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .alt-badge {
+    width: 26px; height: 26px; border-radius: 50%; background: var(--gold); color: var(--navy2);
+    font-weight: 700; font-size: .82rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .correct-radio { display: flex; align-items: center; gap: 6px; font-size: .82rem; color: #6fcf97; cursor: pointer; }
+  .correct-radio input { accent-color: var(--green); width: 16px; height: 16px; cursor: pointer; }
+
+  .tag {
+    display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: .72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .07em;
+  }
+  .tag-gold { background: rgba(212,160,23,.2); color: var(--goldlt); border: 1px solid var(--gold); }
+
+  /* ── EMPTY STATE ── */
+  .empty { text-align: center; padding: 48px 24px; color: var(--slatel); }
+  .empty-icon { font-size: 3rem; margin-bottom: 12px; }
+  .empty p { font-size: .95rem; }
+
+  /* ── TOAST ── */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--navy); border: 1.5px solid var(--gold); border-radius: var(--radius-sm);
+    padding: 12px 24px; font-size: .9rem; color: var(--goldlt);
+    z-index: 9999; display: none; animation: fadeIn .3s ease;
+    white-space: nowrap;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: rgba(255,255,255,.1); margin: 20px 0; }
+
+  /* ── SCROLL ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 99px; }
+
+  @media(max-width:540px) {
+    .role-grid { grid-template-columns: 1fr; }
+    .card { padding: 24px 20px; }
+    .modal { padding: 24px 20px; }
+    .score-grid { grid-template-columns: 1fr 1fr; }
+    .admin-body { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ═══════════════════════════════════════ HOME ═════════════════════════════════ -->
+  <div id="screen-home" class="screen active">
+    <div class="card" style="text-align:center">
+      <div class="logo-bar" style="justify-content:center">
+        <div class="logo-icon">🏛️</div>
+        <div>
+          <div class="logo-name">Filosofia para o ENEM</div>
+          <div class="logo-sub">Prof. Krauss · Quiz Interativo</div>
+        </div>
+      </div>
+      <h1 class="display" style="margin-bottom:6px">Treine para<br><span class="gold-text">a prova</span></h1>
+      <p class="subtitle" style="margin-bottom:28px">Questões no estilo ENEM com gabarito comentado</p>
+      <div class="role-grid">
+        <div class="role-card" onclick="gotoAluno()">
+          <div class="icon">📚</div>
+          <div class="title">Sou Aluno</div>
+          <div class="desc">Responder questões e ver meu desempenho</div>
+        </div>
+        <div class="role-card" onclick="gotoLogin()">
+          <div class="icon">👨‍🏫</div>
+          <div class="title">Sou Professor</div>
+          <div class="desc">Gerenciar o banco de questões</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ LOGIN PROF ════════════════════════════ -->
+  <div id="screen-login" class="screen">
+    <div class="card" style="max-width:420px">
+      <div style="margin-bottom:22px">
+        <span onclick="show('home')" style="cursor:pointer;color:var(--slatel);font-size:.85rem">← Voltar</span>
+      </div>
+      <h2 class="display gold-text" style="margin-bottom:4px">Área do Professor</h2>
+      <p class="subtitle" style="margin-bottom:24px">Digite a senha para acessar o painel</p>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" id="inp-senha" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <p id="login-err" style="color:#f4a49a;font-size:.85rem;margin-bottom:12px;display:none">Senha incorreta.</p>
+      <button class="btn btn-gold btn-block" onclick="doLogin()">Entrar no Painel →</button>
+      <p style="font-size:.78rem;color:var(--slatel);margin-top:14px;text-align:center">Entre em contato com o professor caso não saiba a senha.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ ALUNO — NOME ══════════════════════════ -->
+  <div id="screen-aluno-nome" class="screen">
+    <div class="card" style="max-width:440px">
+      <div style="margin-bottom:22px">
+        <span onclick="show('home')" style="cursor:pointer;color:var(--slatel);font-size:.85rem">← Voltar</span>
+      </div>
+      <div class="logo-bar"><div class="logo-icon">📚</div><div><div class="logo-name">Quiz de Filosofia</div><div class="logo-sub">Prof. Krauss</div></div></div>
+      <h2 class="display gold-text" style="margin-bottom:4px">Olá, aluno!</h2>
+      <p class="subtitle" style="margin-bottom:24px">Como quer ser chamado?</p>
+      <div class="form-group">
+        <label>Seu nome</label>
+        <input type="text" id="inp-nome" placeholder="Ex: João Silva" maxlength="40" onkeydown="if(event.key==='Enter')iniciarQuiz()">
+      </div>
+      <div class="form-group">
+        <label>Filtrar por tema <span style="font-weight:400;text-transform:none">(opcional)</span></label>
+        <select id="sel-tema">
+          <option value="">Todos os temas</option>
+        </select>
+      </div>
+      <button class="btn btn-gold btn-block" id="btn-iniciar" onclick="iniciarQuiz()">Começar o Quiz →</button>
+      <div id="aviso-sem-q" style="display:none;margin-top:12px;color:#f4a49a;font-size:.88rem;text-align:center">
+        ⚠️ Não há questões cadastradas ainda. Peça ao professor para adicionar questões.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ QUIZ ═════════════════════════════════ -->
+  <div id="screen-quiz" class="screen" style="justify-content:flex-start;padding-top:0">
+    <div style="width:100%;max-width:740px;padding:24px;margin:0 auto">
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+        <div>
+          <div id="q-saudacao" style="font-size:.82rem;color:var(--slatel)"></div>
+          <div id="q-counter" style="font-size:1rem;font-weight:700;color:var(--goldlt)"></div>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="if(confirm('Encerrar o quiz?'))mostrarResultado()">Encerrar</button>
+      </div>
+      <!-- Progress -->
+      <div class="progress-wrap"><div class="progress-fill" id="q-progress-fill" style="width:0%"></div></div>
+      <div class="progress-label"><span id="q-prog-txt"></span><span id="q-score-txt"></span></div>
+
+      <!-- Question card -->
+      <div class="card">
+        <div class="q-topic" id="q-topic"></div>
+        <div class="q-base" id="q-base" style="display:none"></div>
+        <div class="q-text" id="q-enunciado"></div>
+        <div class="alt-list" id="q-alternativas"></div>
+        <div class="result-banner" id="q-result">
+          <div class="result-icon" id="q-result-icon"></div>
+          <div><div class="result-title" id="q-result-title"></div><div class="result-text" id="q-result-text"></div></div>
+        </div>
+      </div>
+
+      <!-- Next -->
+      <div style="text-align:right;margin-top:16px">
+        <button class="btn btn-gold" id="btn-proxima" onclick="proximaQuestao()" style="display:none">
+          Próxima questão →
+        </button>
+        <button class="btn btn-gold" id="btn-resultado" onclick="mostrarResultado()" style="display:none">
+          Ver resultado final →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ RESULTADO ════════════════════════════ -->
+  <div id="screen-resultado" class="screen">
+    <div class="card" style="max-width:540px;text-align:center">
+      <h2 class="display gold-text" style="margin-bottom:4px">Resultado Final</h2>
+      <div id="res-nome" class="subtitle" style="margin-bottom:24px"></div>
+
+      <div class="score-circle" id="score-circle">
+        <div class="score-inner">
+          <div class="score-num" id="res-acertos">0</div>
+          <div class="score-den" id="res-total"></div>
+        </div>
+      </div>
+
+      <div id="res-msg" style="font-size:1.05rem;color:var(--goldlt);font-weight:600;margin-bottom:16px"></div>
+
+      <div class="score-grid">
+        <div class="score-stat"><div class="val" id="res-pct">0%</div><div class="lbl">Aproveitamento</div></div>
+        <div class="score-stat"><div class="val" style="color:#6fcf97" id="res-certas">0</div><div class="lbl">Acertos</div></div>
+        <div class="score-stat"><div class="val" style="color:#f4a49a" id="res-erradas">0</div><div class="lbl">Erros</div></div>
+      </div>
+
+      <div class="divider"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <button class="btn btn-gold" onclick="gotoAluno()">Praticar de novo</button>
+        <button class="btn btn-outline" onclick="show('home')">Início</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ ADMIN ════════════════════════════════ -->
+  <div id="screen-admin">
+    <div class="admin-header">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="logo-icon" style="width:38px;height:38px;font-size:18px">🏛️</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--goldlt)">Painel do Professor</div>
+          <div style="font-size:.75rem;color:var(--slatel)">Banco de questões</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-gold btn-sm" onclick="abrirModal()">+ Nova questão</button>
+        <button class="btn btn-outline btn-sm" onclick="sair()">Sair</button>
+      </div>
+    </div>
+
+    <div class="admin-body">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+        <div>
+          <h2 class="display gold-text" style="font-size:1.3rem">Questões cadastradas</h2>
+          <p class="subtitle" id="admin-count">Carregando...</p>
+        </div>
+        <input type="text" id="admin-busca" placeholder="🔍  Buscar questão..." style="max-width:260px" oninput="renderAdminList()">
+      </div>
+
+      <div id="admin-q-list"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ MODAL QUESTÃO ════════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <h3 id="modal-titulo">Nova Questão</h3>
+
+      <div class="form-group">
+        <label>Tema / Filósofo</label>
+        <input type="text" id="ed-tema" placeholder="Ex: Pré-Socráticos, Pitágoras, Sofistas...">
+      </div>
+      <div class="form-group">
+        <label>Texto-base <span style="font-weight:400;text-transform:none">(citação ou trecho — opcional)</span></label>
+        <textarea id="ed-base" rows="3" placeholder="Cole aqui o trecho do filósofo ou da fonte usada no ENEM..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Enunciado / Pergunta</label>
+        <textarea id="ed-enunciado" rows="3" placeholder="Ex: Segundo Tales de Mileto, a Arqué das coisas é..."></textarea>
+      </div>
+
+      <div class="divider"></div>
+      <p style="font-size:.8rem;color:var(--slatel);margin-bottom:12px">
+        📝 Preencha as 5 alternativas. Marque ✅ na <strong style="color:#6fcf97">alternativa correta</strong> e explique cada opção (por que está certa ou errada).
+      </p>
+
+      <div id="ed-alts"></div>
+
+      <div class="divider"></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap">
+        <button class="btn btn-outline" onclick="fecharModal()">Cancelar</button>
+        <button class="btn btn-gold" onclick="salvarQuestao()">💾 Salvar questão</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<div id="toast"></div>
+
+<script>
+// ══════════════════════════════════════
+// STORAGE HELPERS
+// ══════════════════════════════════════
+const QUESTIONS_KEY = 'quiz_filosofia_questions';
+const PASS_KEY = 'quiz_filosofia_pass';
+
+async function getQuestions() {
+  try {
+    const r = await window.storage.get(QUESTIONS_KEY, true);
+    return r ? JSON.parse(r.value) : getDefaultQuestions();
+  } catch { return getDefaultQuestions(); }
+}
+
+async function saveQuestions(qs) {
+  await window.storage.set(QUESTIONS_KEY, JSON.stringify(qs), true);
+}
+
+async function getPass() {
+  try {
+    const r = await window.storage.get(PASS_KEY, true);
+    return r ? r.value : 'professor';
+  } catch { return 'professor'; }
+}
+
+// ══════════════════════════════════════
+// DEFAULT QUESTIONS (pre-loaded)
+// ══════════════════════════════════════
+function getDefaultQuestions() {
+  return [
+    {
+      id: 'q_001',
+      tema: 'Pré-Socráticos',
+      base: '"A filosofia grega parece começar com uma ideia absurda: a água é a origem de todas as coisas. [...] O pensamento tudo é um." (Nietzsche)',
+      enunciado: 'O que caracteriza o surgimento da filosofia, segundo o texto acima?',
+      alternativas: [
+        { letra: 'A', texto: 'Transformar elementos sensíveis em verdades racionais impostas a todos.', explicacao: '❌ Incorreta. A filosofia não impõe verdades — ela busca verdades racionais, mas com abertura ao questionamento. Além disso, o texto não faz essa afirmação.' },
+        { letra: 'B', texto: 'Explicar a origem dos seres usando metáforas e imagens poéticas.', explicacao: '❌ Incorreta. O texto diz "sem imagem e fabulação" — isso elimina metáforas e narrativas poéticas, que são características da mitologia, não da filosofia.' },
+        { letra: 'C', texto: 'Buscar, de forma racional, a causa primeira das coisas.', explicacao: '✅ Correta! O texto descreve a busca pela Arqué (causa primeira) sem recorrer a mitos ou imagens. A filosofia pré-socrática usa a razão para investigar a origem de tudo.' },
+        { letra: 'D', texto: 'Expor de maneira metódica as diferenças entre os fenômenos da natureza.', explicacao: '❌ Incorreta. A ideia de método sistemático é posterior, associada à ciência moderna (Descartes, Bacon). Os pré-socráticos não tinham esse método formal.' },
+        { letra: 'E', texto: 'Justificar a partir de elementos empíricos e experimentais o que existe.', explicacao: '❌ Incorreta. O empirismo experimental é próprio da ciência moderna. Os pré-socráticos raciocinavam, mas não faziam experimentos controlados.' },
+      ],
+      correta: 'C',
+    },
+    {
+      id: 'q_002',
+      tema: 'Tales de Mileto',
+      base: '',
+      enunciado: 'Tales de Mileto é considerado o primeiro filósofo da história ocidental. Qual das opções abaixo melhor explica por que essa distinção lhe é atribuída?',
+      alternativas: [
+        { letra: 'A', texto: 'Porque fundou a primeira escola filosófica da Grécia, com regras e rituais de iniciação.', explicacao: '❌ Incorreta. Quem ficou mais conhecido por fundar uma comunidade com regras foi Pitágoras. Tales não criou uma escola no sentido institucional.' },
+        { letra: 'B', texto: 'Porque foi o primeiro a propor uma explicação natural para a origem do mundo, sem recorrer a forças sobrenaturais.', explicacao: '✅ Correta! Tales propôs que tudo tem origem na água — uma Arqué natural e racional. É a primeira vez que alguém explica o cosmos SEM usar deuses ou mitos. Esse é o marco do nascimento da filosofia.' },
+        { letra: 'C', texto: 'Porque refutou a mitologia grega e proibiu o ensino de narrativas míticas em Mileto.', explicacao: '❌ Incorreta. Tales não proibiu nada nem refutou a mitologia de forma direta. O que ele fez foi propor uma alternativa racional; coexistência, não proibição.' },
+        { letra: 'D', texto: 'Porque foi o primeiro a usar a lógica matemática para explicar os fenômenos naturais.', explicacao: '❌ Incorreta. Pitágoras e seus seguidores são os que mais associaram matemática e cosmos. Tales usou observação e razão, mas não lógica matemática formal.' },
+        { letra: 'E', texto: 'Porque viajou ao Egito e trouxe a filosofia como prática já existente em outras culturas.', explicacao: '❌ Incorreta. Tales teve contato com saberes do Egito (geometria, astronomia), mas a ruptura filosófica — usar a razão em vez de mitos — aconteceu em solo grego com ele.' },
+      ],
+      correta: 'B',
+    },
+    {
+      id: 'q_003',
+      tema: 'Heráclito e Parmênides',
+      base: '"Não se pode banhar duas vezes no mesmo rio, pois novas águas estão sempre a fluir." (Heráclito) | "O ser é ingênito e indestrutível, compacto, inabalável e sem fim." (Parmênides)',
+      enunciado: 'Os fragmentos acima pertencem a dois filósofos pré-socráticos que divergem radicalmente sobre a natureza do ser. Essa divergência insere-se no campo das discussões de base:',
+      alternativas: [
+        { letra: 'A', texto: 'Ética, pois debatem como o ser humano deve agir diante das transformações da vida.', explicacao: '❌ Incorreta. Ética trata de moral e ação humana. Heráclito e Parmênides discutem a natureza da realidade em si — não como agir, mas como o mundo é.' },
+        { letra: 'B', texto: 'Epistemológica, pois discutem os limites do conhecimento sensível e racional.', explicacao: '❌ Incorreta. Embora os sentidos apareçam (Parmênides os critica), o debate central não é sobre o conhecimento em si, mas sobre o ser — o que é real.' },
+        { letra: 'C', texto: 'Ontológica, pois debatem a natureza e a essência do ser.', explicacao: '✅ Correta! Onto = ser. Ontologia = estudo filosófico do ser. Heráclito diz que o ser está em constante mudança (devir); Parmênides diz que o ser é imóvel e eterno. É um debate clássico de ontologia.' },
+        { letra: 'D', texto: 'Política, pois analisam como as transformações sociais afetam a estrutura do Estado.', explicacao: '❌ Incorreta. Não há referência a Estado ou política nos fragmentos. O tema é a natureza da realidade, não a organização social.' },
+        { letra: 'E', texto: 'Estética, pois discutem a beleza da natureza em seu aspecto de permanência e mudança.', explicacao: '❌ Incorreta. Estética trata de arte, beleza e experiência. Os fragmentos falam de movimento e permanência como questões filosóficas sobre o ser, não sobre o belo.' },
+      ],
+      correta: 'C',
+    },
+    {
+      id: 'q_004',
+      tema: 'Demócrito',
+      base: '"Em Demócrito, a determinação dos princípios fundamentais aparece de tal maneira que [...] partículas de carne e de ouro seriam princípios que através de sua concentração formam aquilo que aparece como figura." (Hegel)',
+      enunciado: 'Com base no texto e nos seus conhecimentos sobre os pré-socráticos, o princípio constitutivo das coisas em Demócrito é representado pelo conceito de:',
+      alternativas: [
+        { letra: 'A', texto: 'Número.', explicacao: '❌ Incorreta. Número é a Arqué de Pitágoras. Para ele, a essência do cosmos é matemática. Não confunda com Demócrito.' },
+        { letra: 'B', texto: 'Devir.', explicacao: '❌ Incorreta. Devir (vir-a-ser, mudança constante) é o conceito central de Heráclito. A realidade para ele é fluxo eterno — nada permanece igual.' },
+        { letra: 'C', texto: 'Ápeiron.', explicacao: '❌ Incorreta. Ápeiron (o indefinido, o sem-limite) é a Arqué de Anaximandro, discípulo de Tales. Não é a resposta de Demócrito.' },
+        { letra: 'D', texto: 'Imobilidade do Ser.', explicacao: '❌ Incorreta. A imobilidade do Ser é a tese de Parmênides: o ser é uno, eterno e não se move. Nada a ver com partículas.' },
+        { letra: 'E', texto: 'Átomo.', explicacao: '✅ Correta! Demócrito e Leucipo propõem que a realidade é composta de átomos (do grego "indivisível") e espaços vazios. As partículas de carne e ouro mencionadas por Hegel são exatamente os átomos de cada substância.' },
+      ],
+      correta: 'E',
+    },
+    {
+      id: 'q_005',
+      tema: 'Sofistas',
+      base: '"Trasímaco [...] negava que Justiça era algo real e importante. As pessoas acreditavam no certo e no errado apenas por terem sido ensinadas a obedecer às regras de sua sociedade [...] invenções humanas." (Platão, A República)',
+      enunciado: 'Para Trasímaco, sofista do século V a.C., a correlação entre Justiça e comportamento ético era resultado de:',
+      alternativas: [
+        { letra: 'A', texto: 'Determinações biológicas presentes na natureza humana.', explicacao: '❌ Incorreta. Os sofistas rejeitam a ideia de que valores morais venham da natureza. Para eles, nada é natural em ética — tudo é cultural e convencional.' },
+        { letra: 'B', texto: 'Verdades objetivas anteriores a qualquer interesse social.', explicacao: '❌ Incorreta. O texto diz "invenções humanas" — o oposto de verdades objetivas e universais. Para Trasímaco, não existem verdades éticas anteriores à sociedade.' },
+        { letra: 'C', texto: 'Mandamentos divinos revelados pelos deuses da pólis.', explicacao: '❌ Incorreta. Os sofistas são humanistas e relativistas. Não fundamentam a ética em divindades. Isso seria retroceder ao pensamento mítico.' },
+        { letra: 'D', texto: 'Convenções sociais construídas pelo acordo entre os homens.', explicacao: '✅ Correta! O texto é claro: certo e errado são ensinados pelas regras da sociedade — são invenções humanas, ou seja, convenções. Isso é o coração do relativismo sofista: a justiça não é natural nem divina, é um acordo social.' },
+        { letra: 'E', texto: 'Sentimentos naturais experimentados diante de atitudes humanas.', explicacao: '❌ Incorreta. A ética baseada em sentimentos (como empatia ou repulsa moral) é associada a correntes como o emotivismo ou o sentimentalismo moral — não ao relativismo sofista.' },
+      ],
+      correta: 'D',
+    },
+    {
+      id: 'q_006',
+      tema: 'Mitologia e Filosofia',
+      base: '',
+      enunciado: 'Uma das principais diferenças entre o pensamento mítico e o pensamento filosófico diz respeito à postura diante da explicação do mundo. Qual das alternativas abaixo representa corretamente essa distinção?',
+      alternativas: [
+        { letra: 'A', texto: 'O mito usa a razão para explicar fenômenos naturais, enquanto a filosofia recorre a narrativas sobrenaturais.', explicacao: '❌ Incorreta. É o contrário! O mito usa narrativas sobrenaturais (deuses, forças mágicas); a filosofia usa a razão (logos) para explicar os fenômenos.' },
+        { letra: 'B', texto: 'O mito parte da autoridade da tradição e da crença, enquanto a filosofia parte da dúvida e da investigação racional.', explicacao: '✅ Correta! O mito se sustenta na autoridade dos mais velhos, nos oráculos e na crença coletiva. A filosofia nasce do espanto (admiração) e exige que a razão investigue, questione e demonstre. Essa é a distinção essencial.' },
+        { letra: 'C', texto: 'A filosofia e o mito são equivalentes, pois ambos explicam o mundo com base em evidências empíricas.', explicacao: '❌ Incorreta. Nem mito nem a filosofia pré-socrática utilizam evidências empíricas no sentido científico moderno. E eles não são equivalentes — partem de premissas e métodos completamente diferentes.' },
+        { letra: 'D', texto: 'O surgimento da filosofia eliminou definitivamente o pensamento mítico da cultura grega.', explicacao: '❌ Incorreta. Isso é uma armadilha clássica! Filosofia e mitologia coexistiram. O surgimento da filosofia não extinguiu o mito — os gregos continuaram cultuando seus deuses e narrando seus mitos mesmo após Tales.' },
+        { letra: 'E', texto: 'O mito é uma forma de filosofia primitiva, pois também tenta explicar o cosmos de forma racional.', explicacao: '❌ Incorreta. O mito não é racional no sentido filosófico — ele não oferece argumentos verificáveis, não exige coerência lógica e não admite questionamento. Chamá-lo de "filosofia primitiva" distorce os dois conceitos.' },
+      ],
+      correta: 'B',
+    },
+    {
+      id: 'q_007',
+      tema: 'Anaximandro',
+      base: '"O princípio e elemento dos seres é o ápeiron [...] e é de onde os seres têm geração, é para lá também que se dá a destruição, segundo a necessidade." (Anaximandro)',
+      enunciado: 'O conceito de Ápeiron, desenvolvido por Anaximandro, representa um avanço em relação à proposta de Tales de Mileto porque:',
+      alternativas: [
+        { letra: 'A', texto: 'Substitui qualquer elemento físico por um princípio abstrato e indefinido, capaz de gerar todos os contrários.', explicacao: '✅ Correta! Tales escolheu a água — um elemento concreto com propriedades definidas (fria, úmida). Anaximandro percebeu que um elemento com características específicas nunca poderia gerar seu oposto (o seco, o quente). O Ápeiron, por ser indefinido, pode gerar todos os opostos. É uma abstração filosófica mais sofisticada.' },
+        { letra: 'B', texto: 'Demonstra que a água é o único elemento capaz de se transformar em todos os outros.', explicacao: '❌ Incorreta. Isso é a tese de Tales, não de Anaximandro. Ao contrário, Anaximandro rejeita a ideia de um único elemento físico concreto como Arqué.' },
+        { letra: 'C', texto: 'Defende que o cosmos é eterno e que nada tem origem ou destruição.', explicacao: '❌ Incorreta. Isso se aproxima mais de Parmênides. Anaximandro, pelo contrário, fala em geração e destruição — os seres surgem do Ápeiron e a ele retornam.' },
+        { letra: 'D', texto: 'Propõe que os números são a base de toda a realidade, incluindo os elementos naturais.', explicacao: '❌ Incorreta. Os números como base da realidade é a proposta de Pitágoras. Anaximandro e Pitágoras são pensadores diferentes, de escolas diferentes.' },
+        { letra: 'E', texto: 'Introduz o conceito de átomo como unidade indivisível que compõe todos os seres.', explicacao: '❌ Incorreta. O átomo é o conceito de Demócrito e Leucipo — muito posterior a Anaximandro. O Ápeiron não é divisível em partes; é um princípio uno e indeterminado.' },
+      ],
+      correta: 'A',
+    },
+  ];
+}
+
+// ══════════════════════════════════════
+// NAV
+// ══════════════════════════════════════
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+}
+
+// ══════════════════════════════════════
+// HOME
+// ══════════════════════════════════════
+function gotoAluno() { populateFiltros(); show('aluno-nome'); }
+function gotoLogin() { show('login'); document.getElementById('inp-senha').value = ''; document.getElementById('login-err').style.display = 'none'; }
+
+async function populateFiltros() {
+  const qs = await getQuestions();
+  const sel = document.getElementById('sel-tema');
+  const temas = [...new Set(qs.map(q => q.tema).filter(Boolean))].sort();
+  sel.innerHTML = '<option value="">Todos os temas</option>' + temas.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('');
+  document.getElementById('aviso-sem-q').style.display = qs.length === 0 ? 'block' : 'none';
+  document.getElementById('btn-iniciar').disabled = qs.length === 0;
+}
+
+// ══════════════════════════════════════
+// LOGIN
+// ══════════════════════════════════════
+async function doLogin() {
+  const senha = document.getElementById('inp-senha').value;
+  const correta = await getPass();
+  if (senha === correta) { show('admin'); await renderAdminList(); }
+  else { document.getElementById('login-err').style.display = 'block'; }
+}
+
+function sair() { show('home'); }
+
+// ══════════════════════════════════════
+// QUIZ STATE
+// ══════════════════════════════════════
+// quizErros: tracks wrong attempts per question index so the score
+// only counts the question once (first-try vs. eventually-right).
+let quizQ = [], quizIdx = 0, quizAcertos = 0, nomeAluno = '';
+let erradosNaQuestaoAtual = new Set(); // letters already tried and wrong
+
+async function iniciarQuiz() {
+  nomeAluno = document.getElementById('inp-nome').value.trim() || 'Aluno';
+  const tema = document.getElementById('sel-tema').value;
+  let qs = await getQuestions();
+  if (tema) qs = qs.filter(q => q.tema === tema);
+  if (qs.length === 0) { toast('Nenhuma questão encontrada para esse filtro.'); return; }
+  // Shuffle
+  quizQ = qs.sort(() => Math.random() - .5);
+  quizIdx = 0; quizAcertos = 0;
+  show('quiz');
+  document.getElementById('q-saudacao').textContent = 'Boa sorte, ' + nomeAluno + '!';
+  renderQuestao();
+}
+
+function renderQuestao() {
+  erradosNaQuestaoAtual = new Set();
+  const q = quizQ[quizIdx];
+  const total = quizQ.length;
+  const pct = Math.round((quizIdx / total) * 100);
+
+  document.getElementById('q-progress-fill').style.width = pct + '%';
+  document.getElementById('q-prog-txt').textContent = `Questão ${quizIdx + 1} de ${total}`;
+  document.getElementById('q-score-txt').textContent = `✅ ${quizAcertos} acertos`;
+  document.getElementById('q-counter').textContent = `Questão ${quizIdx + 1}/${total}`;
+  document.getElementById('q-topic').textContent = '📌 ' + (q.tema || 'Filosofia');
+
+  const base = document.getElementById('q-base');
+  if (q.base && q.base.trim()) { base.style.display = 'block'; base.textContent = q.base; }
+  else { base.style.display = 'none'; }
+
+  document.getElementById('q-enunciado').textContent = q.enunciado;
+
+  const altList = document.getElementById('q-alternativas');
+  altList.innerHTML = q.alternativas.map((a, i) => `
+    <button class="alt-btn" id="alt-${i}" onclick="responder('${a.letra}', ${i})">
+      <span class="alt-letter">${a.letra}</span>
+      <span>${esc(a.texto)}</span>
+    </button>
+    <div class="explanation" id="exp-${i}"></div>
+  `).join('');
+
+  document.getElementById('q-result').className = 'result-banner';
+  document.getElementById('btn-proxima').style.display = 'none';
+  document.getElementById('btn-resultado').style.display = 'none';
+}
+
+function responder(letra, idx) {
+  const q = quizQ[quizIdx];
+  // Ignore clicks on already-tried wrong buttons (they are disabled anyway)
+  if (erradosNaQuestaoAtual.has(letra)) return;
+
+  const acertou = letra === q.correta;
+  const btn = document.getElementById('alt-' + idx);
+  const exp = document.getElementById('exp-' + idx);
+
+  if (acertou) {
+    // ── ACERTOU ──────────────────────────────────────
+    // Count as correct only if no wrong attempt was made first
+    if (erradosNaQuestaoAtual.size === 0) quizAcertos++;
+
+    // Mark this button green and show its explanation
+    btn.disabled = true;
+    btn.classList.add('correct');
+    exp.className = 'explanation correct';
+    exp.textContent = q.alternativas[idx].explicacao;
+    exp.style.display = 'block';
+
+    // Disable and show explanations for remaining (untried) options in neutral tone
+    q.alternativas.forEach((a, i) => {
+      if (i === idx) return; // already handled
+      const ob = document.getElementById('alt-' + i);
+      const oe = document.getElementById('exp-' + i);
+      ob.disabled = true;
+      // Only show explanation if not already shown as wrong
+      if (!erradosNaQuestaoAtual.has(a.letra)) {
+        oe.className = 'explanation neutral';
+        oe.textContent = a.explicacao;
+        oe.style.display = 'block';
+      }
+    });
+
+    // Result banner
+    const res = document.getElementById('q-result');
+    res.className = 'result-banner show acertou';
+    document.getElementById('q-result-icon').textContent = erradosNaQuestaoAtual.size === 0 ? '🎉' : '✅';
+    document.getElementById('q-result-title').textContent =
+      erradosNaQuestaoAtual.size === 0 ? 'Correto de primeira!' : 'Correto! Você chegou lá.';
+    document.getElementById('q-result-text').textContent =
+      erradosNaQuestaoAtual.size === 0
+        ? 'Ótimo raciocínio! Veja as explicações das demais alternativas abaixo.'
+        : `Após ${erradosNaQuestaoAtual.size} tentativa(s) errada(s), você acertou. Revise as explicações acima.`;
+
+    document.getElementById('q-score-txt').textContent = `✅ ${quizAcertos} acertos`;
+
+    // Show next / finish button
+    if (quizIdx < quizQ.length - 1) {
+      document.getElementById('btn-proxima').style.display = 'inline-flex';
+    } else {
+      document.getElementById('btn-resultado').style.display = 'inline-flex';
+    }
+
+  } else {
+    // ── ERROU ────────────────────────────────────────
+    erradosNaQuestaoAtual.add(letra);
+
+    // Mark only this button red and show its explanation
+    btn.disabled = true;
+    btn.classList.add('wrong');
+    exp.className = 'explanation wrong';
+    exp.textContent = q.alternativas[idx].explicacao;
+    exp.style.display = 'block';
+
+    // Show a "try again" banner (not the result banner — reuse it temporarily)
+    const res = document.getElementById('q-result');
+    res.className = 'result-banner show errou';
+    document.getElementById('q-result-icon').textContent = '💡';
+    document.getElementById('q-result-title').textContent = 'Não é essa — tente de novo!';
+    const restantes = q.alternativas.filter(a => !erradosNaQuestaoAtual.has(a.letra) && a.letra !== q.correta).length;
+    document.getElementById('q-result-text').textContent =
+      `Leia a explicação acima e escolha outra alternativa. Você ainda tem ${restantes + 1} opção(ões) disponível(is).`;
+    // (the correct one is always available, so restantes+1 is accurate)
+  }
+}
+
+function proximaQuestao() {
+  quizIdx++;
+  renderQuestao();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function mostrarResultado() {
+  const total = quizQ.length;
+  const pct = Math.round((quizAcertos / total) * 100);
+  document.getElementById('res-nome').textContent = nomeAluno + ' · ' + new Date().toLocaleDateString('pt-BR');
+  document.getElementById('res-acertos').textContent = quizAcertos;
+  document.getElementById('res-total').textContent = '/ ' + total;
+  document.getElementById('res-pct').textContent = pct + '%';
+  document.getElementById('res-certas').textContent = quizAcertos;
+  document.getElementById('res-erradas').textContent = total - quizAcertos;
+  document.getElementById('score-circle').style.setProperty('--pct', pct);
+
+  let msg = '';
+  if (pct === 100) msg = '🏆 Perfeito! Desempenho excelente!';
+  else if (pct >= 80) msg = '🌟 Muito bem! Você domina o conteúdo.';
+  else if (pct >= 60) msg = '📚 Bom resultado! Continue praticando.';
+  else if (pct >= 40) msg = '💪 Ainda há espaço para crescer. Revise os conteúdos!';
+  else msg = '🔁 Releia os slides e tente de novo — você consegue!';
+  document.getElementById('res-msg').textContent = msg;
+  show('resultado');
+}
+
+// ══════════════════════════════════════
+// ADMIN — LIST
+// ══════════════════════════════════════
+async function renderAdminList() {
+  const qs = await getQuestions();
+  const busca = (document.getElementById('admin-busca')?.value || '').toLowerCase();
+  const filtradas = busca ? qs.filter(q =>
+    q.enunciado.toLowerCase().includes(busca) ||
+    (q.tema || '').toLowerCase().includes(busca)
+  ) : qs;
+
+  document.getElementById('admin-count').textContent =
+    `${qs.length} questão(ões) cadastrada(s)` + (busca ? ` · ${filtradas.length} resultado(s)` : '');
+
+  const el = document.getElementById('admin-q-list');
+  if (filtradas.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-icon">📋</div><p>${qs.length === 0 ? 'Nenhuma questão cadastrada ainda.<br>Clique em <strong>+ Nova questão</strong> para começar.' : 'Nenhuma questão encontrada para essa busca.'}</p></div>`;
+    return;
+  }
+  el.innerHTML = filtradas.map((q, i) => `
+    <div class="q-list-item">
+      <div class="q-num">${i + 1}</div>
+      <div class="q-preview">
+        <div class="topic">${esc(q.tema || '—')}</div>
+        <div class="text">${esc(q.enunciado)}</div>
+      </div>
+      <div class="q-actions">
+        <button class="btn btn-navy btn-sm" onclick="editarQuestao('${q.id}')">✏️</button>
+        <button class="btn btn-red btn-sm" onclick="deletarQuestao('${q.id}')">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ══════════════════════════════════════
+// ADMIN — MODAL
+// ══════════════════════════════════════
+let editingId = null;
+
+function buildAltEditors(alts) {
+  const letras = ['A', 'B', 'C', 'D', 'E'];
+  return letras.map((l, i) => {
+    const a = alts?.[i] || { letra: l, texto: '', explicacao: '' };
+    return `
+    <div class="alt-editor">
+      <div class="alt-editor-header">
+        <div class="alt-badge">${l}</div>
+        <label class="correct-radio">
+          <input type="radio" name="correta" value="${l}" ${a.isCorrect ? 'checked' : ''}> ✅ Esta é a correta
+        </label>
+      </div>
+      <div class="form-group" style="margin-bottom:8px">
+        <label>Texto da alternativa</label>
+        <input type="text" id="alt-txt-${l}" value="${esc(a.texto)}" placeholder="Digite o texto da alternativa ${l}...">
+      </div>
+      <div class="form-group" style="margin-bottom:0">
+        <label>Explicação (por que está certa ou errada)</label>
+        <textarea id="alt-exp-${l}" rows="2" placeholder="Ex: ❌ Incorreta porque... / ✅ Correta porque...">${esc(a.explicacao)}</textarea>
+      </div>
+    </div>
+    `;
+  }).join('');
+}
+
+function abrirModal(q = null) {
+  editingId = q ? q.id : null;
+  document.getElementById('modal-titulo').textContent = q ? 'Editar Questão' : 'Nova Questão';
+  document.getElementById('ed-tema').value = q?.tema || '';
+  document.getElementById('ed-base').value = q?.base || '';
+  document.getElementById('ed-enunciado').value = q?.enunciado || '';
+
+  const alts = q?.alternativas?.map(a => ({ ...a, isCorrect: a.letra === q.correta }));
+  document.getElementById('ed-alts').innerHTML = buildAltEditors(alts);
+
+  if (q?.correta) {
+    const radio = document.querySelector(`input[name="correta"][value="${q.correta}"]`);
+    if (radio) radio.checked = true;
+  }
+
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function fecharModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  editingId = null;
+}
+
+async function editarQuestao(id) {
+  const qs = await getQuestions();
+  const q = qs.find(x => x.id === id);
+  if (q) abrirModal(q);
+}
+
+async function deletarQuestao(id) {
+  if (!confirm('Remover esta questão? Essa ação não pode ser desfeita.')) return;
+  let qs = await getQuestions();
+  qs = qs.filter(q => q.id !== id);
+  await saveQuestions(qs);
+  toast('Questão removida!');
+  renderAdminList();
+}
+
+async function salvarQuestao() {
+  const tema = document.getElementById('ed-tema').value.trim();
+  const base = document.getElementById('ed-base').value.trim();
+  const enunciado = document.getElementById('ed-enunciado').value.trim();
+  const correta = document.querySelector('input[name="correta"]:checked')?.value;
+
+  if (!enunciado) { toast('Preencha o enunciado da questão.'); return; }
+  if (!correta) { toast('Marque a alternativa correta.'); return; }
+
+  const letras = ['A', 'B', 'C', 'D', 'E'];
+  const alternativas = letras.map(l => ({
+    letra: l,
+    texto: document.getElementById('alt-txt-' + l)?.value.trim() || '',
+    explicacao: document.getElementById('alt-exp-' + l)?.value.trim() || '',
+  }));
+
+  if (alternativas.some(a => !a.texto)) { toast('Preencha o texto de todas as 5 alternativas.'); return; }
+
+  let qs = await getQuestions();
+  if (editingId) {
+    const idx = qs.findIndex(q => q.id === editingId);
+    if (idx >= 0) qs[idx] = { id: editingId, tema, base, enunciado, alternativas, correta };
+  } else {
+    qs.push({ id: 'q_' + Date.now(), tema, base, enunciado, alternativas, correta });
+  }
+  await saveQuestions(qs);
+  fecharModal();
+  toast(editingId ? 'Questão atualizada!' : 'Questão adicionada!');
+  renderAdminList();
+}
+
+// ══════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.style.display = 'block';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.style.display = 'none'; }, 2800);
+}
+
+// Close modal on overlay click
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) fecharModal();
+});
+
+// init
+show('home');
+</script>
+</body>
+</html>
