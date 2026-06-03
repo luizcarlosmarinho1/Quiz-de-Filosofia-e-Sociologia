@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Background texture ── */
     body::before {
       content: '';
       position: fixed;
@@ -49,7 +48,6 @@
       z-index: 0;
     }
 
-    /* ── Decorative corner lines ── */
     body::after {
       content: '';
       position: fixed;
@@ -69,7 +67,6 @@
       padding: 40px 20px 60px;
     }
 
-    /* ── Header ── */
     .header {
       text-align: center;
       margin-bottom: 36px;
@@ -108,7 +105,6 @@
       letter-spacing: 1px;
     }
 
-    /* ── Progress ── */
     .progress-section {
       width: 100%;
       max-width: 780px;
@@ -164,7 +160,6 @@
       transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ── Quiz card ── */
     .quiz-card {
       width: 100%;
       max-width: 780px;
@@ -176,7 +171,6 @@
       position: relative;
     }
 
-    /* Gold top border */
     .quiz-card::before {
       content: '';
       position: absolute;
@@ -189,7 +183,6 @@
       padding: 40px 44px 36px;
     }
 
-    /* ── Question header ── */
     .q-header {
       display: flex;
       align-items: center;
@@ -226,7 +219,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* ── Context block ── */
     .context-block {
       background: var(--parchment);
       border-left: 3px solid var(--gold);
@@ -257,7 +249,6 @@
       line-height: 1.75;
     }
 
-    /* ── Question text ── */
     .question-text {
       font-family: 'Playfair Display', serif;
       font-size: clamp(19px, 2.4vw, 22px);
@@ -267,7 +258,6 @@
       margin-bottom: 28px;
     }
 
-    /* ── Answers ── */
     .answers-list {
       display: flex;
       flex-direction: column;
@@ -337,7 +327,6 @@
       color: white;
     }
 
-    /* States */
     .answer-btn.correct {
       background: #eaf5ec;
       border-color: #2d7a3a;
@@ -362,7 +351,6 @@
       opacity: 0.45;
     }
 
-    /* ── Feedback ── */
     .feedback-box {
       border-radius: 4px;
       padding: 16px 20px;
@@ -413,7 +401,6 @@
       opacity: 0.75;
     }
 
-    /* ── Navigation ── */
     .nav-row {
       display: flex;
       align-items: center;
@@ -477,7 +464,6 @@
       transform: translateX(3px);
     }
 
-    /* ── Results ── */
     .results-card {
       width: 100%;
       max-width: 780px;
@@ -680,7 +666,6 @@
       box-shadow: 0 8px 24px rgba(92,26,26,0.35);
     }
 
-    /* ── Animations ── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -706,7 +691,6 @@
 
     .shake { animation: shake 0.4s ease; }
 
-    /* ── Responsive ── */
     @media (max-width: 600px) {
       .card-inner { padding: 28px 22px 24px; }
       .results-inner { padding: 32px 22px; }
@@ -719,30 +703,26 @@
 <body>
 <div class="page-wrapper">
 
-  <!-- Header -->
   <header class="header">
     <div class="header-ornament">✦ ✦ ✦</div>
-    <h1>Filosofia & <span>Sociologia</span></h1>
-    <p class="header-subtitle">Teste seu conhecimento sobre os grandes pensadores</p>
+    <h1>Sociologia — <span>Durkheim</span></h1>
+    <p class="header-subtitle">Teste seu conhecimento sobre os fatos sociais e a teoria durkheimiana</p>
   </header>
 
-  <!-- Progress -->
   <div class="progress-section" id="progressSection">
     <div class="progress-meta">
-      <span class="progress-label" id="progressLabel">Questão 1 de 20</span>
+      <span class="progress-label" id="progressLabel">Questão 1 de 15</span>
       <div class="progress-dots" id="progressDots"></div>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" id="progressFill" style="width:5%"></div>
+      <div class="progress-bar-fill" id="progressFill" style="width:6.67%"></div>
     </div>
   </div>
 
-  <!-- Quiz card -->
   <div class="quiz-card" id="quizCard">
     <div class="card-inner" id="cardInner"></div>
   </div>
 
-  <!-- Results card -->
   <div class="results-card" id="resultsCard">
     <div class="results-inner" id="resultsInner"></div>
   </div>
@@ -752,251 +732,190 @@
 <script>
 const questions = [
   {
-    id:1, topic:"Surgimento da Sociologia",
-    context:"A Sociologia surgiu no século XIX como resposta às profundas transformações provocadas pela Revolução Industrial, pela urbanização e pelas crises sociais.",
-    text:"O surgimento da Sociologia está relacionado à necessidade de",
-    answers:[
-      {l:"a",text:"preservar integralmente as estruturas feudais europeias.",correct:false,fb:"Incorreta. A Sociologia não surgiu para restaurar o feudalismo, mas para compreender as mudanças da modernidade industrial."},
-      {l:"b",text:"compreender cientificamente as mudanças sociais da modernidade.",correct:true,fb:"Correta! A Sociologia nasce como ciência voltada à análise das transformações sociais provocadas pela industrialização e urbanização."},
-      {l:"c",text:"substituir as explicações filosóficas pelas interpretações religiosas.",correct:false,fb:"Incorreta. A Sociologia não substitui a Filosofia pela religião; ao contrário, aproxima-se do pensamento científico."},
-      {l:"d",text:"defender o isolamento econômico diante da industrialização.",correct:false,fb:"Incorreta. O contexto do século XIX foi marcado pela expansão econômica e industrial, não pelo isolamento."},
-      {l:"e",text:"eliminar os conflitos sociais por meio da autoridade monárquica.",correct:false,fb:"Incorreta. A Sociologia buscava compreender os conflitos sociais, não eliminá-los por autoridade monárquica."}
+    id: 1, topic: "Método Sociológico",
+    context: "Émile Durkheim contribuiu para consolidar a Sociologia como ciência ao defender que os fenômenos sociais deveriam ser observados de maneira objetiva, afastando julgamentos pessoais e buscando regularidades na vida coletiva.",
+    text: "Essa orientação metodológica indica que a Sociologia durkheimiana propõe",
+    answers: [
+      { l: "a", text: "interpretar a sociedade a partir das intenções individuais dos sujeitos.", correct: false, fb: "Incorreta. Durkheim se opõe à análise subjetiva: para ele, os fatos sociais existem independentemente das intenções individuais." },
+      { l: "b", text: "analisar os fatos sociais como objetos externos à consciência individual.", correct: true, fb: "Correta! Durkheim defende que os fatos sociais devem ser tratados como coisas — objetos externos, coercitivos e gerais, independentes da vontade individual." },
+      { l: "c", text: "explicar os fenômenos coletivos por princípios religiosos compartilhados.", correct: false, fb: "Incorreta. Durkheim separa análise científica de explicação religiosa, ainda que estudasse a religião como fenômeno social." },
+      { l: "d", text: "compreender a vida social como resultado direto da liberdade pessoal.", correct: false, fb: "Incorreta. Para Durkheim, a sociedade exerce coerção sobre o indivíduo, limitando sua liberdade pessoal." },
+      { l: "e", text: "substituir a observação empírica por reflexões filosóficas abstratas.", correct: false, fb: "Incorreta. Durkheim é justamente o oposto: valoriza a observação empírica dos fatos sociais." }
     ]
   },
   {
-    id:2, topic:"Filosofia Grega",
-    context:"Os mitos buscavam explicar a origem do mundo e dos fenômenos naturais por meio da ação de divindades e forças sobrenaturais. O pensamento filosófico grego inaugura uma nova atitude intelectual: a tentativa de compreender racionalmente a realidade, sem recorrer exclusivamente às tradições sagradas.",
-    text:"A transformação intelectual ocorrida na Grécia Antiga, entre os séculos VII e VI a.C., está associada à",
-    answers:[
-      {l:"a",text:"substituição das narrativas religiosas por explicações científicas experimentais.",correct:false,fb:"Incorreta. A Filosofia grega não criou ciência experimental moderna."},
-      {l:"b",text:"valorização da investigação racional como forma de compreensão da natureza.",correct:true,fb:"Correta! O logos filosófico valorizava a razão e a investigação racional da natureza."},
-      {l:"c",text:"rejeição completa das tradições culturais transmitidas oralmente.",correct:false,fb:"Incorreta. Os gregos não abandonaram completamente suas tradições culturais."},
-      {l:"d",text:"consolidação de uma visão mística fundamentada na autoridade divina.",correct:false,fb:"Incorreta. Essa alternativa mantém a lógica mítica criticada pela Filosofia."},
-      {l:"e",text:"negação da existência de interpretações subjetivas sobre o mundo.",correct:false,fb:"Incorreta. A Filosofia não negava interpretações subjetivas, mas buscava fundamentação racional."}
+    id: 2, topic: "Durkheim e Comte",
+    context: "Durkheim foi influenciado pelo positivismo de Auguste Comte, mas considerava necessário tornar a Sociologia mais objetiva, prática e científica. Enquanto Comte observava a sociedade de modo amplo, Durkheim buscava analisar instituições e fenômenos sociais específicos.",
+    text: "A diferença entre Comte e Durkheim, conforme a aula, está no fato de Durkheim",
+    answers: [
+      { l: "a", text: "rejeitar totalmente a possibilidade de estudar cientificamente a sociedade.", correct: false, fb: "Incorreta. Durkheim dedicou sua obra exatamente a consolidar a Sociologia como ciência." },
+      { l: "b", text: "deslocar a análise social para explicações psicológicas do comportamento.", correct: false, fb: "Incorreta. Durkheim rejeita explicações psicológicas, insistindo que fatos sociais devem ser explicados por outros fatos sociais." },
+      { l: "c", text: "aprofundar o método científico aplicado aos fatos e às instituições sociais.", correct: true, fb: "Correta! Durkheim tornou a Sociologia mais rigorosa e científica, analisando fenômenos específicos como o suicídio, a religião e a divisão do trabalho." },
+      { l: "d", text: "defender que a sociedade deveria ser explicada por valores metafísicos.", correct: false, fb: "Incorreta. Durkheim rejeita explicações metafísicas em favor da análise empírica dos fatos sociais." },
+      { l: "e", text: "limitar a Sociologia ao estudo da evolução histórica das ideias políticas.", correct: false, fb: "Incorreta. O escopo de Durkheim é mais amplo: abrange instituições, normas, coesão, solidariedade e anomia." }
     ]
   },
   {
-    id:3, topic:"Positivismo",
-    context:"O positivismo parte da ideia de que a sociedade evolui constantemente e de que a ciência representa o principal instrumento para promover o progresso humano.",
-    text:"Na perspectiva positivista de Auguste Comte, o desenvolvimento das sociedades depende da",
-    answers:[
-      {l:"a",text:"valorização exclusiva das tradições religiosas medievais.",correct:false,fb:"Incorreta. O positivismo defendia progresso científico, não retorno ao pensamento medieval."},
-      {l:"b",text:"rejeição das instituições políticas e jurídicas modernas.",correct:false,fb:"Incorreta. Comte valorizava instituições modernas."},
-      {l:"c",text:"aplicação do conhecimento científico na organização social.",correct:true,fb:"Correta! Para o positivismo, a ciência deveria orientar a organização da sociedade."},
-      {l:"d",text:"substituição da razão pela autoridade moral da Igreja.",correct:false,fb:"Incorreta. O positivismo defendia a razão científica."},
-      {l:"e",text:"eliminação das transformações históricas e tecnológicas.",correct:false,fb:"Incorreta. O positivismo acreditava justamente no progresso histórico."}
+    id: 3, topic: "Funcionalismo",
+    context: "Em uma comunidade, escola, família, religião, leis e economia atuam como partes de um mesmo sistema. Cada instituição exerce funções que contribuem para a organização coletiva, ainda que também possa apresentar falhas ou tensões.",
+    text: "Essa leitura da sociedade aproxima-se do conceito durkheimiano de",
+    answers: [
+      { l: "a", text: "individualismo metodológico.", correct: false, fb: "Incorreta. O individualismo metodológico explica a sociedade a partir das ações individuais — posição oposta à de Durkheim." },
+      { l: "b", text: "conflito de classes.", correct: false, fb: "Incorreta. Conflito de classes é conceito central em Marx, não em Durkheim, que enfatiza integração e coesão." },
+      { l: "c", text: "funcionalismo.", correct: true, fb: "Correta! O funcionalismo entende a sociedade como um sistema integrado de partes interdependentes, cada qual com funções específicas para a manutenção do todo." },
+      { l: "d", text: "anomia.", correct: false, fb: "Incorreta. Anomia designa a ausência de normas reguladoras — o oposto da integração funcional descrita." },
+      { l: "e", text: "solidariedade orgânica.", correct: false, fb: "Incorreta. Solidariedade orgânica é uma forma específica de coesão moderna, não o conceito que melhor descreve a ideia geral de sistema integrado." }
     ]
   },
   {
-    id:4, topic:"Espanto Filosófico",
-    context:"Platão e Aristóteles afirmam que a Filosofia nasce do espanto. Não se trata do susto diante do desconhecido, mas da inquietação intelectual que leva o indivíduo a perguntar sobre a origem, a causa e o sentido das coisas.",
-    text:"A experiência filosófica descrita no texto caracteriza-se pela",
-    answers:[
-      {l:"a",text:"aceitação das explicações tradicionais sem necessidade de comprovação.",correct:false,fb:"Incorreta. O espanto filosófico rompe com a aceitação passiva."},
-      {l:"b",text:"valorização da dúvida como princípio para a investigação racional.",correct:true,fb:"Correta! A Filosofia nasce da dúvida e da investigação racional."},
-      {l:"c",text:"substituição da experiência humana pela crença religiosa.",correct:false,fb:"Incorreta. O texto valoriza a experiência humana racional."},
-      {l:"d",text:"recusa da curiosidade como instrumento de conhecimento.",correct:false,fb:"Incorreta. A curiosidade é elemento central da Filosofia."},
-      {l:"e",text:"defesa de verdades absolutas fundamentadas na autoridade política.",correct:false,fb:"Incorreta. O pensamento filosófico não depende da autoridade política."}
+    id: 4, topic: "Fato Social",
+    context: "Em determinada escola, estudantes recém-chegados passam a seguir horários, formas de tratamento, regras de vestimenta e modos de participação já estabelecidos antes de sua entrada na instituição. Mesmo discordando de algumas normas, tendem a adaptar seu comportamento para evitar sanções formais ou reprovação do grupo.",
+    text: "Na perspectiva durkheimiana, essa situação exemplifica o fato social porque evidencia",
+    answers: [
+      { l: "a", text: "a imposição de normas coletivas exteriores ao indivíduo.", correct: true, fb: "Correta! O fato social é exterior ao indivíduo e exerce coerção sobre ele, independentemente de sua vontade — exatamente o que ocorre com o estudante que se adapta às normas já existentes." },
+      { l: "b", text: "a autonomia plena do estudante diante das regras escolares.", correct: false, fb: "Incorreta. A situação mostra justamente o oposto: o estudante é constrangido por normas que antecedem sua chegada." },
+      { l: "c", text: "a ausência de padrões comuns na convivência institucional.", correct: false, fb: "Incorreta. O exemplo mostra exatamente a presença de padrões coletivos consolidados." },
+      { l: "d", text: "a substituição das instituições por escolhas puramente privadas.", correct: false, fb: "Incorreta. A situação ilustra a força das instituições sobre as escolhas individuais." },
+      { l: "e", text: "a incapacidade da escola de influenciar comportamentos sociais.", correct: false, fb: "Incorreta. O exemplo demonstra exatamente a influência da escola sobre os comportamentos." }
     ]
   },
   {
-    id:5, topic:"Neutralidade Científica",
-    context:"O sociólogo deve estudar a sociedade com objetividade, precisão e distanciamento emocional, assim como fazem os cientistas naturais.",
-    text:"A concepção apresentada no texto expressa o princípio positivista da",
-    answers:[
-      {l:"a",text:"luta de classes.",correct:false,fb:"Incorreta. Luta de classes é conceito marxista."},
-      {l:"b",text:"neutralidade científica.",correct:true,fb:"Correta! O positivismo defendia objetividade e neutralidade científica."},
-      {l:"c",text:"relativização do conhecimento.",correct:false,fb:"Incorreta. O positivismo não relativiza o conhecimento científico."},
-      {l:"d",text:"subjetividade sociológica.",correct:false,fb:"Incorreta. O positivismo rejeita subjetividade excessiva."},
-      {l:"e",text:"interpretação metafísica da realidade.",correct:false,fb:"Incorreta. A metafísica é superada no estágio positivo."}
+    id: 5, topic: "Coletivo e Indivíduo",
+    context: "Durkheim interpreta a sociedade a partir do movimento que vai do coletivo para o indivíduo. Para ele, o ser humano não se forma isoladamente, pois família, religião, cultura, leis, escola e costumes influenciam comportamentos, valores e escolhas.",
+    text: "Essa interpretação contraria a ideia de que",
+    answers: [
+      { l: "a", text: "as instituições participam da formação da conduta social.", correct: false, fb: "Incorreta. Essa afirmação está em pleno acordo com a teoria durkheimiana." },
+      { l: "b", text: "os valores individuais são moldados por referências coletivas.", correct: false, fb: "Incorreta. Isso também é consistente com Durkheim, que afirma que a sociedade forma o indivíduo." },
+      { l: "c", text: "o meio social interfere nas escolhas e nos comportamentos.", correct: false, fb: "Incorreta. Durkheim defende exatamente a interferência do social sobre o individual." },
+      { l: "d", text: "o indivíduo é plenamente compreensível fora da vida coletiva.", correct: true, fb: "Correta! Durkheim nega a possibilidade de compreender o indivíduo isolado da sociedade — o coletivo é condição para a formação do ser humano." },
+      { l: "e", text: "a cultura exerce influência sobre modos de pensar e agir.", correct: false, fb: "Incorreta. Essa afirmação é compatível com o pensamento durkheimiano." }
     ]
   },
   {
-    id:6, topic:"Senso Crítico",
-    context:"No ambiente digital contemporâneo, a circulação acelerada de informações faz com que muitos indivíduos compartilhem conteúdos sem verificar autoria, contexto ou veracidade. Em contrapartida, uma postura crítica exige investigação, comparação de fontes e análise racional das informações disponíveis.",
-    text:"A postura descrita no texto aproxima-se do conceito filosófico de",
-    answers:[
-      {l:"a",text:"relativismo mítico.",correct:false,fb:"Incorreta. O texto não trata de relativismo mítico."},
-      {l:"b",text:"dogmatismo tradicional.",correct:false,fb:"Incorreta. Dogmatismo implica aceitação sem crítica."},
-      {l:"c",text:"senso crítico.",correct:true,fb:"Correta! O senso crítico envolve investigação racional e análise de fontes."},
-      {l:"d",text:"determinismo religioso.",correct:false,fb:"Incorreta. Não há relação com determinismo religioso."},
-      {l:"e",text:"passividade intelectual.",correct:false,fb:"Incorreta. A postura descrita é ativa, não passiva."}
+    id: 6, topic: "Coercitividade",
+    context: "Padrões de beleza, expectativas familiares e normas de convivência podem influenciar escolhas individuais sem que haja violência física direta. A pressão pode ocorrer por aprovação, vergonha, pertencimento ou medo de exclusão.",
+    text: "Na teoria durkheimiana, esse processo expressa principalmente a",
+    answers: [
+      { l: "a", text: "generalidade, pois toda norma social possui origem biológica.", correct: false, fb: "Incorreta. Generalidade refere-se à extensão do fato social no grupo, e normas sociais não têm origem biológica." },
+      { l: "b", text: "coercitividade, pois o coletivo pressiona a conduta individual.", correct: true, fb: "Correta! A coercitividade é a característica do fato social que indica que a sociedade exerce pressão sobre os indivíduos, mesmo sem violência direta — pela aprovação, vergonha ou medo de exclusão." },
+      { l: "c", text: "exterioridade, pois o indivíduo cria livremente suas próprias normas.", correct: false, fb: "Incorreta. Exterioridade indica que as normas existem fora do indivíduo, e não que ele as cria livremente." },
+      { l: "d", text: "anomia, pois a pressão social fortalece a ausência de vínculos.", correct: false, fb: "Incorreta. Anomia é a ausência de normas, não a presença de pressão social." },
+      { l: "e", text: "solidariedade orgânica, pois toda coerção desaparece na modernidade.", correct: false, fb: "Incorreta. A coerção não desaparece na modernidade; muda de forma, mas permanece presente." }
     ]
   },
   {
-    id:7, topic:"Organicismo Social",
-    context:"Comte acreditava que a sociedade funciona como um corpo humano: quando uma de suas instituições falha, toda a estrutura social é afetada.",
-    text:"A comparação entre sociedade e organismo humano evidencia a importância da",
-    answers:[
-      {l:"a",text:"competição individual como fundamento da ordem social.",correct:false,fb:"Incorreta. O positivismo valoriza integração social, não competição."},
-      {l:"b",text:"eliminação das instituições responsáveis pelo controle coletivo.",correct:false,fb:"Incorreta. Instituições são fundamentais para a ordem social."},
-      {l:"c",text:"harmonia entre as instituições para garantir a coesão social.",correct:true,fb:"Correta! A sociedade saudável depende da harmonia entre instituições."},
-      {l:"d",text:"substituição das normas sociais pela liberdade absoluta.",correct:false,fb:"Incorreta. A ausência de normas levaria ao caos social."},
-      {l:"e",text:"fragmentação das relações sociais como condição do progresso.",correct:false,fb:"Incorreta. Fragmentação enfraquece a sociedade na visão positivista."}
+    id: 7, topic: "Exterioridade",
+    context: "As leis de trânsito, os sistemas religiosos e as regras familiares já existem quando uma criança nasce. Ao longo da vida, ela aprende a lidar com essas normas, mesmo não tendo participado de sua criação.",
+    text: "Esse exemplo evidencia a característica do fato social chamada",
+    answers: [
+      { l: "a", text: "generalidade.", correct: false, fb: "Incorreta. Generalidade refere-se à presença de um fato social em toda a extensão de um grupo, não à sua anterioridade ao indivíduo." },
+      { l: "b", text: "exterioridade.", correct: true, fb: "Correta! A exterioridade é a característica que indica que os fatos sociais existem fora do indivíduo, independentemente de sua vontade ou participação em sua criação." },
+      { l: "c", text: "subjetividade.", correct: false, fb: "Incorreta. Subjetividade é o oposto do que Durkheim defende: o fato social é objetivo, não subjetivo." },
+      { l: "d", text: "organicidade.", correct: false, fb: "Incorreta. Organicidade não é uma das três características clássicas do fato social em Durkheim." },
+      { l: "e", text: "espontaneidade.", correct: false, fb: "Incorreta. Os fatos sociais não surgem espontaneamente da vontade individual; são construções coletivas anteriores ao sujeito." }
     ]
   },
   {
-    id:8, topic:"Mito e Filosofia",
-    context:"O surgimento da Filosofia não significou o desaparecimento do pensamento mítico. As duas formas de interpretação do mundo continuaram coexistindo historicamente.",
-    text:"A partir da leitura do texto, conclui-se que a Filosofia grega",
-    answers:[
-      {l:"a",text:"eliminou completamente as explicações religiosas sobre a realidade.",correct:false,fb:"Incorreta. Filosofia e mito coexistem historicamente."},
-      {l:"b",text:"substituiu o conhecimento tradicional pelas práticas experimentais modernas.",correct:false,fb:"Incorreta. A Filosofia não criou imediatamente a ciência moderna."},
-      {l:"c",text:"estabeleceu uma nova possibilidade de interpretação racional do mundo.",correct:true,fb:"Correta! A Filosofia inaugura uma interpretação racional da realidade."},
-      {l:"d",text:"recusou toda forma de narrativa simbólica produzida pela cultura grega.",correct:false,fb:"Incorreta. Narrativas simbólicas continuaram existindo."},
-      {l:"e",text:"impediu a continuidade das crenças populares no Mediterrâneo antigo.",correct:false,fb:"Incorreta. As crenças populares permaneceram nas sociedades."}
+    id: 8, topic: "Generalidade",
+    context: "Um comportamento socialmente esperado não é fato social apenas por ocorrer uma vez ou por depender de uma experiência individual. Para Durkheim, ele precisa manifestar-se de modo amplo, sendo reconhecível em determinada sociedade.",
+    text: "A característica do fato social descrita no trecho é a",
+    answers: [
+      { l: "a", text: "coercitividade.", correct: false, fb: "Incorreta. Coercitividade é a pressão que o social exerce sobre o indivíduo, não a extensão do fenômeno no grupo." },
+      { l: "b", text: "exterioridade.", correct: false, fb: "Incorreta. Exterioridade refere-se ao caráter externo do fato social em relação ao indivíduo." },
+      { l: "c", text: "generalidade.", correct: true, fb: "Correta! Generalidade significa que o fato social está presente em toda a extensão da sociedade, não se limitando a experiências individuais ou episódios isolados." },
+      { l: "d", text: "anomia.", correct: false, fb: "Incorreta. Anomia designa ausência de normas reguladoras, não uma característica do fato social." },
+      { l: "e", text: "patologia.", correct: false, fb: "Incorreta. Patologia social refere-se a fenômenos que ameaçam o equilíbrio coletivo, não à extensão de um fato social." }
     ]
   },
   {
-    id:9, topic:"Instituições Sociais",
-    context:"Na visão positivista, instituições como família, escola, Igreja e Estado são responsáveis pela manutenção da ordem social.",
-    text:"Segundo o pensamento de Auguste Comte, essas instituições são importantes porque",
-    answers:[
-      {l:"a",text:"impedem completamente as mudanças históricas.",correct:false,fb:"Incorreta. Instituições convivem com transformações sociais."},
-      {l:"b",text:"fortalecem a estabilidade e a integração da sociedade.",correct:true,fb:"Correta! Comte via as instituições como pilares da ordem e coesão social."},
-      {l:"c",text:"eliminam os conflitos econômicos entre as classes sociais.",correct:false,fb:"Incorreta. Instituições não eliminam conflitos, mas regulam a convivência."},
-      {l:"d",text:"substituem o papel da ciência na organização social.",correct:false,fb:"Incorreta. Ciência e instituições trabalham juntas no positivismo."},
-      {l:"e",text:"garantem a supremacia política de determinados grupos religiosos.",correct:false,fb:"Incorreta. O positivismo não privilegia religião sobre razão."}
+    id: 9, topic: "Coesão Social",
+    context: "Na aula, a coercitividade é apresentada como a característica central do fato social, pois a coerção ajuda a produzir adaptação e coesão. Isso significa que as normas coletivas orientam comportamentos e tornam a vida social mais previsível.",
+    text: "Nesse sentido, a coerção social, para Durkheim, atua como mecanismo de",
+    answers: [
+      { l: "a", text: "eliminação de toda diversidade social.", correct: false, fb: "Incorreta. Durkheim não defende a eliminação da diversidade, mas a integração das diferenças, especialmente na solidariedade orgânica." },
+      { l: "b", text: "organização dos vínculos coletivos.", correct: true, fb: "Correta! Para Durkheim, a coerção social não é apenas repressiva — ela organiza comportamentos, fortalece vínculos e contribui para a coesão da sociedade." },
+      { l: "c", text: "dissolução das instituições modernas.", correct: false, fb: "Incorreta. A coerção fortalece as instituições, não as dissolve." },
+      { l: "d", text: "rejeição completa da vida em sociedade.", correct: false, fb: "Incorreta. A coerção é condição para a vida social organizada, não sua negação." },
+      { l: "e", text: "substituição da coletividade pelo indivíduo.", correct: false, fb: "Incorreta. Durkheim defende a primazia do coletivo; a coerção reforça essa dimensão." }
     ]
   },
   {
-    id:10, topic:"Poemas Homéricos",
-    context:"As obras atribuídas a Homero contribuíram para consolidar os mitos gregos como elemento central da identidade cultural helênica, ao registrar narrativas antes transmitidas predominantemente pela oralidade.",
-    text:"Nesse contexto, a escrita dos poemas homéricos favoreceu",
-    answers:[
-      {l:"a",text:"o desaparecimento das tradições religiosas gregas.",correct:false,fb:"Incorreta. A escrita consolidou, não eliminou, as tradições."},
-      {l:"b",text:"a valorização exclusiva do conhecimento científico.",correct:false,fb:"Incorreta. Os poemas homéricos são narrativas míticas."},
-      {l:"c",text:"a preservação e difusão das narrativas míticas.",correct:true,fb:"Correta! A escrita permitiu preservar e disseminar os mitos gregos."},
-      {l:"d",text:"o abandono da memória coletiva das pólis.",correct:false,fb:"Incorreta. A escrita fortaleceu a memória coletiva."},
-      {l:"e",text:"a substituição da cultura oral pela filosofia clássica.",correct:false,fb:"Incorreta. Oralidade e escrita coexistiram na Grécia Antiga."}
+    id: 10, topic: "Coesão Comunitária",
+    context: "Em um bairro, moradores organizam redes de apoio, compartilham regras de convivência e reconhecem responsabilidades comuns na preservação dos espaços públicos. Essas práticas fortalecem o sentimento de pertencimento e a integração entre os membros do grupo.",
+    text: "Na perspectiva de Durkheim, esse cenário expressa",
+    answers: [
+      { l: "a", text: "anomia, pela perda de referências coletivas.", correct: false, fb: "Incorreta. Anomia é exatamente o oposto: ausência de normas e enfraquecimento dos vínculos sociais." },
+      { l: "b", text: "coesão social, pela integração entre os indivíduos.", correct: true, fb: "Correta! O cenário descreve exatamente o que Durkheim entende por coesão social: vínculos compartilhados, normas comuns e sentimento de pertencimento coletivo." },
+      { l: "c", text: "patologia social, pela ampliação dos vínculos comunitários.", correct: false, fb: "Incorreta. A ampliação dos vínculos representa saúde social, não patologia." },
+      { l: "d", text: "exterioridade, pela inexistência de normas compartilhadas.", correct: false, fb: "Incorreta. O cenário mostra exatamente a presença de normas compartilhadas, não sua ausência." },
+      { l: "e", text: "fatalismo, pela ausência de participação social.", correct: false, fb: "Incorreta. O fatalismo, para Durkheim, relaciona-se à regulação excessiva — o cenário descreve participação ativa." }
     ]
   },
   {
-    id:11, topic:"Estática e Dinâmica Social",
-    context:"A estática social corresponde às estruturas fundamentais responsáveis pela manutenção da ordem, enquanto a dinâmica social refere-se às transformações históricas e ao progresso.",
-    text:"No pensamento positivista, ordem e progresso relacionam-se porque",
-    answers:[
-      {l:"a",text:"as mudanças sociais devem ocorrer preservando a organização da sociedade.",correct:true,fb:"Correta! Para Comte, o progresso só é viável quando mantém a ordem social."},
-      {l:"b",text:"toda transformação histórica representa ameaça inevitável à estabilidade social.",correct:false,fb:"Incorreta. O positivismo vê progresso como natural e compatível com ordem."},
-      {l:"c",text:"o progresso depende exclusivamente da eliminação das instituições tradicionais.",correct:false,fb:"Incorreta. Instituições são preservadas no progresso positivista."},
-      {l:"d",text:"a ordem social impede qualquer forma de evolução histórica.",correct:false,fb:"Incorreta. Ordem e progresso são complementares no positivismo."},
-      {l:"e",text:"as sociedades evoluem apenas por meio de revoluções violentas.",correct:false,fb:"Incorreta. O positivismo rejeita revoluções violentas em favor da evolução contínua."}
+    id: 11, topic: "Normal e Patológico",
+    context: "Durkheim diferencia fatos sociais normais e patológicos. Um fenômeno pode ser considerado normal quando permanece dentro de limites socialmente controláveis; torna-se patológico quando ameaça o equilíbrio coletivo e exige reação organizada da sociedade.",
+    text: "Um exemplo de fato social patológico é uma situação em que",
+    answers: [
+      { l: "a", text: "a sociedade reconhece um problema e consegue regulá-lo por meios comuns.", correct: false, fb: "Incorreta. Se a sociedade consegue regular o problema por meios comuns, o fenômeno está dentro dos limites do normal." },
+      { l: "b", text: "uma prática social recorrente contribui para ajustar leis e instituições.", correct: false, fb: "Incorreta. Essa situação representa o funcionamento adaptativo da sociedade, característico do normal." },
+      { l: "c", text: "um fenômeno coletivo ultrapassa a capacidade ordinária de controle social.", correct: true, fb: "Correta! O fato social torna-se patológico quando supera os mecanismos normais de controle e ameaça a coesão — exigindo resposta coletiva extraordinária." },
+      { l: "d", text: "uma conduta individual ocorre sem produzir consequências coletivas.", correct: false, fb: "Incorreta. Uma conduta sem consequências coletivas sequer se enquadra como fato social." },
+      { l: "e", text: "uma instituição cumpre sua função esperada de integração social.", correct: false, fb: "Incorreta. Isso descreve o funcionamento saudável de uma instituição, não uma patologia." }
     ]
   },
   {
-    id:12, topic:"Intercâmbio Cultural",
-    context:"O contato comercial e marítimo entre os gregos e outros povos da Antiguidade possibilitou o intercâmbio cultural e o confronto entre diferentes formas de explicar o mundo.",
-    text:"Esse contexto histórico contribuiu para o surgimento da Filosofia porque favoreceu",
-    answers:[
-      {l:"a",text:"o fortalecimento das explicações sobrenaturais como únicas formas legítimas de conhecimento.",correct:false,fb:"Incorreta. O contato diversificado enfraquece monopólios explicativos."},
-      {l:"b",text:"a substituição imediata da religião pelas práticas científicas modernas.",correct:false,fb:"Incorreta. A Filosofia é anterior à ciência experimental moderna."},
-      {l:"c",text:"o questionamento das verdades tradicionais diante da diversidade cultural.",correct:true,fb:"Correta! Confrontar diferentes culturas estimula reflexão crítica sobre as próprias tradições."},
-      {l:"d",text:"a centralização política das pólis gregas sob um único governo teocrático.",correct:false,fb:"Incorreta. Não houve centralização teocrática na Grécia Antiga."},
-      {l:"e",text:"a rejeição da escrita como instrumento de organização do pensamento.",correct:false,fb:"Incorreta. A escrita foi importante para registrar o pensamento filosófico."}
+    id: 12, topic: "Analogia Orgânica",
+    context: "A aula compara a sociedade a um corpo. Quando há febre, o corpo inteiro reage ao distúrbio; da mesma forma, quando um fato social se torna patológico, a sociedade precisa reagir coletivamente para restabelecer o equilíbrio.",
+    text: "Essa analogia reforça a ideia de que",
+    answers: [
+      { l: "a", text: "os problemas sociais podem ser resolvidos apenas pela vontade individual.", correct: false, fb: "Incorreta. A analogia ressalta a resposta coletiva, não individual." },
+      { l: "b", text: "as instituições sociais funcionam de maneira independente umas das outras.", correct: false, fb: "Incorreta. O corpo reage como um todo integrado — exatamente o contrário da independência entre partes." },
+      { l: "c", text: "a sociedade é um conjunto integrado, afetado por disfunções coletivas.", correct: true, fb: "Correta! Assim como o corpo reage inteiro à febre, a sociedade — como sistema integrado — é afetada e precisa reagir coletivamente diante de disfunções." },
+      { l: "d", text: "a ordem social independe da atuação das instituições.", correct: false, fb: "Incorreta. As instituições são como órgãos: fundamentais para o funcionamento saudável do conjunto." },
+      { l: "e", text: "os conflitos sociais são sempre externos ao funcionamento da sociedade.", correct: false, fb: "Incorreta. Conflitos e disfunções surgem dentro do próprio sistema social." }
     ]
   },
   {
-    id:13, topic:"Lei dos Três Estados",
-    context:"A Lei dos Três Estados descreve a evolução do pensamento humano: do estágio teológico ao metafísico e, posteriormente, ao positivo.",
-    text:"No estágio positivo, a interpretação da realidade baseia-se principalmente na",
-    answers:[
-      {l:"a",text:"autoridade religiosa e na tradição mítica.",correct:false,fb:"Incorreta. Esses são características dos estágios anteriores."},
-      {l:"b",text:"observação científica e na análise dos fatos.",correct:true,fb:"Correta! No estágio positivo prevalece o conhecimento científico baseado em fatos observáveis."},
-      {l:"c",text:"valorização exclusiva das explicações abstratas.",correct:false,fb:"Incorreta. O positivismo rejeita abstrações desconectadas da realidade."},
-      {l:"d",text:"predominância das crenças sobrenaturais.",correct:false,fb:"Incorreta. As crenças sobrenaturais são do estágio teológico."},
-      {l:"e",text:"negação das transformações tecnológicas modernas.",correct:false,fb:"Incorreta. O positivismo valoriza e celebra a tecnologia."}
+    id: 13, topic: "Crime Normal e Patológico",
+    context: "Para Durkheim, o crime comum pode permanecer dentro de limites controláveis e até estimular mudanças nas leis e na fiscalização. Já o crime organizado, por sua complexidade e ramificação, ultrapassa o controle convencional e ameaça a coesão social.",
+    text: "A distinção entre crime normal e crime patológico depende, portanto, de",
+    answers: [
+      { l: "a", text: "sua existência ou inexistência em determinada sociedade.", correct: false, fb: "Incorreta. Tanto o crime normal quanto o patológico existem na sociedade; a diferença está em seu impacto e controlabilidade." },
+      { l: "b", text: "sua aceitação moral por todos os indivíduos do grupo.", correct: false, fb: "Incorreta. A normalidade durkheimiana não depende de aceitação moral universal, mas de funcionalidade social." },
+      { l: "c", text: "seu grau de controle social e impacto sobre a coesão.", correct: true, fb: "Correta! O critério é funcional: o crime é normal quando controlável e pode estimular adaptações; torna-se patológico quando ultrapassa os mecanismos de controle e ameaça a coesão." },
+      { l: "d", text: "sua origem exclusivamente psicológica ou individual.", correct: false, fb: "Incorreta. Durkheim rejeita explicações psicológicas individuais para fenômenos sociais." },
+      { l: "e", text: "sua capacidade de eliminar a necessidade de leis.", correct: false, fb: "Incorreta. Nenhuma forma de crime elimina a necessidade de leis — ao contrário, reforça sua importância." }
     ]
   },
   {
-    id:14, topic:"Mithos e Logos",
-    context:"\"Mithos\" e \"logos\" representam duas formas distintas de interpretar a realidade: uma baseada na crença e na autoridade da tradição; outra fundamentada na razão e na argumentação.",
-    text:"A oposição entre mithos e logos expressa",
-    answers:[
-      {l:"a",text:"a passagem do pensamento crítico para o dogmatismo religioso.",correct:false,fb:"Incorreta. A oposição é inversa: do dogmatismo para o criticismo."},
-      {l:"b",text:"a valorização da razão como instrumento de investigação da realidade.",correct:true,fb:"Correta! Logos representa a primazia da razão sobre a crença tradicional."},
-      {l:"c",text:"a defesa da autoridade política como fundamento da verdade.",correct:false,fb:"Incorreta. Logos rejeita autoridades arbitrárias em favor da argumentação."},
-      {l:"d",text:"a substituição da cultura oral pela imposição militar grega.",correct:false,fb:"Incorreta. Não há relação com imposição militar."},
-      {l:"e",text:"a recusa da observação racional dos fenômenos naturais.",correct:false,fb:"Incorreta. Logos valoriza justamente a observação racional."}
+    id: 14, topic: "Suicídio como Fato Social",
+    context: "Durkheim analisou o suicídio como fenômeno social. Embora envolva uma decisão individual, suas taxas podem revelar níveis de integração, isolamento, crise ou excesso de coerção presentes na sociedade.",
+    text: "Essa interpretação indica que o suicídio, na teoria durkheimiana,",
+    answers: [
+      { l: "a", text: "deve ser explicado apenas por transtornos individuais.", correct: false, fb: "Incorreta. Durkheim critica exatamente essa abordagem — o suicídio deve ser explicado por fatores sociais, não apenas individuais." },
+      { l: "b", text: "revela relações entre vínculos sociais e comportamento individual.", correct: true, fb: "Correta! Para Durkheim, as taxas de suicídio revelam o estado da coesão social: integração, anomia, fatalismo ou altruísmo — todos são fatores coletivos que influenciam o comportamento individual." },
+      { l: "c", text: "deixa de ser objeto científico por envolver sofrimento subjetivo.", correct: false, fb: "Incorreta. Durkheim trata o suicídio como fato social objetivo, analisável pela Sociologia." },
+      { l: "d", text: "ocorre independentemente das condições coletivas de existência.", correct: false, fb: "Incorreta. A tese central de Durkheim é exatamente a dependência entre suicídio e condições coletivas." },
+      { l: "e", text: "comprova que a sociedade não interfere nas escolhas pessoais.", correct: false, fb: "Incorreta. A obra de Durkheim sobre o suicídio demonstra o contrário: a sociedade interfere profundamente nas escolhas e nos comportamentos individuais." }
     ]
   },
   {
-    id:15, topic:"Positivismo no Brasil",
-    context:"A frase 'Ordem e Progresso', presente na bandeira do Brasil, é uma herança direta do positivismo.",
-    text:"A influência do positivismo na formação republicana brasileira relaciona-se à defesa de",
-    answers:[
-      {l:"a",text:"organização social baseada na disciplina e no avanço científico.",correct:true,fb:"Correta! Ordem e Progresso são pilares do pensamento positivista aplicados à República brasileira."},
-      {l:"b",text:"supremacia da religião sobre as instituições políticas.",correct:false,fb:"Incorreta. O positivismo valoriza ciência, não religião."},
-      {l:"c",text:"eliminação das estruturas estatais modernas.",correct:false,fb:"Incorreta. O estado é fundamental no pensamento positivista."},
-      {l:"d",text:"valorização exclusiva das tradições rurais brasileiras.",correct:false,fb:"Incorreta. O positivismo valoriza modernização, não tradição rural."},
-      {l:"e",text:"rejeição da industrialização e das transformações urbanas.",correct:false,fb:"Incorreta. O positivismo celebra industrialização e progresso."}
-    ]
-  },
-  {
-    id:16, topic:"Curiosidade Filosófica",
-    context:"O filósofo faz com o mundo o mesmo que a criança faz diante do desconhecido: pergunta, investiga, experimenta e tenta compreender.",
-    text:"A comparação presente no texto enfatiza que a atividade filosófica depende da",
-    answers:[
-      {l:"a",text:"aceitação das explicações transmitidas pela tradição.",correct:false,fb:"Incorreta. Filósofos e crianças questionam, não aceitam passivamente."},
-      {l:"b",text:"valorização da curiosidade e da investigação racional.",correct:true,fb:"Correta! Ambos compartilham a curiosidade e o espírito investigativo."},
-      {l:"c",text:"negação da experiência concreta como forma de conhecimento.",correct:false,fb:"Incorreta. Ambos aprendem pela experiência."},
-      {l:"d",text:"superioridade das crenças míticas sobre a razão.",correct:false,fb:"Incorreta. Ambos se afastam do mito."},
-      {l:"e",text:"rejeição da dúvida como elemento do pensamento.",correct:false,fb:"Incorreta. Dúvida é essencial para ambos."}
-    ]
-  },
-  {
-    id:17, topic:"Coesão Social",
-    context:"Para Comte, uma sociedade coesa enfrenta melhor as crises, enquanto a fragmentação social aumenta a vulnerabilidade coletiva.",
-    text:"A concepção apresentada no texto associa a estabilidade social à",
-    answers:[
-      {l:"a",text:"ausência de instituições reguladoras.",correct:false,fb:"Incorreta. Instituições fortalecem a coesão social."},
-      {l:"b",text:"valorização da competição entre indivíduos.",correct:false,fb:"Incorreta. Competição gera fragmentação na visão positivista."},
-      {l:"c",text:"integração e fortalecimento dos vínculos sociais.",correct:true,fb:"Correta! Coesão e integração social são bases da estabilidade em Comte."},
-      {l:"d",text:"eliminação das diferenças culturais existentes na sociedade.",correct:false,fb:"Incorreta. Diversidade pode coexistir com coesão."},
-      {l:"e",text:"substituição das leis pela autonomia individual irrestrita.",correct:false,fb:"Incorreta. Leis e normas fortalecem a integração social."}
-    ]
-  },
-  {
-    id:18, topic:"Razão e Tradição",
-    context:"No pensamento mítico, a verdade fundamenta-se na autoridade da tradição. Já no pensamento filosófico, o conhecimento depende da argumentação racional e da capacidade de questionamento.",
-    text:"A diferença entre essas duas formas de pensamento evidencia que a Filosofia",
-    answers:[
-      {l:"a",text:"busca justificar racionalmente suas afirmações.",correct:true,fb:"Correta! Filosofia exige fundamentação racional, não autoridade."},
-      {l:"b",text:"rejeita qualquer interpretação sobre a existência humana.",correct:false,fb:"Incorreta. Filosofia oferece interpretações, mas racionais."},
-      {l:"c",text:"fundamenta-se exclusivamente na observação religiosa.",correct:false,fb:"Incorreta. Filosofia usa razão, não apenas religião."},
-      {l:"d",text:"considera inútil a investigação crítica da realidade.",correct:false,fb:"Incorreta. Investigação crítica é central na Filosofia."},
-      {l:"e",text:"aceita explicações prontas como verdades definitivas.",correct:false,fb:"Incorreta. Filosofia questiona explicações prontas."}
-    ]
-  },
-  {
-    id:19, topic:"Progresso Histórico",
-    context:"O positivismo entendia que a história humana seguia uma trajetória contínua de evolução e aperfeiçoamento social.",
-    text:"Essa interpretação da história fundamenta-se na ideia de que",
-    answers:[
-      {l:"a",text:"as sociedades permanecem estáticas ao longo do tempo.",correct:false,fb:"Incorreta. O positivismo acredita em mudança contínua."},
-      {l:"b",text:"toda mudança social representa necessariamente decadência histórica.",correct:false,fb:"Incorreta. O positivismo vê mudança como progresso."},
-      {l:"c",text:"o progresso humano ocorre por meio do avanço científico e racional.",correct:true,fb:"Correta! Positivismo associa progresso com desenvolvimento científico e racional."},
-      {l:"d",text:"o desenvolvimento social depende exclusivamente das crenças religiosas.",correct:false,fb:"Incorreta. Positivismo privilegia ciência sobre religião."},
-      {l:"e",text:"os conflitos sociais impedem qualquer possibilidade de evolução coletiva.",correct:false,fb:"Incorreta. Conflitos podem coexistir com progresso."}
-    ]
-  },
-  {
-    id:20, topic:"Mito e Razão Hoje",
-    context:"Em sociedades contemporâneas, muitas pessoas ainda interpretam acontecimentos políticos, naturais ou pessoais a partir de explicações sobrenaturais, enquanto outras buscam compreendê-los por meio da análise racional e crítica.",
-    text:"A situação descrita demonstra que",
-    answers:[
-      {l:"a",text:"a Filosofia eliminou completamente o pensamento mítico.",correct:false,fb:"Incorreta. Mito e razão coexistem nas sociedades."},
-      {l:"b",text:"ciência e religião tornaram-se conceitos equivalentes.",correct:false,fb:"Incorreta. Mantêm abordagens distintas."},
-      {l:"c",text:"mito e razão continuam coexistindo nas sociedades atuais.",correct:true,fb:"Correta! Mesmo nas sociedades modernas, ambas as formas de pensamento estão presentes."},
-      {l:"d",text:"a racionalidade filosófica tornou impossíveis as crenças tradicionais.",correct:false,fb:"Incorreta. Crenças persistem mesmo em contextos racionais."},
-      {l:"e",text:"o pensamento crítico depende exclusivamente do conhecimento científico.",correct:false,fb:"Incorreta. Senso crítico pode se manifestar em vários contextos."}
+    id: 15, topic: "Solidariedade Mecânica e Orgânica",
+    context: "Na solidariedade mecânica, típica de sociedades tradicionais, a identidade coletiva prevalece sobre as escolhas individuais. Na solidariedade orgânica, associada à modernidade e à divisão do trabalho, há maior autonomia, pluralidade e interdependência, mas também risco de enfraquecimento dos laços sociais.",
+    text: "A diferença entre essas formas de solidariedade está relacionada ao modo como",
+    answers: [
+      { l: "a", text: "a tradição e a divisão do trabalho organizam os vínculos sociais.", correct: true, fb: "Correta! A solidariedade mecânica é sustentada pela semelhança e pela tradição; a orgânica, pela divisão do trabalho e pela interdependência entre funções diferentes — dois modos distintos de organizar os vínculos coletivos." },
+      { l: "b", text: "a coerção desaparece completamente nas sociedades modernas.", correct: false, fb: "Incorreta. A coerção não desaparece na modernidade — muda de forma, tornando-se mais sutil e institucionalizada." },
+      { l: "c", text: "a individualidade é eliminada pela solidariedade orgânica.", correct: false, fb: "Incorreta. Na solidariedade orgânica há maior autonomia e valorização da individualidade, não sua eliminação." },
+      { l: "d", text: "a anomia garante maior integração nas sociedades industriais.", correct: false, fb: "Incorreta. Anomia é justamente o risco da solidariedade orgânica — a ausência de normas que pode enfraquecer os vínculos." },
+      { l: "e", text: "a modernidade substitui instituições por relações sem normas.", correct: false, fb: "Incorreta. As instituições continuam existindo na modernidade; o que muda é a base da solidariedade, não o desaparecimento das normas." }
     ]
   }
 ];
 
 let current = 0;
-let answers = {}; // { qId: { letter, correct } }
+let answers = {};
 
-// ── Build progress dots ──
 function buildDots() {
   const wrap = document.getElementById('progressDots');
   wrap.innerHTML = '';
@@ -1024,7 +943,6 @@ function updateProgress() {
   });
 }
 
-// ── Render question ──
 function render() {
   const q = questions[current];
   const ans = answers[q.id];
@@ -1066,7 +984,6 @@ function render() {
 
   html += `</div>`;
 
-  // Feedback
   if (ans) {
     const chosen = q.answers.find(a => a.l === ans.letter);
     const fbClass = chosen.correct ? 'correct-fb' : 'wrong-fb';
@@ -1081,7 +998,6 @@ function render() {
     `;
   }
 
-  // Nav
   const nextDisabled = !ans || !ans.correct ? 'disabled' : '';
   const prevDisabled = current === 0 ? 'disabled' : '';
 
@@ -1101,12 +1017,11 @@ function render() {
 
 function pick(qId, letter, correct) {
   const prev = answers[qId];
-  if (prev && prev.correct) return; // já acertou
+  if (prev && prev.correct) return;
 
   answers[qId] = { letter, correct };
 
   if (!correct) {
-    // shake the chosen button
     const btns = document.querySelectorAll('.answer-btn');
     btns.forEach(b => {
       if (b.querySelector('.letter-badge')?.textContent === letter) {
@@ -1132,18 +1047,16 @@ function go(dir) {
   }, 150);
 }
 
-// ── Results ──
 function showResults() {
   const correct = Object.values(answers).filter(a => a.correct).length;
   const pct = Math.round((correct / questions.length) * 100);
 
   let emoji = '📜';
   let msg = 'Continue seus estudos — a sabedoria é construída com dedicação.';
-  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre os temas.'; }
+  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre a teoria durkheimiana.'; }
   else if (pct >= 70) { emoji = '⚖️'; msg = 'Ótimo desempenho! Reforce alguns conceitos e você chegará lá.'; }
-  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Revise os tópicos que causaram dúvidas.'; }
+  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Revise os tópicos sobre fato social e solidariedade.'; }
 
-  // SVG ring
   const r = 66, cx = 80, cy = 80;
   const circ = 2 * Math.PI * r;
   const dash = (pct / 100) * circ;
@@ -1154,7 +1067,7 @@ function showResults() {
   const rc = document.getElementById('resultsCard');
   rc.style.display = 'block';
 
-  let reviewPips = questions.map((q, i) => {
+  let reviewPips = questions.map((q) => {
     const a = answers[q.id];
     const cls = a && a.correct ? 'ok' : 'fail';
     return `<div class="review-pip ${cls}" title="Questão ${q.id}: ${q.topic}">${q.id}</div>`;
@@ -1163,7 +1076,7 @@ function showResults() {
   document.getElementById('resultsInner').innerHTML = `
     <div class="results-ornament">${emoji}</div>
     <h2 class="results-heading">Quiz Concluído</h2>
-    <p class="results-subheading">Filosofia & Sociologia — ${questions.length} questões</p>
+    <p class="results-subheading">Émile Durkheim — ${questions.length} questões</p>
 
     <div class="score-ring-wrap">
       <div class="score-ring">
@@ -1217,7 +1130,6 @@ function restart() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── Init ──
 buildDots();
 render();
 </script>
