@@ -19,10 +19,6 @@
       --sage: #4a6741;
       --cream: #fdf6ec;
       --shadow: rgba(26,18,8,0.18);
-      --correct: #1e3628;
-      --correct-bg: #d4edda;
-      --incorrect: #5c1a1a;
-      --incorrect-bg: #f8d7da;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -91,10 +87,7 @@
       margin-bottom: 8px;
     }
 
-    .header h1 span {
-      color: var(--gold);
-      font-style: italic;
-    }
+    .header h1 span { color: var(--gold); font-style: italic; }
 
     .header-subtitle {
       font-family: 'Lora', serif;
@@ -128,15 +121,10 @@
       text-transform: uppercase;
     }
 
-    .progress-dots {
-      display: flex;
-      gap: 5px;
-    }
+    .progress-dots { display: flex; gap: 5px; }
 
     .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      width: 8px; height: 8px; border-radius: 50%;
       background: rgba(245,237,224,0.15);
       border: 1px solid rgba(184,145,42,0.3);
       transition: all 0.4s ease;
@@ -179,9 +167,7 @@
       background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
     }
 
-    .card-inner {
-      padding: 40px 44px 36px;
-    }
+    .card-inner { padding: 40px 44px 36px; }
 
     .q-header {
       display: flex;
@@ -205,8 +191,7 @@
     }
 
     .q-divider {
-      flex: 1;
-      height: 1px;
+      flex: 1; height: 1px;
       background: linear-gradient(90deg, rgba(184,145,42,0.3), transparent);
     }
 
@@ -231,8 +216,7 @@
     .context-block::before {
       content: '"';
       position: absolute;
-      top: -8px;
-      left: 14px;
+      top: -8px; left: 14px;
       font-family: 'Playfair Display', serif;
       font-size: 60px;
       color: var(--gold);
@@ -312,8 +296,7 @@
       color: var(--gold);
       background: rgba(184,145,42,0.1);
       border: 1px solid rgba(184,145,42,0.25);
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 2px;
       display: flex;
       align-items: center;
@@ -327,29 +310,13 @@
       color: white;
     }
 
-    .answer-btn.correct {
-      background: #eaf5ec;
-      border-color: #2d7a3a;
-    }
-    .answer-btn.correct .letter-badge {
-      background: #2d7a3a;
-      color: white;
-      border-color: #2d7a3a;
-    }
+    .answer-btn.correct { background: #eaf5ec; border-color: #2d7a3a; }
+    .answer-btn.correct .letter-badge { background: #2d7a3a; color: white; border-color: #2d7a3a; }
 
-    .answer-btn.wrong {
-      background: #fdf0f0;
-      border-color: #c0392b;
-    }
-    .answer-btn.wrong .letter-badge {
-      background: #c0392b;
-      color: white;
-      border-color: #c0392b;
-    }
+    .answer-btn.wrong { background: #fdf0f0; border-color: #c0392b; }
+    .answer-btn.wrong .letter-badge { background: #c0392b; color: white; border-color: #c0392b; }
 
-    .answer-btn.dim {
-      opacity: 0.45;
-    }
+    .answer-btn.dim { opacity: 0.45; }
 
     .feedback-box {
       border-radius: 4px;
@@ -360,16 +327,8 @@
     }
 
     .feedback-box.show { display: block; }
-
-    .feedback-box.correct-fb {
-      background: #eaf5ec;
-      border-left: 4px solid #2d7a3a;
-    }
-
-    .feedback-box.wrong-fb {
-      background: #fdf0f0;
-      border-left: 4px solid #c0392b;
-    }
+    .feedback-box.correct-fb { background: #eaf5ec; border-left: 4px solid #2d7a3a; }
+    .feedback-box.wrong-fb { background: #fdf0f0; border-left: 4px solid #c0392b; }
 
     .feedback-title {
       font-family: 'Lora', serif;
@@ -427,42 +386,14 @@
 
     .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; }
 
-    .btn-prev {
-      background: transparent;
-      border-color: rgba(26,18,8,0.2);
-      color: rgba(26,18,8,0.6);
-    }
+    .btn-prev { background: transparent; border-color: rgba(26,18,8,0.2); color: rgba(26,18,8,0.6); }
+    .btn-prev:hover:not(:disabled) { border-color: var(--ink); color: var(--ink); }
 
-    .btn-prev:hover:not(:disabled) {
-      border-color: var(--ink);
-      color: var(--ink);
-    }
+    .btn-next { background: var(--wine); border-color: var(--wine); color: var(--parchment); margin-left: auto; }
+    .btn-next:hover:not(:disabled) { background: var(--wine-light); border-color: var(--wine-light); transform: translateX(3px); }
 
-    .btn-next {
-      background: var(--wine);
-      border-color: var(--wine);
-      color: var(--parchment);
-      margin-left: auto;
-    }
-
-    .btn-next:hover:not(:disabled) {
-      background: var(--wine-light);
-      border-color: var(--wine-light);
-      transform: translateX(3px);
-    }
-
-    .btn-finish {
-      background: var(--forest);
-      border-color: var(--forest);
-      color: var(--parchment);
-      margin-left: auto;
-    }
-
-    .btn-finish:hover:not(:disabled) {
-      background: var(--sage);
-      border-color: var(--sage);
-      transform: translateX(3px);
-    }
+    .btn-finish { background: var(--forest); border-color: var(--forest); color: var(--parchment); margin-left: auto; }
+    .btn-finish:hover:not(:disabled) { background: var(--sage); border-color: var(--sage); transform: translateX(3px); }
 
     .results-card {
       width: 100%;
@@ -482,15 +413,9 @@
       background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
     }
 
-    .results-inner {
-      padding: 48px 44px;
-      text-align: center;
-    }
+    .results-inner { padding: 48px 44px; text-align: center; }
 
-    .results-ornament {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
+    .results-ornament { font-size: 36px; margin-bottom: 12px; }
 
     .results-heading {
       font-family: 'Playfair Display', serif;
@@ -509,21 +434,10 @@
       margin-bottom: 40px;
     }
 
-    .score-ring-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 36px;
-    }
+    .score-ring-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
 
-    .score-ring {
-      position: relative;
-      width: 160px;
-      height: 160px;
-    }
-
-    .score-ring svg {
-      transform: rotate(-90deg);
-    }
+    .score-ring { position: relative; width: 160px; height: 160px; }
+    .score-ring svg { transform: rotate(-90deg); }
 
     .score-ring-text {
       position: absolute;
@@ -592,10 +506,7 @@
       text-transform: uppercase;
     }
 
-    .answer-review {
-      margin-bottom: 40px;
-      text-align: left;
-    }
+    .answer-review { margin-bottom: 40px; text-align: left; }
 
     .review-title {
       font-family: 'Playfair Display', serif;
@@ -615,15 +526,10 @@
       background: rgba(26,18,8,0.1);
     }
 
-    .review-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .review-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .review-pip {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border-radius: 3px;
       display: flex;
       align-items: center;
@@ -634,17 +540,8 @@
       cursor: default;
     }
 
-    .review-pip.ok {
-      background: #eaf5ec;
-      color: #2d7a3a;
-      border: 1px solid #2d7a3a;
-    }
-
-    .review-pip.fail {
-      background: #fdf0f0;
-      color: #c0392b;
-      border: 1px solid #c0392b;
-    }
+    .review-pip.ok { background: #eaf5ec; color: #2d7a3a; border: 1px solid #2d7a3a; }
+    .review-pip.fail { background: #fdf0f0; color: #c0392b; border: 1px solid #c0392b; }
 
     .retry-btn {
       background: var(--wine);
@@ -666,20 +563,9 @@
       box-shadow: 0 8px 24px rgba(92,26,26,0.35);
     }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
@@ -705,17 +591,17 @@
 
   <header class="header">
     <div class="header-ornament">✦ ✦ ✦</div>
-    <h1>Sociologia — <span>Durkheim</span></h1>
-    <p class="header-subtitle">Teste seu conhecimento sobre os fatos sociais e a teoria durkheimiana</p>
+    <h1>Quiz de Filosofia <span>&</span> Sociologia</h1>
+    <p class="header-subtitle">Sócrates e Marx</p>
   </header>
 
   <div class="progress-section" id="progressSection">
     <div class="progress-meta">
-      <span class="progress-label" id="progressLabel">Questão 1 de 15</span>
+      <span class="progress-label" id="progressLabel">Questão 1 de 10</span>
       <div class="progress-dots" id="progressDots"></div>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" id="progressFill" style="width:6.67%"></div>
+      <div class="progress-bar-fill" id="progressFill" style="width:10%"></div>
     </div>
   </div>
 
@@ -732,183 +618,133 @@
 <script>
 const questions = [
   {
-    id: 1, topic: "Método Sociológico",
-    context: "Émile Durkheim contribuiu para consolidar a Sociologia como ciência ao defender que os fenômenos sociais deveriam ser observados de maneira objetiva, afastando julgamentos pessoais e buscando regularidades na vida coletiva.",
-    text: "Essa orientação metodológica indica que a Sociologia durkheimiana propõe",
+    id: 1,
+    topic: "Karl Marx — Capitalismo e Meritocracia",
+    context: "Em diferentes meios de comunicação, trajetórias individuais de ascensão social são usadas para sustentar a ideia de que o sucesso depende sobretudo da disposição pessoal para trabalhar e superar obstáculos. Nesses discursos, raramente aparecem fatores como renda familiar, acesso à educação, herança, redes de contato e concentração da propriedade.",
+    text: "Segundo a crítica marxista à ideologia capitalista, esse tipo de discurso",
     answers: [
-      { l: "a", text: "interpretar a sociedade a partir das intenções individuais dos sujeitos.", correct: false, fb: "Incorreta. Durkheim se opõe à análise subjetiva: para ele, os fatos sociais existem independentemente das intenções individuais." },
-      { l: "b", text: "analisar os fatos sociais como objetos externos à consciência individual.", correct: true, fb: "Correta! Durkheim defende que os fatos sociais devem ser tratados como coisas — objetos externos, coercitivos e gerais, independentes da vontade individual." },
-      { l: "c", text: "explicar os fenômenos coletivos por princípios religiosos compartilhados.", correct: false, fb: "Incorreta. Durkheim separa análise científica de explicação religiosa, ainda que estudasse a religião como fenômeno social." },
-      { l: "d", text: "compreender a vida social como resultado direto da liberdade pessoal.", correct: false, fb: "Incorreta. Para Durkheim, a sociedade exerce coerção sobre o indivíduo, limitando sua liberdade pessoal." },
-      { l: "e", text: "substituir a observação empírica por reflexões filosóficas abstratas.", correct: false, fb: "Incorreta. Durkheim é justamente o oposto: valoriza a observação empírica dos fatos sociais." }
+      { l: "A", text: "revela de forma científica as contradições econômicas do capitalismo.", correct: false, fb: "Incorreta. O discurso descrito não revela cientificamente as contradições do capitalismo. Ele simplifica a realidade social ao apresentar trajetórias individuais como prova de igualdade de oportunidades." },
+      { l: "B", text: "transforma exceções em regra e oculta as desigualdades estruturais.", correct: true,  fb: "Correta! Para Marx, a ideologia pode ocultar desigualdades estruturais ao apresentar casos individuais de sucesso como se fossem acessíveis a todos nas mesmas condições." },
+      { l: "C", text: "demonstra que a luta de classes deixou de existir nas sociedades modernas.", correct: false, fb: "Incorreta. A existência de ascensão individual não elimina a luta de classes. Para Marx, o conflito entre proprietários e trabalhadores permanece enquanto houver exploração." },
+      { l: "D", text: "comprova que a propriedade privada elimina a exploração.", correct: false, fb: "Incorreta. A propriedade privada dos meios de produção não elimina a exploração; na teoria marxista, ela é uma das bases da dominação de classe." },
+      { l: "E", text: "substitui a lógica da mercadoria pela solidariedade entre classes.", correct: false, fb: "Incorreta. O discurso descrito reforça competição individual, não solidariedade entre classes." }
     ]
   },
   {
-    id: 2, topic: "Durkheim e Comte",
-    context: "Durkheim foi influenciado pelo positivismo de Auguste Comte, mas considerava necessário tornar a Sociologia mais objetiva, prática e científica. Enquanto Comte observava a sociedade de modo amplo, Durkheim buscava analisar instituições e fenômenos sociais específicos.",
-    text: "A diferença entre Comte e Durkheim, conforme a aula, está no fato de Durkheim",
+    id: 2,
+    topic: "Sócrates — Sócrates e os Sofistas",
+    context: "Na Atenas clássica, a participação política dependia fortemente da capacidade de falar em público, defender posições e convencer assembleias. Nesse contexto, alguns mestres ensinavam técnicas de oratória e argumentação, habilidades muito valorizadas na vida pública da pólis.",
+    text: "A crítica socrática aos sofistas dirige-se principalmente ao",
     answers: [
-      { l: "a", text: "rejeitar totalmente a possibilidade de estudar cientificamente a sociedade.", correct: false, fb: "Incorreta. Durkheim dedicou sua obra exatamente a consolidar a Sociologia como ciência." },
-      { l: "b", text: "deslocar a análise social para explicações psicológicas do comportamento.", correct: false, fb: "Incorreta. Durkheim rejeita explicações psicológicas, insistindo que fatos sociais devem ser explicados por outros fatos sociais." },
-      { l: "c", text: "aprofundar o método científico aplicado aos fatos e às instituições sociais.", correct: true, fb: "Correta! Durkheim tornou a Sociologia mais rigorosa e científica, analisando fenômenos específicos como o suicídio, a religião e a divisão do trabalho." },
-      { l: "d", text: "defender que a sociedade deveria ser explicada por valores metafísicos.", correct: false, fb: "Incorreta. Durkheim rejeita explicações metafísicas em favor da análise empírica dos fatos sociais." },
-      { l: "e", text: "limitar a Sociologia ao estudo da evolução histórica das ideias políticas.", correct: false, fb: "Incorreta. O escopo de Durkheim é mais amplo: abrange instituições, normas, coesão, solidariedade e anomia." }
+      { l: "A", text: "uso da argumentação como instrumento de vitória, sem busca da verdade.", correct: true,  fb: "Correta! Sócrates não criticava o discurso em si, mas seu uso como mera técnica de persuasão. Para ele, argumentar deveria estar ligado à investigação da verdade." },
+      { l: "B", text: "estudo racional da natureza e da origem do cosmos.", correct: false, fb: "Incorreta. O estudo racional da natureza está ligado aos pré-socráticos, não à crítica socrática aos sofistas." },
+      { l: "C", text: "reconhecimento dos limites do próprio conhecimento.", correct: false, fb: "Incorreta. Reconhecer os limites do próprio conhecimento é uma atitude valorizada por Sócrates." },
+      { l: "D", text: "exercício do autoconhecimento por meio do diálogo.", correct: false, fb: "Incorreta. O autoconhecimento por meio do diálogo é parte da filosofia socrática, não alvo de sua crítica." },
+      { l: "E", text: "abandono da vida pública e política em Atenas.", correct: false, fb: "Incorreta. Os sofistas atuavam na vida pública; a crítica de Sócrates não era ao debate político em si, mas ao uso da palavra sem compromisso filosófico com a verdade." }
     ]
   },
   {
-    id: 3, topic: "Funcionalismo",
-    context: "Em uma comunidade, escola, família, religião, leis e economia atuam como partes de um mesmo sistema. Cada instituição exerce funções que contribuem para a organização coletiva, ainda que também possa apresentar falhas ou tensões.",
-    text: "Essa leitura da sociedade aproxima-se do conceito durkheimiano de",
+    id: 3,
+    topic: "Karl Marx — Infraestrutura e Superestrutura",
+    context: "Em determinada sociedade, alterações no mercado de trabalho passam a influenciar a organização de escolas, universidades, campanhas políticas e discursos midiáticos. Com o tempo, determinadas profissões e formações passam a ser valorizadas principalmente por sua utilidade produtiva e retorno financeiro.",
+    text: "A interpretação marxista desse fenômeno indica que",
     answers: [
-      { l: "a", text: "individualismo metodológico.", correct: false, fb: "Incorreta. O individualismo metodológico explica a sociedade a partir das ações individuais — posição oposta à de Durkheim." },
-      { l: "b", text: "conflito de classes.", correct: false, fb: "Incorreta. Conflito de classes é conceito central em Marx, não em Durkheim, que enfatiza integração e coesão." },
-      { l: "c", text: "funcionalismo.", correct: true, fb: "Correta! O funcionalismo entende a sociedade como um sistema integrado de partes interdependentes, cada qual com funções específicas para a manutenção do todo." },
-      { l: "d", text: "anomia.", correct: false, fb: "Incorreta. Anomia designa a ausência de normas reguladoras — o oposto da integração funcional descrita." },
-      { l: "e", text: "solidariedade orgânica.", correct: false, fb: "Incorreta. Solidariedade orgânica é uma forma específica de coesão moderna, não o conceito que melhor descreve a ideia geral de sistema integrado." }
+      { l: "A", text: "a educação, a política e a cultura são independentes da organização econômica.", correct: false, fb: "Incorreta. Para Marx, educação, política, cultura e direito não são completamente independentes da economia." },
+      { l: "B", text: "a superestrutura social pode ser influenciada pela infraestrutura econômica.", correct: true,  fb: "Correta! A alternativa expressa a relação entre infraestrutura e superestrutura: a base econômica condiciona instituições, valores e formas culturais." },
+      { l: "C", text: "as instituições culturais determinam sozinhas o modo de produção.", correct: false, fb: "Incorreta. A alternativa inverte a explicação marxista, pois atribui às instituições culturais a determinação isolada do modo de produção." },
+      { l: "D", text: "a economia é irrelevante para a formação dos valores sociais.", correct: false, fb: "Incorreta. A economia é central no materialismo histórico, ainda que não explique tudo de modo mecânico." },
+      { l: "E", text: "a escola elimina automaticamente as desigualdades de classe.", correct: false, fb: "Incorreta. A escola pode contribuir para formação crítica, mas também pode reproduzir desigualdades sociais." }
     ]
   },
   {
-    id: 4, topic: "Fato Social",
-    context: "Em determinada escola, estudantes recém-chegados passam a seguir horários, formas de tratamento, regras de vestimenta e modos de participação já estabelecidos antes de sua entrada na instituição. Mesmo discordando de algumas normas, tendem a adaptar seu comportamento para evitar sanções formais ou reprovação do grupo.",
-    text: "Na perspectiva durkheimiana, essa situação exemplifica o fato social porque evidencia",
+    id: 4,
+    topic: "Karl Marx — Ideologia e Falsa Consciência",
+    context: "Diante da pobreza urbana, diferentes explicações circulam socialmente. Algumas enfatizam apenas atitudes individuais; outras consideram fatores como desemprego, concentração de renda, herança social, escolarização desigual e acesso limitado a oportunidades.",
+    text: "Para Marx, uma interpretação ideológica da pobreza é aquela que",
     answers: [
-      { l: "a", text: "a imposição de normas coletivas exteriores ao indivíduo.", correct: true, fb: "Correta! O fato social é exterior ao indivíduo e exerce coerção sobre ele, independentemente de sua vontade — exatamente o que ocorre com o estudante que se adapta às normas já existentes." },
-      { l: "b", text: "a autonomia plena do estudante diante das regras escolares.", correct: false, fb: "Incorreta. A situação mostra justamente o oposto: o estudante é constrangido por normas que antecedem sua chegada." },
-      { l: "c", text: "a ausência de padrões comuns na convivência institucional.", correct: false, fb: "Incorreta. O exemplo mostra exatamente a presença de padrões coletivos consolidados." },
-      { l: "d", text: "a substituição das instituições por escolhas puramente privadas.", correct: false, fb: "Incorreta. A situação ilustra a força das instituições sobre as escolhas individuais." },
-      { l: "e", text: "a incapacidade da escola de influenciar comportamentos sociais.", correct: false, fb: "Incorreta. O exemplo demonstra exatamente a influência da escola sobre os comportamentos." }
+      { l: "A", text: "revela as estruturas econômicas responsáveis pela desigualdade.", correct: false, fb: "Incorreta. Revelar estruturas econômicas corresponde a uma análise crítica, não a uma interpretação ideológica no sentido marxista." },
+      { l: "B", text: "estimula a análise histórica das relações de produção.", correct: false, fb: "Incorreta. A análise histórica das relações de produção faz parte do método marxista." },
+      { l: "C", text: "naturaliza a desigualdade e leva os explorados a aceitarem sua condição.", correct: true,  fb: "Correta! Para Marx, a ideologia naturaliza a desigualdade e pode fazer os explorados aceitarem sua condição como se ela fosse inevitável ou culpa individual." },
+      { l: "D", text: "denuncia a concentração da propriedade privada dos meios de produção.", correct: false, fb: "Incorreta. Denunciar a concentração da propriedade privada está de acordo com a crítica marxista." },
+      { l: "E", text: "contribui para a formação da consciência de classe.", correct: false, fb: "Incorreta. A consciência de classe rompe com explicações individualizantes e permite compreender a exploração como fenômeno coletivo." }
     ]
   },
   {
-    id: 5, topic: "Coletivo e Indivíduo",
-    context: "Durkheim interpreta a sociedade a partir do movimento que vai do coletivo para o indivíduo. Para ele, o ser humano não se forma isoladamente, pois família, religião, cultura, leis, escola e costumes influenciam comportamentos, valores e escolhas.",
-    text: "Essa interpretação contraria a ideia de que",
+    id: 5,
+    topic: "Sócrates — Julgamento e Morte",
+    context: "Sócrates foi levado a julgamento em Atenas sob acusações relacionadas à juventude e à religião da cidade. Mesmo diante da condenação, recusou caminhos que poderiam afastá-lo publicamente da prática filosófica que havia exercido ao longo da vida.",
+    text: "A atitude de Sócrates diante da condenação pode ser interpretada como",
     answers: [
-      { l: "a", text: "as instituições participam da formação da conduta social.", correct: false, fb: "Incorreta. Essa afirmação está em pleno acordo com a teoria durkheimiana." },
-      { l: "b", text: "os valores individuais são moldados por referências coletivas.", correct: false, fb: "Incorreta. Isso também é consistente com Durkheim, que afirma que a sociedade forma o indivíduo." },
-      { l: "c", text: "o meio social interfere nas escolhas e nos comportamentos.", correct: false, fb: "Incorreta. Durkheim defende exatamente a interferência do social sobre o individual." },
-      { l: "d", text: "o indivíduo é plenamente compreensível fora da vida coletiva.", correct: true, fb: "Correta! Durkheim nega a possibilidade de compreender o indivíduo isolado da sociedade — o coletivo é condição para a formação do ser humano." },
-      { l: "e", text: "a cultura exerce influência sobre modos de pensar e agir.", correct: false, fb: "Incorreta. Essa afirmação é compatível com o pensamento durkheimiano." }
+      { l: "A", text: "coerência entre pensamento filosófico e conduta diante da morte.", correct: true,  fb: "Correta! A atitude de Sócrates expressa coerência entre sua vida filosófica e sua conduta diante da condenação." },
+      { l: "B", text: "abandono de todos os princípios defendidos durante a vida.", correct: false, fb: "Incorreta. Ele não abandona seus princípios; sua postura indica fidelidade a eles." },
+      { l: "C", text: "aceitação de que a filosofia deveria ser substituída pela retórica sofística.", correct: false, fb: "Incorreta. Sócrates não substitui a filosofia pela retórica sofística." },
+      { l: "D", text: "recusa do diálogo como forma de vida pública.", correct: false, fb: "Incorreta. Sócrates viveu a filosofia como diálogo público." },
+      { l: "E", text: "defesa de que a verdade depende apenas da decisão da maioria.", correct: false, fb: "Incorreta. Sócrates não entende a verdade como simples decisão da maioria, mas como algo a ser examinado racionalmente." }
     ]
   },
   {
-    id: 6, topic: "Coercitividade",
-    context: "Padrões de beleza, expectativas familiares e normas de convivência podem influenciar escolhas individuais sem que haja violência física direta. A pressão pode ocorrer por aprovação, vergonha, pertencimento ou medo de exclusão.",
-    text: "Na teoria durkheimiana, esse processo expressa principalmente a",
+    id: 6,
+    topic: "Karl Marx — Revolução Proletária",
+    context: "Para Marx, o capitalismo se sustenta na separação entre aqueles que controlam fábricas, terras, máquinas e capitais e aqueles que possuem apenas sua força de trabalho. Enquanto essa separação permanecer, a exploração tende a se reproduzir sob novas formas.",
+    text: "De acordo com a teoria marxista, a revolução proletária tem como objetivo central",
     answers: [
-      { l: "a", text: "generalidade, pois toda norma social possui origem biológica.", correct: false, fb: "Incorreta. Generalidade refere-se à extensão do fato social no grupo, e normas sociais não têm origem biológica." },
-      { l: "b", text: "coercitividade, pois o coletivo pressiona a conduta individual.", correct: true, fb: "Correta! A coercitividade é a característica do fato social que indica que a sociedade exerce pressão sobre os indivíduos, mesmo sem violência direta — pela aprovação, vergonha ou medo de exclusão." },
-      { l: "c", text: "exterioridade, pois o indivíduo cria livremente suas próprias normas.", correct: false, fb: "Incorreta. Exterioridade indica que as normas existem fora do indivíduo, e não que ele as cria livremente." },
-      { l: "d", text: "anomia, pois a pressão social fortalece a ausência de vínculos.", correct: false, fb: "Incorreta. Anomia é a ausência de normas, não a presença de pressão social." },
-      { l: "e", text: "solidariedade orgânica, pois toda coerção desaparece na modernidade.", correct: false, fb: "Incorreta. A coerção não desaparece na modernidade; muda de forma, mas permanece presente." }
+      { l: "A", text: "garantir que cada trabalhador se torne individualmente um pequeno capitalista.", correct: false, fb: "Incorreta. A revolução proletária não busca transformar cada trabalhador em pequeno capitalista individual." },
+      { l: "B", text: "preservar o Estado burguês e ampliar a competição entre empresas.", correct: false, fb: "Incorreta. Marx critica o Estado burguês por considerá-lo ligado aos interesses da classe dominante." },
+      { l: "C", text: "tomar coletivamente os meios de produção e superar a dominação burguesa.", correct: true,  fb: "Correta! A revolução proletária visa superar a dominação burguesa por meio da transformação coletiva da propriedade dos meios de produção." },
+      { l: "D", text: "substituir a luta de classes por caridade entre ricos e pobres.", correct: false, fb: "Incorreta. A caridade pode aliviar sofrimentos imediatos, mas não transforma as bases estruturais da exploração." },
+      { l: "E", text: "fortalecer a propriedade privada como fundamento da igualdade social.", correct: false, fb: "Incorreta. Fortalecer a propriedade privada dos meios de produção manteria a base da exploração capitalista." }
     ]
   },
   {
-    id: 7, topic: "Exterioridade",
-    context: "As leis de trânsito, os sistemas religiosos e as regras familiares já existem quando uma criança nasce. Ao longo da vida, ela aprende a lidar com essas normas, mesmo não tendo participado de sua criação.",
-    text: "Esse exemplo evidencia a característica do fato social chamada",
+    id: 7,
+    topic: "Sócrates — Oráculo de Delfos e Autoconhecimento",
+    context: "Na tradição grega, a inscrição 'Conhece-te a ti mesmo' aparecia associada ao Oráculo de Delfos. Ao longo dos diálogos atribuídos a Sócrates, essa máxima passou a ser relacionada ao esforço de examinar crenças, valores e certezas pessoais.",
+    text: "A frase 'Conhece-te a ti mesmo' aproxima-se da filosofia socrática porque valoriza",
     answers: [
-      { l: "a", text: "generalidade.", correct: false, fb: "Incorreta. Generalidade refere-se à presença de um fato social em toda a extensão de um grupo, não à sua anterioridade ao indivíduo." },
-      { l: "b", text: "exterioridade.", correct: true, fb: "Correta! A exterioridade é a característica que indica que os fatos sociais existem fora do indivíduo, independentemente de sua vontade ou participação em sua criação." },
-      { l: "c", text: "subjetividade.", correct: false, fb: "Incorreta. Subjetividade é o oposto do que Durkheim defende: o fato social é objetivo, não subjetivo." },
-      { l: "d", text: "organicidade.", correct: false, fb: "Incorreta. Organicidade não é uma das três características clássicas do fato social em Durkheim." },
-      { l: "e", text: "espontaneidade.", correct: false, fb: "Incorreta. Os fatos sociais não surgem espontaneamente da vontade individual; são construções coletivas anteriores ao sujeito." }
+      { l: "A", text: "a investigação interior e o exame crítico da própria vida.", correct: true,  fb: "Correta! A frase expressa o autoconhecimento, elemento central em Sócrates." },
+      { l: "B", text: "a explicação da natureza por elementos materiais.", correct: false, fb: "Incorreta. A explicação da natureza por elementos materiais é preocupação dos pré-socráticos." },
+      { l: "C", text: "o domínio da retórica para vencer adversários.", correct: false, fb: "Incorreta. Sócrates não identifica autoconhecimento com domínio retórico." },
+      { l: "D", text: "a aceitação de opiniões coletivas sem questionamento.", correct: false, fb: "Incorreta. A aceitação de opiniões sem questionamento é criticada por Sócrates." },
+      { l: "E", text: "a substituição da razão por revelações míticas.", correct: false, fb: "Incorreta. Embora a frase esteja ligada a um oráculo, sua apropriação socrática envolve reflexão racional." }
     ]
   },
   {
-    id: 8, topic: "Generalidade",
-    context: "Um comportamento socialmente esperado não é fato social apenas por ocorrer uma vez ou por depender de uma experiência individual. Para Durkheim, ele precisa manifestar-se de modo amplo, sendo reconhecível em determinada sociedade.",
-    text: "A característica do fato social descrita no trecho é a",
+    id: 8,
+    topic: "Sócrates — Doxa no Cotidiano Digital",
+    context: "Em ambientes digitais, muitas pessoas compartilham conteúdos rapidamente, guiadas pela familiaridade do título ou pela concordância com crenças anteriores. Quando confrontadas, nem sempre conseguem explicar a origem da informação ou sustentar racionalmente o que divulgaram.",
+    text: "Em perspectiva socrática, essa atitude aproxima-se da doxa porque",
     answers: [
-      { l: "a", text: "coercitividade.", correct: false, fb: "Incorreta. Coercitividade é a pressão que o social exerce sobre o indivíduo, não a extensão do fenômeno no grupo." },
-      { l: "b", text: "exterioridade.", correct: false, fb: "Incorreta. Exterioridade refere-se ao caráter externo do fato social em relação ao indivíduo." },
-      { l: "c", text: "generalidade.", correct: true, fb: "Correta! Generalidade significa que o fato social está presente em toda a extensão da sociedade, não se limitando a experiências individuais ou episódios isolados." },
-      { l: "d", text: "anomia.", correct: false, fb: "Incorreta. Anomia designa ausência de normas reguladoras, não uma característica do fato social." },
-      { l: "e", text: "patologia.", correct: false, fb: "Incorreta. Patologia social refere-se a fenômenos que ameaçam o equilíbrio coletivo, não à extensão de um fato social." }
+      { l: "A", text: "expressa opinião aparente sem exame racional suficiente.", correct: true,  fb: "Correta! A atitude descrita se aproxima da doxa porque se baseia em opinião pouco examinada." },
+      { l: "B", text: "representa conhecimento verdadeiro alcançado pela reflexão.", correct: false, fb: "Incorreta. Conhecimento verdadeiro exige reflexão e fundamentação." },
+      { l: "C", text: "demonstra a superação do senso comum.", correct: false, fb: "Incorreta. A situação reforça o senso comum, não sua superação." },
+      { l: "D", text: "confirma a prática da maiêutica como parto das ideias.", correct: false, fb: "Incorreta. A maiêutica envolve perguntas sucessivas e exame profundo, o que não aparece na situação." },
+      { l: "E", text: "revela domínio da aleteia por meio do autoconhecimento.", correct: false, fb: "Incorreta. Aleteia corresponde ao saber verdadeiro; a situação mostra aparência de saber." }
     ]
   },
   {
-    id: 9, topic: "Coesão Social",
-    context: "Na aula, a coercitividade é apresentada como a característica central do fato social, pois a coerção ajuda a produzir adaptação e coesão. Isso significa que as normas coletivas orientam comportamentos e tornam a vida social mais previsível.",
-    text: "Nesse sentido, a coerção social, para Durkheim, atua como mecanismo de",
+    id: 9,
+    topic: "Karl Marx — Falsa Liberdade no Capitalismo",
+    context: "Uma pessoa desempregada aceita um emprego com longas jornadas, baixa remuneração e poucas garantias. O contrato foi assinado sem coerção física direta, mas a pessoa não dispunha de reservas financeiras nem de alternativas concretas para manter sua subsistência.",
+    text: "Na perspectiva marxista, essa situação revela que a liberdade no trabalho assalariado pode ser considerada 'falsa' porque",
     answers: [
-      { l: "a", text: "eliminação de toda diversidade social.", correct: false, fb: "Incorreta. Durkheim não defende a eliminação da diversidade, mas a integração das diferenças, especialmente na solidariedade orgânica." },
-      { l: "b", text: "organização dos vínculos coletivos.", correct: true, fb: "Correta! Para Durkheim, a coerção social não é apenas repressiva — ela organiza comportamentos, fortalece vínculos e contribui para a coesão da sociedade." },
-      { l: "c", text: "dissolução das instituições modernas.", correct: false, fb: "Incorreta. A coerção fortalece as instituições, não as dissolve." },
-      { l: "d", text: "rejeição completa da vida em sociedade.", correct: false, fb: "Incorreta. A coerção é condição para a vida social organizada, não sua negação." },
-      { l: "e", text: "substituição da coletividade pelo indivíduo.", correct: false, fb: "Incorreta. Durkheim defende a primazia do coletivo; a coerção reforça essa dimensão." }
+      { l: "A", text: "o trabalhador não possui nenhuma capacidade de escolha em qualquer circunstância.", correct: false, fb: "Incorreta. Marx não afirma que o trabalhador seja incapaz de escolher em qualquer situação; ele mostra que a escolha é limitada por condições materiais." },
+      { l: "B", text: "a escolha ocorre sob pressão das necessidades materiais de sobrevivência.", correct: true,  fb: "Correta! A escolha é formalmente livre, mas ocorre sob pressão econômica, pois o trabalhador precisa garantir sua sobrevivência." },
+      { l: "C", text: "o salário elimina todas as formas de exploração existentes.", correct: false, fb: "Incorreta. O salário não elimina a exploração; pode ocultá-la como se fosse uma troca plenamente justa." },
+      { l: "D", text: "o contrato de trabalho garante igualdade real entre patrão e empregado.", correct: false, fb: "Incorreta. O contrato cria igualdade jurídica formal, mas não igualdade material entre patrão e empregado." },
+      { l: "E", text: "o desemprego resulta exclusivamente da falta de qualificação individual.", correct: false, fb: "Incorreta. A alternativa individualiza um problema que, para Marx, está ligado à estrutura do capitalismo." }
     ]
   },
   {
-    id: 10, topic: "Coesão Comunitária",
-    context: "Em um bairro, moradores organizam redes de apoio, compartilham regras de convivência e reconhecem responsabilidades comuns na preservação dos espaços públicos. Essas práticas fortalecem o sentimento de pertencimento e a integração entre os membros do grupo.",
-    text: "Na perspectiva de Durkheim, esse cenário expressa",
+    id: 10,
+    topic: "Sócrates — Ignorância Socrática",
+    context: "Em vários diálogos filosóficos, Sócrates iniciava a conversa sem apresentar uma doutrina pronta. Ele convidava o interlocutor a explicar o que pensava sobre temas como justiça, coragem ou virtude, conduzindo a discussão por meio de novas perguntas.",
+    text: "A ignorância socrática deve ser entendida como",
     answers: [
-      { l: "a", text: "anomia, pela perda de referências coletivas.", correct: false, fb: "Incorreta. Anomia é exatamente o oposto: ausência de normas e enfraquecimento dos vínculos sociais." },
-      { l: "b", text: "coesão social, pela integração entre os indivíduos.", correct: true, fb: "Correta! O cenário descreve exatamente o que Durkheim entende por coesão social: vínculos compartilhados, normas comuns e sentimento de pertencimento coletivo." },
-      { l: "c", text: "patologia social, pela ampliação dos vínculos comunitários.", correct: false, fb: "Incorreta. A ampliação dos vínculos representa saúde social, não patologia." },
-      { l: "d", text: "exterioridade, pela inexistência de normas compartilhadas.", correct: false, fb: "Incorreta. O cenário mostra exatamente a presença de normas compartilhadas, não sua ausência." },
-      { l: "e", text: "fatalismo, pela ausência de participação social.", correct: false, fb: "Incorreta. O fatalismo, para Durkheim, relaciona-se à regulação excessiva — o cenário descreve participação ativa." }
-    ]
-  },
-  {
-    id: 11, topic: "Normal e Patológico",
-    context: "Durkheim diferencia fatos sociais normais e patológicos. Um fenômeno pode ser considerado normal quando permanece dentro de limites socialmente controláveis; torna-se patológico quando ameaça o equilíbrio coletivo e exige reação organizada da sociedade.",
-    text: "Um exemplo de fato social patológico é uma situação em que",
-    answers: [
-      { l: "a", text: "a sociedade reconhece um problema e consegue regulá-lo por meios comuns.", correct: false, fb: "Incorreta. Se a sociedade consegue regular o problema por meios comuns, o fenômeno está dentro dos limites do normal." },
-      { l: "b", text: "uma prática social recorrente contribui para ajustar leis e instituições.", correct: false, fb: "Incorreta. Essa situação representa o funcionamento adaptativo da sociedade, característico do normal." },
-      { l: "c", text: "um fenômeno coletivo ultrapassa a capacidade ordinária de controle social.", correct: true, fb: "Correta! O fato social torna-se patológico quando supera os mecanismos normais de controle e ameaça a coesão — exigindo resposta coletiva extraordinária." },
-      { l: "d", text: "uma conduta individual ocorre sem produzir consequências coletivas.", correct: false, fb: "Incorreta. Uma conduta sem consequências coletivas sequer se enquadra como fato social." },
-      { l: "e", text: "uma instituição cumpre sua função esperada de integração social.", correct: false, fb: "Incorreta. Isso descreve o funcionamento saudável de uma instituição, não uma patologia." }
-    ]
-  },
-  {
-    id: 12, topic: "Analogia Orgânica",
-    context: "A aula compara a sociedade a um corpo. Quando há febre, o corpo inteiro reage ao distúrbio; da mesma forma, quando um fato social se torna patológico, a sociedade precisa reagir coletivamente para restabelecer o equilíbrio.",
-    text: "Essa analogia reforça a ideia de que",
-    answers: [
-      { l: "a", text: "os problemas sociais podem ser resolvidos apenas pela vontade individual.", correct: false, fb: "Incorreta. A analogia ressalta a resposta coletiva, não individual." },
-      { l: "b", text: "as instituições sociais funcionam de maneira independente umas das outras.", correct: false, fb: "Incorreta. O corpo reage como um todo integrado — exatamente o contrário da independência entre partes." },
-      { l: "c", text: "a sociedade é um conjunto integrado, afetado por disfunções coletivas.", correct: true, fb: "Correta! Assim como o corpo reage inteiro à febre, a sociedade — como sistema integrado — é afetada e precisa reagir coletivamente diante de disfunções." },
-      { l: "d", text: "a ordem social independe da atuação das instituições.", correct: false, fb: "Incorreta. As instituições são como órgãos: fundamentais para o funcionamento saudável do conjunto." },
-      { l: "e", text: "os conflitos sociais são sempre externos ao funcionamento da sociedade.", correct: false, fb: "Incorreta. Conflitos e disfunções surgem dentro do próprio sistema social." }
-    ]
-  },
-  {
-    id: 13, topic: "Crime Normal e Patológico",
-    context: "Para Durkheim, o crime comum pode permanecer dentro de limites controláveis e até estimular mudanças nas leis e na fiscalização. Já o crime organizado, por sua complexidade e ramificação, ultrapassa o controle convencional e ameaça a coesão social.",
-    text: "A distinção entre crime normal e crime patológico depende, portanto, de",
-    answers: [
-      { l: "a", text: "sua existência ou inexistência em determinada sociedade.", correct: false, fb: "Incorreta. Tanto o crime normal quanto o patológico existem na sociedade; a diferença está em seu impacto e controlabilidade." },
-      { l: "b", text: "sua aceitação moral por todos os indivíduos do grupo.", correct: false, fb: "Incorreta. A normalidade durkheimiana não depende de aceitação moral universal, mas de funcionalidade social." },
-      { l: "c", text: "seu grau de controle social e impacto sobre a coesão.", correct: true, fb: "Correta! O critério é funcional: o crime é normal quando controlável e pode estimular adaptações; torna-se patológico quando ultrapassa os mecanismos de controle e ameaça a coesão." },
-      { l: "d", text: "sua origem exclusivamente psicológica ou individual.", correct: false, fb: "Incorreta. Durkheim rejeita explicações psicológicas individuais para fenômenos sociais." },
-      { l: "e", text: "sua capacidade de eliminar a necessidade de leis.", correct: false, fb: "Incorreta. Nenhuma forma de crime elimina a necessidade de leis — ao contrário, reforça sua importância." }
-    ]
-  },
-  {
-    id: 14, topic: "Suicídio como Fato Social",
-    context: "Durkheim analisou o suicídio como fenômeno social. Embora envolva uma decisão individual, suas taxas podem revelar níveis de integração, isolamento, crise ou excesso de coerção presentes na sociedade.",
-    text: "Essa interpretação indica que o suicídio, na teoria durkheimiana,",
-    answers: [
-      { l: "a", text: "deve ser explicado apenas por transtornos individuais.", correct: false, fb: "Incorreta. Durkheim critica exatamente essa abordagem — o suicídio deve ser explicado por fatores sociais, não apenas individuais." },
-      { l: "b", text: "revela relações entre vínculos sociais e comportamento individual.", correct: true, fb: "Correta! Para Durkheim, as taxas de suicídio revelam o estado da coesão social: integração, anomia, fatalismo ou altruísmo — todos são fatores coletivos que influenciam o comportamento individual." },
-      { l: "c", text: "deixa de ser objeto científico por envolver sofrimento subjetivo.", correct: false, fb: "Incorreta. Durkheim trata o suicídio como fato social objetivo, analisável pela Sociologia." },
-      { l: "d", text: "ocorre independentemente das condições coletivas de existência.", correct: false, fb: "Incorreta. A tese central de Durkheim é exatamente a dependência entre suicídio e condições coletivas." },
-      { l: "e", text: "comprova que a sociedade não interfere nas escolhas pessoais.", correct: false, fb: "Incorreta. A obra de Durkheim sobre o suicídio demonstra o contrário: a sociedade interfere profundamente nas escolhas e nos comportamentos individuais." }
-    ]
-  },
-  {
-    id: 15, topic: "Solidariedade Mecânica e Orgânica",
-    context: "Na solidariedade mecânica, típica de sociedades tradicionais, a identidade coletiva prevalece sobre as escolhas individuais. Na solidariedade orgânica, associada à modernidade e à divisão do trabalho, há maior autonomia, pluralidade e interdependência, mas também risco de enfraquecimento dos laços sociais.",
-    text: "A diferença entre essas formas de solidariedade está relacionada ao modo como",
-    answers: [
-      { l: "a", text: "a tradição e a divisão do trabalho organizam os vínculos sociais.", correct: true, fb: "Correta! A solidariedade mecânica é sustentada pela semelhança e pela tradição; a orgânica, pela divisão do trabalho e pela interdependência entre funções diferentes — dois modos distintos de organizar os vínculos coletivos." },
-      { l: "b", text: "a coerção desaparece completamente nas sociedades modernas.", correct: false, fb: "Incorreta. A coerção não desaparece na modernidade — muda de forma, tornando-se mais sutil e institucionalizada." },
-      { l: "c", text: "a individualidade é eliminada pela solidariedade orgânica.", correct: false, fb: "Incorreta. Na solidariedade orgânica há maior autonomia e valorização da individualidade, não sua eliminação." },
-      { l: "d", text: "a anomia garante maior integração nas sociedades industriais.", correct: false, fb: "Incorreta. Anomia é justamente o risco da solidariedade orgânica — a ausência de normas que pode enfraquecer os vínculos." },
-      { l: "e", text: "a modernidade substitui instituições por relações sem normas.", correct: false, fb: "Incorreta. As instituições continuam existindo na modernidade; o que muda é a base da solidariedade, não o desaparecimento das normas." }
+      { l: "A", text: "incapacidade real de formular qualquer pensamento filosófico.", correct: false, fb: "Incorreta. A ignorância socrática não significa incapacidade intelectual." },
+      { l: "B", text: "estratégia de investigação que permite revelar falsos saberes.", correct: true,  fb: "Correta! Ela é uma estratégia de investigação: Sócrates parte da posição de quem não sabe para examinar as respostas do interlocutor e revelar fragilidades no falso saber." },
+      { l: "C", text: "abandono definitivo da busca pela verdade.", correct: false, fb: "Incorreta. Sócrates não abandona a busca pela verdade." },
+      { l: "D", text: "aceitação passiva de todas as opiniões do interlocutor.", correct: false, fb: "Incorreta. Sócrates não aceita passivamente as opiniões; ele as questiona." },
+      { l: "E", text: "prova de que a filosofia é impossível.", correct: false, fb: "Incorreta. A ignorância socrática não torna a filosofia impossível; ela funciona como ponto de partida da investigação filosófica." }
     ]
   }
 ];
@@ -931,15 +767,12 @@ function updateProgress() {
   const pct = ((current + 1) / questions.length) * 100;
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = `Questão ${current + 1} de ${questions.length}`;
-
   questions.forEach((q, i) => {
     const d = document.getElementById(`dot-${i}`);
     if (!d) return;
     d.className = 'dot';
-    if (i === current) { d.classList.add('current'); }
-    else if (answers[q.id]) {
-      d.classList.add(answers[q.id].correct ? 'answered-correct' : 'answered-wrong');
-    }
+    if (i === current) d.classList.add('current');
+    else if (answers[q.id]) d.classList.add(answers[q.id].correct ? 'answered-correct' : 'answered-wrong');
   });
 }
 
@@ -964,16 +797,11 @@ function render() {
   q.answers.forEach(a => {
     let cls = 'answer-btn';
     let disabled = '';
-
     if (ans) {
-      if (a.l === ans.letter) {
-        cls += ans.correct ? ' correct' : ' wrong';
-      } else if (ans.correct) {
-        cls += ' dim';
-      }
+      if (a.l === ans.letter) cls += ans.correct ? ' correct' : ' wrong';
+      else if (ans.correct) cls += ' dim';
       if (ans.correct) disabled = 'disabled';
     }
-
     html += `
       <button class="${cls}" ${disabled} onclick="pick(${q.id},'${a.l}',${a.correct})">
         <span class="letter-badge">${a.l}</span>
@@ -1018,31 +846,28 @@ function render() {
 function pick(qId, letter, correct) {
   const prev = answers[qId];
   if (prev && prev.correct) return;
-
   answers[qId] = { letter, correct };
-
   if (!correct) {
-    const btns = document.querySelectorAll('.answer-btn');
-    btns.forEach(b => {
+    document.querySelectorAll('.answer-btn').forEach(b => {
       if (b.querySelector('.letter-badge')?.textContent === letter) {
         b.classList.add('shake');
         setTimeout(() => b.classList.remove('shake'), 400);
       }
     });
   }
-
   render();
 }
 
 function go(dir) {
   current = Math.max(0, Math.min(questions.length - 1, current + dir));
-  document.getElementById('cardInner').style.opacity = '0';
-  document.getElementById('cardInner').style.transform = 'translateY(10px)';
+  const ci = document.getElementById('cardInner');
+  ci.style.opacity = '0';
+  ci.style.transform = 'translateY(10px)';
   setTimeout(() => {
     render();
-    document.getElementById('cardInner').style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    document.getElementById('cardInner').style.opacity = '1';
-    document.getElementById('cardInner').style.transform = 'translateY(0)';
+    ci.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    ci.style.opacity = '1';
+    ci.style.transform = 'translateY(0)';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 150);
 }
@@ -1052,10 +877,10 @@ function showResults() {
   const pct = Math.round((correct / questions.length) * 100);
 
   let emoji = '📜';
-  let msg = 'Continue seus estudos — a sabedoria é construída com dedicação.';
-  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre a teoria durkheimiana.'; }
+  let msg = 'Continue seus estudos — a sabedoria filosófica é construída com dedicação e reflexão.';
+  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre Marx e Sócrates.'; }
   else if (pct >= 70) { emoji = '⚖️'; msg = 'Ótimo desempenho! Reforce alguns conceitos e você chegará lá.'; }
-  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Revise os tópicos sobre fato social e solidariedade.'; }
+  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Revise os tópicos sobre ideologia, infraestrutura e doxa socrática.'; }
 
   const r = 66, cx = 80, cy = 80;
   const circ = 2 * Math.PI * r;
@@ -1063,11 +888,9 @@ function showResults() {
 
   document.getElementById('quizCard').style.display = 'none';
   document.getElementById('progressSection').style.opacity = '0.4';
+  document.getElementById('resultsCard').style.display = 'block';
 
-  const rc = document.getElementById('resultsCard');
-  rc.style.display = 'block';
-
-  let reviewPips = questions.map((q) => {
+  const reviewPips = questions.map(q => {
     const a = answers[q.id];
     const cls = a && a.correct ? 'ok' : 'fail';
     return `<div class="review-pip ${cls}" title="Questão ${q.id}: ${q.topic}">${q.id}</div>`;
@@ -1076,8 +899,7 @@ function showResults() {
   document.getElementById('resultsInner').innerHTML = `
     <div class="results-ornament">${emoji}</div>
     <h2 class="results-heading">Quiz Concluído</h2>
-    <p class="results-subheading">Émile Durkheim — ${questions.length} questões</p>
-
+    <p class="results-subheading">Marx & Sócrates — ${questions.length} questões</p>
     <div class="score-ring-wrap">
       <div class="score-ring">
         <svg width="160" height="160" viewBox="0 0 160 160">
@@ -1092,9 +914,7 @@ function showResults() {
         </div>
       </div>
     </div>
-
     <p class="results-feedback-text">${msg}</p>
-
     <div class="stats-row">
       <div class="stat-block">
         <div class="stat-block-value" style="color:#2d7a3a">${correct}</div>
@@ -1109,12 +929,10 @@ function showResults() {
         <div class="stat-block-label">Aproveitamento</div>
       </div>
     </div>
-
     <div class="answer-review">
       <div class="review-title">Revisão por questão</div>
       <div class="review-grid">${reviewPips}</div>
     </div>
-
     <button class="retry-btn" onclick="restart()">Recomeçar o Quiz</button>
   `;
 }
