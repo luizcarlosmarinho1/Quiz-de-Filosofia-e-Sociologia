@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Filosófico — Platão</title>
+  <title>Quiz ENEM — Aristóteles e Max Weber</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
   <style>
@@ -592,16 +592,16 @@
   <header class="header">
     <div class="header-ornament">✦ ✦ ✦</div>
     <h1>Quiz de Filosofia <span>Antiga</span></h1>
-    <p class="header-subtitle">Platão</p>
+    <p class="header-subtitle">Aristóteles e Max Weber • estilo ENEM</p>
   </header>
 
   <div class="progress-section" id="progressSection">
     <div class="progress-meta">
-      <span class="progress-label" id="progressLabel">Questão 1 de 10</span>
+      <span class="progress-label" id="progressLabel">Questão 1 de 15</span>
       <div class="progress-dots" id="progressDots"></div>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" id="progressFill" style="width:10%"></div>
+      <div class="progress-bar-fill" id="progressFill" style="width:6.67%"></div>
     </div>
   </div>
 
@@ -618,133 +618,573 @@
 <script>
 const questions = [
   {
-    id: 1,
-    topic: "Platão — Idealismo (Mundo Inteligível x Sensível)",
-    context: "Ao observar uma cadeira de madeira, gasta pelo uso diário, um professor de filosofia pergunta aos alunos por que, mesmo diante de modelos tão diferentes de cadeiras — altas, baixas, de metal, de madeira —, todas são imediatamente reconhecidas como 'cadeiras'. Ele sugere que isso só é possível porque existiria, em algum nível, um modelo perfeito e universal de cadeira, do qual os objetos concretos seriam apenas cópias imperfeitas.",
-    text: "Essa reflexão do professor ilustra o conceito central do Idealismo platônico, segundo o qual",
-    answers: [
-      { l: "A", text: "as ideias são construções mentais sem existência própria, dependentes inteiramente da percepção sensorial de cada indivíduo.", correct: false, fb: "Incorreta. Para Platão, as ideias não dependem da percepção individual; ao contrário, possuem existência própria e independente do mundo sensível." },
-      { l: "B", text: "as formas ou ideias constituem uma realidade perfeita e eterna, anterior e superior aos objetos materiais, que são apenas suas cópias imperfeitas.", correct: true,  fb: "Correta! No Idealismo platônico, o mundo das ideias é a realidade verdadeira, perfeita e imutável; os objetos sensíveis, como a cadeira observada, são cópias imperfeitas e transitórias dessas formas universais." },
-      { l: "C", text: "o conhecimento sensível dos objetos concretos é a única via confiável para se compreender a essência das coisas.", correct: false, fb: "Incorreta. Platão desconfiava dos sentidos como via de acesso à verdadeira essência; para ele, é a razão, e não a percepção sensível, que permite alcançar o conhecimento das formas." },
-      { l: "D", text: "cada cultura cria suas próprias ideias de forma arbitrária, não havendo essências universais compartilhadas.", correct: false, fb: "Incorreta. O Idealismo platônico pressupõe justamente o oposto: a existência de essências universais e imutáveis, válidas para além de qualquer cultura específica." },
-      { l: "E", text: "a matéria é eterna e perfeita, enquanto as ideias são reflexos passageiros e imperfeitos do mundo sensível.", correct: false, fb: "Incorreta. A alternativa inverte a hierarquia platônica: é o mundo inteligível das ideias que é eterno e perfeito, enquanto a matéria é imperfeita e transitória." }
+    "id": 1,
+    "topic": "Aristóteles — Conhecimento e experiência",
+    "context": "Durante uma pesquisa sobre plantas medicinais, estudantes observam espécies diferentes, registram seus efeitos, comparam resultados e, depois, organizam explicações gerais. O conhecimento não surge apenas de uma ideia abstrata, mas do diálogo entre observação e raciocínio.",
+    "text": "A situação apresentada aproxima-se da teoria do conhecimento de Aristóteles porque valoriza",
+    "answers": [
+      {
+        "l": "A",
+        "text": "a rejeição da razão, considerada incapaz de organizar os dados fornecidos pelos sentidos.",
+        "correct": false,
+        "fb": "Incorreta. Aristóteles valoriza os sentidos, mas não abandona a razão. O conhecimento resulta da articulação entre experiência e pensamento."
+      },
+      {
+        "l": "B",
+        "text": "a experiência sensível como ponto de partida para a elaboração racional do conhecimento.",
+        "correct": true,
+        "fb": "Correta! Aristóteles reconhece a importância da observação e da experiência. A razão organiza esses dados e permite chegar a explicações mais gerais."
+      },
+      {
+        "l": "C",
+        "text": "a existência de ideias prontas na alma, independentes de qualquer contato com o mundo.",
+        "correct": false,
+        "fb": "Incorreta. Essa formulação se aproxima do inatismo platônico. Aristóteles atribui papel decisivo à experiência."
+      },
+      {
+        "l": "D",
+        "text": "a opinião coletiva como critério suficiente para determinar a verdade científica.",
+        "correct": false,
+        "fb": "Incorreta. A opinião comum não substitui a investigação baseada em observação e raciocínio."
+      },
+      {
+        "l": "E",
+        "text": "a superioridade absoluta das aparências, que dispensariam qualquer explicação racional.",
+        "correct": false,
+        "fb": "Incorreta. Os sentidos são importantes, mas precisam ser examinados e organizados racionalmente."
+      }
     ]
   },
   {
-    id: 2,
-    topic: "Platão — Alegoria da Caverna",
-    context: "Uma pessoa que consome notícias exclusivamente por meio de vídeos curtos selecionados por algoritmos de redes sociais acredita ter uma visão completa e verdadeira dos acontecimentos do mundo. Ao ser apresentada, por um amigo, a fontes primárias e análises mais aprofundadas sobre os mesmos temas, sente-se inicialmente confusa e resistente, mas aos poucos passa a questionar a versão simplificada que antes considerava suficiente.",
-    text: "Essa situação pode ser associada à Alegoria da Caverna, de Platão, na medida em que",
-    answers: [
-      { l: "A", text: "representa o momento em que o prisioneiro retorna à caverna para libertar os demais, tarefa recebida com gratidão imediata pelos outros prisioneiros.", correct: false, fb: "Incorreta. No mito, o retorno do prisioneiro liberto costuma ser recebido com desconfiança e hostilidade, não com gratidão imediata." },
-      { l: "B", text: "mostra a passagem das sombras projetadas (informações superficiais) para o contato com uma realidade mais complexa, processo que costuma ser desconfortável no início.", correct: true,  fb: "Correta! Assim como o prisioneiro liberto estranha e resiste inicialmente à luz fora da caverna, a pessoa do exemplo reage com desconforto ao sair do conforto das informações superficiais em direção a um conhecimento mais elaborado." },
-      { l: "C", text: "demonstra que as sombras da caverna representam o verdadeiro conhecimento, superior às explicações mais elaboradas.", correct: false, fb: "Incorreta. As sombras simbolizam justamente as aparências e o conhecimento superficial, e não a verdade; para Platão, o conhecimento verdadeiro está fora da caverna." },
-      { l: "D", text: "indica que, para Platão, todo conhecimento sensível deve ser aceito sem exame, pois reflete diretamente o mundo das ideias.", correct: false, fb: "Incorreta. Para Platão, o conhecimento sensível não deve ser aceito sem exame; é a razão, e não os sentidos, que conduz ao mundo das ideias." },
-      { l: "E", text: "evidencia que a razão, nesse mito, é representada pelas correntes que prendem os prisioneiros no fundo da caverna.", correct: false, fb: "Incorreta. As correntes simbolizam a ignorância e o aprisionamento às aparências, e não a razão, que é justamente o que possibilita a libertação." }
+    "id": 2,
+    "topic": "Aristóteles — Animal político e felicidade",
+    "context": "Uma cidade cria espaços de participação comunitária nos quais os moradores discutem problemas do bairro, formulam propostas e assumem responsabilidades coletivas. A iniciativa parte da ideia de que o desenvolvimento humano não ocorre de forma plenamente isolada.",
+    "text": "Essa iniciativa expressa uma concepção aristotélica segundo a qual",
+    "answers": [
+      {
+        "l": "A",
+        "text": "a vida política impede a felicidade, pois submete o indivíduo aos interesses da coletividade.",
+        "correct": false,
+        "fb": "Incorreta. Para Aristóteles, a vida coletiva é condição para o desenvolvimento humano e para a busca da felicidade."
+      },
+      {
+        "l": "B",
+        "text": "a felicidade depende principalmente da acumulação de bens privados e do afastamento da vida pública.",
+        "correct": false,
+        "fb": "Incorreta. A eudaimonia não se reduz à riqueza nem ao isolamento."
+      },
+      {
+        "l": "C",
+        "text": "a natureza humana é individualista, sendo a sociedade apenas um acordo artificial entre pessoas.",
+        "correct": false,
+        "fb": "Incorreta. Aristóteles entende a sociabilidade como parte da própria natureza humana."
+      },
+      {
+        "l": "D",
+        "text": "o ser humano realiza suas capacidades na convivência política, e a felicidade possui uma dimensão compartilhada.",
+        "correct": true,
+        "fb": "Correta! O ser humano é um animal político. A vida na comunidade permite desenvolver virtudes e buscar a eudaimonia."
+      },
+      {
+        "l": "E",
+        "text": "a participação pública deve ser substituída pela contemplação privada, única atividade compatível com a razão.",
+        "correct": false,
+        "fb": "Incorreta. A reflexão é importante, mas Aristóteles não elimina a dimensão política da realização humana."
+      }
     ]
   },
   {
-    id: 3,
-    topic: "Platão — Inatismo",
-    context: "Em um experimento pedagógico, um professor conduz uma criança que nunca teve aulas formais de geometria, por meio de uma sequência de perguntas, até que ela mesma chegue a uma conclusão matemática correta, sem que o professor jamais lhe forneça a resposta diretamente.",
-    text: "Esse tipo de situação é frequentemente utilizado para ilustrar a teoria platônica do(a)",
-    answers: [
-      { l: "A", text: "empirismo, segundo o qual todo conhecimento humano deriva exclusivamente da experiência sensorial acumulada ao longo da vida.", correct: false, fb: "Incorreta. O empirismo é uma corrente posterior e distinta do pensamento platônico; para Platão, o conhecimento não deriva exclusivamente da experiência sensível." },
-      { l: "B", text: "inatismo, segundo o qual o saber já está presente na alma desde o nascimento, podendo ser acessado por meio da razão.", correct: true,  fb: "Correta! O inatismo platônico defende que o conhecimento nasce com o indivíduo; perguntas bem conduzidas apenas ajudam a 'trazer à tona' um saber que já estava latente na alma." },
-      { l: "C", text: "sofística, segundo a qual o conhecimento é uma construção retórica voltada para persuadir outras pessoas.", correct: false, fb: "Incorreta. A sofística está associada à técnica de persuasão, e não à ideia de um saber inato acessado pela razão, como no caso descrito." },
-      { l: "D", text: "dialética hegeliana, segundo a qual o conhecimento avança pela superação de contradições históricas.", correct: false, fb: "Incorreta. A dialética hegeliana é um conceito muito posterior a Platão e trata de contradições históricas, não do saber inato da alma." },
-      { l: "E", text: "alienação, segundo a qual o indivíduo perde a consciência de si mesmo ao realizar tarefas repetitivas.", correct: false, fb: "Incorreta. Alienação é um conceito da tradição marxista, sem relação direta com o experimento pedagógico descrito, que ilustra o inatismo platônico." }
+    "id": 3,
+    "topic": "Aristóteles — Virtude e meio-termo",
+    "context": "Ao administrar recursos de uma associação, uma pessoa evita tanto gastar todo o dinheiro em benefício próprio quanto doar tudo sem garantir a continuidade do projeto. Ela avalia as circunstâncias e escolhe uma medida equilibrada, capaz de atender necessidades individuais e coletivas.",
+    "text": "A conduta descrita exemplifica a ética aristotélica por apresentar a virtude como",
+    "answers": [
+      {
+        "l": "A",
+        "text": "obediência automática a uma regra fixa, válida da mesma maneira em qualquer situação.",
+        "correct": false,
+        "fb": "Incorreta. A ética aristotélica exige avaliação racional das circunstâncias, e não aplicação mecânica de uma fórmula."
+      },
+      {
+        "l": "B",
+        "text": "negação de todo interesse pessoal em favor do sacrifício permanente pelo grupo.",
+        "correct": false,
+        "fb": "Incorreta. Esse extremo também rompe o equilíbrio buscado pela ética do meio-termo."
+      },
+      {
+        "l": "C",
+        "text": "escolha racional do meio-termo entre excessos, orientada pelo bem comum e fortalecida pelo hábito.",
+        "correct": true,
+        "fb": "Correta! A virtude evita excessos e faltas. Ela é construída pela prática repetida de escolhas racionais voltadas ao bem comum."
+      },
+      {
+        "l": "D",
+        "text": "busca do prazer imediato, considerado o critério universal de uma vida feliz.",
+        "correct": false,
+        "fb": "Incorreta. Aristóteles não identifica a felicidade com o prazer imediato."
+      },
+      {
+        "l": "E",
+        "text": "renúncia à razão, pois decisões éticas dependeriam apenas de sentimentos espontâneos.",
+        "correct": false,
+        "fb": "Incorreta. A razão é essencial para calcular a medida adequada da ação."
+      }
     ]
   },
   {
-    id: 4,
-    topic: "Platão — Timeu, o Demiurgo e os dois mundos",
-    context: "No diálogo 'Timeu', Platão narra que um artesão divino, o Demiurgo, teria organizado a matéria caótica tomando como modelo um padrão perfeito e imutável, dando origem ao mundo material em que vivemos.",
-    text: "Nessa narrativa cosmológica, a relação entre o modelo utilizado pelo Demiurgo e o mundo por ele criado corresponde, na filosofia platônica, à relação entre",
-    answers: [
-      { l: "A", text: "o mundo sensível, perfeito e eterno, e o mundo inteligível, imperfeito e transitório, que dele deriva.", correct: false, fb: "Incorreta. A alternativa inverte a hierarquia platônica: é o mundo inteligível que é perfeito e eterno, e o mundo sensível que é imperfeito e transitório." },
-      { l: "B", text: "a doxa, saber verdadeiro alcançado pelos sentidos, e a aleteia, opinião comum sem fundamento racional.", correct: false, fb: "Incorreta. A alternativa troca as definições: doxa é a opinião comum não examinada, e aleteia é o saber verdadeiro alcançado pela razão." },
-      { l: "C", text: "o mundo inteligível, perfeito e imutável, e o mundo sensível, imperfeito e sujeito a mudanças, que é cópia do primeiro.", correct: true,  fb: "Correta! O modelo usado pelo Demiurgo é o mundo inteligível — perfeito, eterno e imaterial — e o mundo criado a partir dele é o mundo sensível, material e imperfeito, que reproduz de forma incompleta esse padrão." },
-      { l: "D", text: "a alma racional, mortal e corruptível, e o corpo, imortal e perfeito, que a aprisiona temporariamente.", correct: false, fb: "Incorreta. Para Platão, é a alma que é imortal e associada à razão, enquanto o corpo, material, é mortal e corruptível — o oposto do que afirma a alternativa." },
-      { l: "E", text: "o télos individual, definido arbitrariamente por cada pessoa, e a justiça social, que independe do propósito da alma.", correct: false, fb: "Incorreta. O télos, para Platão, não é definido arbitrariamente, e a justiça social está diretamente ligada ao cumprimento do télos de cada alma, não sendo independente dele." }
+    "id": 4,
+    "topic": "Aristóteles — Deliberação e responsabilidade",
+    "context": "Moradores não podem decidir se uma tempestade ocorrerá, mas podem discutir a manutenção de bueiros, a criação de rotas de evacuação e o uso do orçamento municipal para reduzir seus impactos.",
+    "text": "Na perspectiva aristotélica, a deliberação é possível nesse caso porque se refere a",
+    "answers": [
+      {
+        "l": "A",
+        "text": "ações possíveis que dependem, ao menos parcialmente, das escolhas humanas.",
+        "correct": true,
+        "fb": "Correta! Deliberamos sobre aquilo que pode ser diferente e está sob algum controle da ação humana."
+      },
+      {
+        "l": "B",
+        "text": "fenômenos naturais necessários, cuja ocorrência pode ser alterada apenas pela vontade coletiva.",
+        "correct": false,
+        "fb": "Incorreta. A tempestade não depende da decisão dos moradores. O que pode ser deliberado são as respostas humanas a ela."
+      },
+      {
+        "l": "C",
+        "text": "verdades eternas, que precisam ser aprovadas politicamente antes de serem consideradas válidas.",
+        "correct": false,
+        "fb": "Incorreta. Verdades necessárias e imutáveis não são objetos de deliberação prática."
+      },
+      {
+        "l": "D",
+        "text": "acontecimentos passados, que podem ser modificados por uma decisão tomada no presente.",
+        "correct": false,
+        "fb": "Incorreta. O passado não pode ser alterado pela ação atual."
+      },
+      {
+        "l": "E",
+        "text": "qualquer desejo individual, mesmo quando sua realização é impossível.",
+        "correct": false,
+        "fb": "Incorreta. A deliberação exige possibilidades reais de ação."
+      }
     ]
   },
   {
-    id: 5,
-    topic: "Platão — Reminiscência",
-    context: "Um estudante, ao ser apresentado pela primeira vez a um conceito filosófico complexo, relata a sensação de que já 'sabia' aquilo de alguma forma, como se estivesse apenas recordando algo esquecido, e não aprendendo uma informação totalmente nova.",
-    text: "Essa sensação relatada pelo estudante aproxima-se da teoria platônica da reminiscência, segundo a qual",
-    answers: [
-      { l: "A", text: "todo conhecimento verdadeiro depende exclusivamente da observação repetida de fenômenos sensíveis ao longo da vida.", correct: false, fb: "Incorreta. A reminiscência não depende da observação repetida dos sentidos; trata-se de recordar um saber que a alma já possuía antes da experiência sensível." },
-      { l: "B", text: "aprender é, na verdade, recordar um saber que a alma já possuía antes de sua união com o corpo, no mundo inteligível.", correct: true,  fb: "Correta! Para Platão, a alma, antes de unir-se ao corpo, contemplou o mundo das ideias; aprender é reativar, por meio da razão, esse conhecimento que já estava gravado nela." },
-      { l: "C", text: "a memória é uma faculdade inferior à imaginação, sendo dispensável no processo de conhecimento filosófico.", correct: false, fb: "Incorreta. Na teoria da reminiscência, a memória tem papel central, pois é por meio dela que a alma recupera o saber esquecido; ela não é dispensável nem inferior à imaginação." },
-      { l: "D", text: "o esquecimento é permanente e irreversível, tornando impossível qualquer acesso a saberes anteriores à experiência atual.", correct: false, fb: "Incorreta. A reminiscência afirma justamente o contrário: apesar do esquecimento provocado pela união com o corpo, é possível recuperar o saber por meio da razão." },
-      { l: "E", text: "o conhecimento inato se refere apenas às habilidades práticas, como andar ou falar, não a conceitos abstratos.", correct: false, fb: "Incorreta. A reminiscência platônica trata justamente de conceitos abstratos e universais, como o bem, a justiça e a beleza, e não de habilidades práticas elementares." }
+    "id": 5,
+    "topic": "Aristóteles — Formas de governo",
+    "context": "Em dois países, o poder está concentrado em uma única pessoa. No primeiro, o governante respeita leis e orienta suas decisões para o interesse da comunidade. No segundo, governa de forma arbitrária e utiliza o cargo para benefício próprio.",
+    "text": "Segundo a classificação aristotélica das formas de governo, esses regimes correspondem, respectivamente, a",
+    "answers": [
+      {
+        "l": "A",
+        "text": "aristocracia e oligarquia.",
+        "correct": false,
+        "fb": "Incorreta. Aristocracia e oligarquia são formas de governo exercidas por poucos."
+      },
+      {
+        "l": "B",
+        "text": "monarquia e tirania.",
+        "correct": true,
+        "fb": "Correta! A monarquia é a forma orientada ao bem comum. Quando o governante usa o poder em interesse próprio e sem limites, ocorre a tirania."
+      },
+      {
+        "l": "C",
+        "text": "politeia e demagogia.",
+        "correct": false,
+        "fb": "Incorreta. Essas categorias se relacionam ao governo de muitos."
+      },
+      {
+        "l": "D",
+        "text": "oligarquia e democracia.",
+        "correct": false,
+        "fb": "Incorreta. Nenhuma das duas descreve adequadamente o governo de uma só pessoa."
+      },
+      {
+        "l": "E",
+        "text": "democracia e aristocracia.",
+        "correct": false,
+        "fb": "Incorreta. A primeira corresponde ao governo de muitos e a segunda ao governo de poucos."
+      }
     ]
   },
   {
-    id: 6,
-    topic: "Platão — Justiça e Télos (A República)",
-    context: "Em uma determinada sociedade, ocorre com frequência que pessoas com vocação e talento para a educação assumem cargos administrativos que não lhes interessam, enquanto outras, sem preparo para a área, ocupam funções de ensino apenas por conveniência ou interesse financeiro. Observadores apontam um crescente clima de insatisfação e desorganização social.",
-    text: "De acordo com a concepção platônica de justiça, desenvolvida na obra 'A República', esse cenário pode ser interpretado como",
-    answers: [
-      { l: "A", text: "resultado da ausência de leis escritas, o que impossibilitaria a organização racional da sociedade.", correct: false, fb: "Incorreta. Para Platão, a justiça de uma sociedade não depende primordialmente da existência de leis escritas, mas do cumprimento do télos de cada alma." },
-      { l: "B", text: "uma expressão de justiça, pois a livre escolha profissional é o critério central da teoria platônica sobre a alma.", correct: false, fb: "Incorreta. Para Platão, a justiça não está na livre escolha profissional, mas no ajuste entre a vocação da alma (seu télos) e a função exercida na sociedade." },
-      { l: "C", text: "consequência do desajuste entre os indivíduos e o télos de suas almas, o que compromete a justiça da sociedade como um todo.", correct: true,  fb: "Correta! Para Platão, a justiça social depende de que cada pessoa cumpra o télos de sua alma; quando pessoas ocupam funções desalinhadas com sua verdadeira vocação, gera-se desajuste e injustiça coletiva." },
-      { l: "D", text: "prova de que a justiça, para Platão, depende exclusivamente da distribuição igualitária de bens materiais entre os cidadãos.", correct: false, fb: "Incorreta. A justiça platônica não se define pela distribuição material igualitária, mas pelo cumprimento do télos de cada alma dentro da sociedade." },
-      { l: "E", text: "evidência de que a democracia é, nesse contexto, o regime mais adequado para corrigir o desajuste social descrito.", correct: false, fb: "Incorreta. Platão era crítico da democracia, defendendo que o governo deveria caber aos mais preparados racionalmente, e não à maioria." }
+    "id": 6,
+    "topic": "Aristóteles — Teoria das quatro causas",
+    "context": "Para explicar uma escultura, um pesquisador identifica o bronze de que ela é feita, a forma que apresenta, o trabalho do escultor e a finalidade comemorativa para a qual foi produzida.",
+    "text": "A explicação mobiliza a teoria aristotélica das quatro causas ao relacionar, nessa ordem, as causas",
+    "answers": [
+      {
+        "l": "A",
+        "text": "material, formal, eficiente e final.",
+        "correct": true,
+        "fb": "Correta! Bronze é a causa material; a configuração da obra é a formal; o escultor e seu trabalho constituem a eficiente; a comemoração é a causa final."
+      },
+      {
+        "l": "B",
+        "text": "final, eficiente, formal e material.",
+        "correct": false,
+        "fb": "Incorreta. A sequência apresentada começa pela matéria e termina pela finalidade."
+      },
+      {
+        "l": "C",
+        "text": "formal, material, final e eficiente.",
+        "correct": false,
+        "fb": "Incorreta. A ordem não corresponde aos elementos apresentados no texto."
+      },
+      {
+        "l": "D",
+        "text": "eficiente, final, material e formal.",
+        "correct": false,
+        "fb": "Incorreta. O agente produtor aparece apenas no terceiro elemento do exemplo."
+      },
+      {
+        "l": "E",
+        "text": "material, eficiente, final e formal.",
+        "correct": false,
+        "fb": "Incorreta. A forma é mencionada antes do trabalho do escultor, e a finalidade aparece ao final."
+      }
     ]
   },
   {
-    id: 7,
-    topic: "Platão — Amor Platônico e o mito do andrógino",
-    context: "Em uma conversa sobre relacionamentos, uma pessoa afirma buscar incessantemente uma conexão amorosa 'perfeita e completa', capaz de preencher integralmente um sentimento de incompletude que carrega desde sempre, mesmo sabendo, racionalmente, que essa busca talvez nunca se realize de forma definitiva.",
-    text: "Esse relato pode ser relacionado ao mito platônico do andrógino, segundo o qual",
-    answers: [
-      { l: "A", text: "os seres humanos são almas totalmente autossuficientes, para quem o amor é apenas uma conveniência social dispensável.", correct: false, fb: "Incorreta. O mito do andrógino descreve justamente o oposto: os seres humanos carregam um sentimento originário de incompletude, e não de autossuficiência plena." },
-      { l: "B", text: "os seres humanos seriam metades de um ser original dividido como punição, o que explicaria a busca contínua por uma união que restaure a completude perdida.", correct: true,  fb: "Correta! Segundo o mito, os andróginos, seres perfeitos e duplos, foram divididos ao meio como punição; cada alma humana seria uma dessas metades, condenada a buscar eternamente a outra parte perdida." },
-      { l: "C", text: "a busca amorosa é um erro dos sentidos que deve ser eliminado por meio do exercício exclusivo da razão.", correct: false, fb: "Incorreta. O mito não trata a busca amorosa como um simples erro sensorial a ser eliminado, mas como consequência de uma condição original da alma." },
-      { l: "D", text: "o amor verdadeiro só existe entre almas de sábios, sendo vedado às demais almas descritas na República.", correct: false, fb: "Incorreta. O mito do andrógino não restringe a busca amorosa a um tipo específico de alma; a condição de incompletude é apresentada como universal." },
-      { l: "E", text: "a incompletude amorosa resulta exclusivamente de escolhas erradas feitas na vida presente, sem qualquer relação com uma condição original da alma.", correct: false, fb: "Incorreta. Para o mito, a incompletude tem origem em uma punição ocorrida antes da vida presente, e não em escolhas feitas ao longo da vida atual." }
+    "id": 7,
+    "topic": "Aristóteles — Ato e potência",
+    "context": "Uma semente já possui determinadas características em ato, mas, em condições adequadas, pode transformar-se em árvore. A árvore não surge de qualquer matéria, e sim de possibilidades presentes naquele ser.",
+    "text": "O exemplo permite compreender a mudança, em Aristóteles, como",
+    "answers": [
+      {
+        "l": "A",
+        "text": "abandono completo do ser anterior, sem qualquer relação entre origem e resultado.",
+        "correct": false,
+        "fb": "Incorreta. A transformação depende das possibilidades próprias do ser."
+      },
+      {
+        "l": "B",
+        "text": "prova de que tudo pode se transformar em qualquer coisa, sem limites naturais.",
+        "correct": false,
+        "fb": "Incorreta. A potência não é uma possibilidade ilimitada. Ela está ligada à natureza de cada ser."
+      },
+      {
+        "l": "C",
+        "text": "negação da permanência, pois somente o movimento possui realidade.",
+        "correct": false,
+        "fb": "Incorreta. Aristóteles articula permanência e mudança, em vez de eliminar uma delas."
+      },
+      {
+        "l": "D",
+        "text": "passagem de uma possibilidade real para sua atualização, isto é, da potência ao ato.",
+        "correct": true,
+        "fb": "Correta! A semente é semente em ato e árvore em potência. O desenvolvimento atualiza uma possibilidade presente em sua natureza."
+      },
+      {
+        "l": "E",
+        "text": "recordação de uma forma contemplada pela alma antes do nascimento.",
+        "correct": false,
+        "fb": "Incorreta. Essa explicação se aproxima da reminiscência platônica, não da teoria aristotélica do movimento."
+      }
     ]
   },
   {
-    id: 8,
-    topic: "Platão — Crítica à democracia e Sofocracia",
-    context: "Um filósofo grego argumenta que decisões importantes de uma cidade não deveriam ser tomadas por votação popular, pois a maior parte da população não teria o preparo racional necessário para discernir o que é, de fato, justo e benéfico para a sociedade. Ele defende que o governo deveria caber a quem, por formação e virtude, teria acesso mais direto ao verdadeiro conhecimento.",
-    text: "Essa posição corresponde à crítica de Platão à democracia, expressa em sua defesa da",
-    answers: [
-      { l: "A", text: "sofocracia, governo dos sábios, considerados capazes de acessar racionalmente o conhecimento necessário para governar com justiça.", correct: true,  fb: "Correta! Platão defendia a sofocracia — literalmente, 'governo dos sábios' — por considerar que apenas quem alcançou o verdadeiro conhecimento, pelo uso da razão, estaria apto a governar de forma justa." },
-      { l: "B", text: "democracia direta, sistema no qual todos os cidadãos participam igualmente das decisões políticas, independentemente de sua formação.", correct: false, fb: "Incorreta. A posição descrita é justamente uma crítica à democracia direta, e não sua defesa; Platão desconfiava da participação igualitária de todos nas decisões políticas." },
-      { l: "C", text: "tirania, regime no qual um único governante impõe suas decisões pela força, sem qualquer critério de sabedoria.", correct: false, fb: "Incorreta. A sofocracia proposta por Platão se baseia na sabedoria e na virtude dos governantes, e não na imposição pela força, característica da tirania." },
-      { l: "D", text: "oligarquia financeira, regime no qual o poder é exercido por quem detém maior riqueza material, independentemente da virtude.", correct: false, fb: "Incorreta. Para Platão, o critério de governo deveria ser a sabedoria racional, e não a riqueza material, que caracteriza a oligarquia." },
-      { l: "E", text: "anarquia, ausência total de governo, considerada por Platão o estado ideal para o pleno exercício da razão individual.", correct: false, fb: "Incorreta. Platão defendia justamente a existência de um governo bem estruturado, conduzido pelos sábios, e não a ausência de governo." }
+    "id": 8,
+    "topic": "Max Weber — Sociologia compreensiva",
+    "context": "Duas pessoas utilizam o mesmo transporte coletivo. Uma escolhe o ônibus para economizar dinheiro e ajudar nas despesas familiares. A outra o utiliza para reduzir o uso de automóveis por compromisso ambiental. A conduta externa é semelhante, mas os sentidos atribuídos a ela são diferentes.",
+    "text": "Para a Sociologia Compreensiva, a análise desse fenômeno deve priorizar",
+    "answers": [
+      {
+        "l": "A",
+        "text": "os sentidos subjetivos que orientam as ações e sua relação com a conduta de outras pessoas.",
+        "correct": true,
+        "fb": "Correta! Weber procura compreender o significado que os indivíduos atribuem às próprias ações, desde que elas estejam orientadas socialmente."
+      },
+      {
+        "l": "B",
+        "text": "apenas a quantidade de passageiros, pois motivos individuais não possuem relevância sociológica.",
+        "correct": false,
+        "fb": "Incorreta. Os motivos e sentidos são centrais para a Sociologia Compreensiva."
+      },
+      {
+        "l": "C",
+        "text": "as leis naturais que determinam de forma idêntica o comportamento de todos os indivíduos.",
+        "correct": false,
+        "fb": "Incorreta. Weber não reduz a ação humana a leis naturais universais."
+      },
+      {
+        "l": "D",
+        "text": "somente os efeitos econômicos do transporte, independentemente das intenções dos usuários.",
+        "correct": false,
+        "fb": "Incorreta. A dimensão econômica pode ser relevante, mas não substitui a compreensão dos sentidos da ação."
+      },
+      {
+        "l": "E",
+        "text": "a pressão coletiva como causa única e suficiente de qualquer comportamento social.",
+        "correct": false,
+        "fb": "Incorreta. Essa formulação se aproxima mais de uma leitura centrada na coerção social do que da abordagem weberiana."
+      }
     ]
   },
   {
-    id: 9,
-    topic: "Platão — Metafísica (Meta + Physis)",
-    context: "Ao explicar o significado do termo 'metafísica', um professor destaca sua origem grega, formada pela junção de dois radicais, e afirma que essa área da filosofia se dedica ao estudo de temas como a justiça, o bem, a beleza e a liberdade — realidades que não podem ser tocadas, vistas ou medidas fisicamente.",
-    text: "Considerando a etimologia do termo e a tradição platônica, a metafísica pode ser definida como o estudo",
-    answers: [
-      { l: "A", text: "exclusivo dos fenômenos naturais mensuráveis, como o movimento dos astros e a composição química da matéria.", correct: false, fb: "Incorreta. Esse tipo de investigação corresponde à physis, ao mundo material e mensurável, exatamente o que a metafísica busca ultrapassar." },
-      { l: "B", text: "daquilo que está além da natureza material e concreta (meta + physis), voltado a realidades imateriais e universais.", correct: true,  fb: "Correta! 'Metafísica' une meta (além de) e physis (natureza material), significando o estudo daquilo que está além do mundo físico — como o bem, a justiça, a verdade e a beleza." },
-      { l: "C", text: "das técnicas retóricas empregadas para persuadir interlocutores em debates públicos, independentemente da verdade.", correct: false, fb: "Incorreta. O estudo de técnicas retóricas de persuasão está associado aos sofistas, e não à metafísica platônica, voltada às essências imateriais." },
-      { l: "D", text: "restrito aos fenômenos psicológicos individuais, sem qualquer pretensão de validade universal ou racional.", correct: false, fb: "Incorreta. A metafísica platônica busca justamente essências universais e racionais, como o bem em si, e não fenômenos psicológicos particulares." },
-      { l: "E", text: "da história política das cidades gregas, com ênfase nos regimes de governo adotados ao longo do tempo.", correct: false, fb: "Incorreta. Embora Platão tenha refletido sobre política, a metafísica, especificamente, trata das realidades imateriais e universais, não da história política das cidades." }
+    "id": 9,
+    "topic": "Max Weber — Ações tradicional e afetiva",
+    "context": "Em uma família, todos se reúnem no mesmo dia do ano porque essa prática é repetida há várias gerações. Durante o encontro, uma pessoa reage impulsivamente a uma ofensa e abandona o local tomada pela raiva.",
+    "text": "Os dois comportamentos são classificados por Weber, respectivamente, como ações",
+    "answers": [
+      {
+        "l": "A",
+        "text": "racionais com relação a fins e racionais com relação a valores.",
+        "correct": false,
+        "fb": "Incorreta. O primeiro comportamento é guiado pelo costume, e o segundo, pela emoção."
+      },
+      {
+        "l": "B",
+        "text": "afetivas e tradicionais.",
+        "correct": false,
+        "fb": "Incorreta. A ordem está invertida."
+      },
+      {
+        "l": "C",
+        "text": "tradicionais e racionais com relação a fins.",
+        "correct": false,
+        "fb": "Incorreta. A reação motivada pela raiva é afetiva, não planejada em função de um objetivo."
+      },
+      {
+        "l": "D",
+        "text": "racionais com relação a valores e afetivas.",
+        "correct": false,
+        "fb": "Incorreta. A reunião ocorre por repetição de um costume, não necessariamente por um princípio conscientemente escolhido."
+      },
+      {
+        "l": "E",
+        "text": "tradicionais e afetivas.",
+        "correct": true,
+        "fb": "Correta! A reunião é orientada pelo costume, enquanto a saída impulsiva é guiada por uma emoção."
+      }
     ]
   },
   {
-    id: 10,
-    topic: "Platão e Parmênides — razão versus sentidos",
-    context: "Um estudioso afirma que, para compreender verdadeiramente a realidade, não se deve confiar nas informações fornecidas pelos sentidos, que constantemente mudam e enganam, mas sim exercitar o pensamento racional, único caminho capaz de alcançar aquilo que permanece verdadeiro e imutável.",
-    text: "Essa posição, incorporada por Platão em sua filosofia, revela a influência direta de",
-    answers: [
-      { l: "A", text: "Sócrates, exclusivamente, cuja filosofia se resumia à investigação da natureza física do cosmos.", correct: false, fb: "Incorreta. Sócrates deslocou o foco da filosofia da natureza física do cosmos para o ser humano; a investigação da natureza é característica dos pré-socráticos, não do próprio Sócrates." },
-      { l: "B", text: "Parmênides, para quem a razão é superior aos sentidos e o conhecimento verdadeiro advém do pensar, não do sentir.", correct: true,  fb: "Correta! Platão segue a tradição de Parmênides, para quem os sentidos enganam e mudam constantemente, enquanto a razão permite alcançar um conhecimento verdadeiro e imutável — base da valorização platônica do mundo inteligível." },
-      { l: "C", text: "dos sofistas, para quem a verdade seria sempre relativa às percepções sensoriais de cada indivíduo.", correct: false, fb: "Incorreta. A posição relativista atribuída aos sofistas é justamente o oposto da valorização da razão como via de acesso a verdades universais e imutáveis." },
-      { l: "D", text: "de Heráclito, para quem a realidade seria conhecida exclusivamente pela observação do fluxo constante dos sentidos.", correct: false, fb: "Incorreta. Heráclito é associado à ideia do fluxo constante da realidade (\"tudo flui\"), mas a desconfiança nos sentidos e a valorização da razão imutável remetem a Parmênides, não a ele." },
-      { l: "E", text: "do materialismo histórico, segundo o qual as condições materiais determinam integralmente o pensamento humano.", correct: false, fb: "Incorreta. O materialismo histórico é uma teoria muito posterior, associada a Marx, sem relação com a valorização platônica da razão sobre os sentidos." }
+    "id": 10,
+    "topic": "Max Weber — Racionalidade por fins e por valores",
+    "context": "Uma candidata monta um cronograma, calcula o tempo de estudo e seleciona conteúdos com maior peso para elevar sua nota. Em outra situação, recusa-se a usar uma resposta vazada, mesmo sabendo que isso poderia beneficiá-la, porque considera a fraude moralmente errada.",
+    "text": "Na tipologia weberiana, as duas condutas correspondem, respectivamente, às ações racionais",
+    "answers": [
+      {
+        "l": "A",
+        "text": "afetiva e tradicional.",
+        "correct": false,
+        "fb": "Incorreta. As duas ações envolvem reflexão racional."
+      },
+      {
+        "l": "B",
+        "text": "com relação a fins e com relação a valores.",
+        "correct": true,
+        "fb": "Correta! O cronograma organiza meios para alcançar uma meta. A recusa da fraude é orientada por um princípio ético."
+      },
+      {
+        "l": "C",
+        "text": "com relação a valores e com relação a fins.",
+        "correct": false,
+        "fb": "Incorreta. A ordem está invertida."
+      },
+      {
+        "l": "D",
+        "text": "tradicional e afetiva.",
+        "correct": false,
+        "fb": "Incorreta. Nenhuma das ações é explicada principalmente por costume ou emoção."
+      },
+      {
+        "l": "E",
+        "text": "afetiva e com relação a valores.",
+        "correct": false,
+        "fb": "Incorreta. O planejamento do estudo não é uma reação emocional."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "topic": "Max Weber — Tipo ideal",
+    "context": "Pesquisadores analisam estudantes de escolas públicas, privadas e cursinhos, comparando rotinas, dificuldades e estratégias. A partir das características recorrentes, constroem o perfil analítico do 'candidato ao Enem', embora reconheçam que nenhum estudante real corresponde perfeitamente a esse perfil.",
+    "text": "O procedimento descrito exemplifica o tipo ideal porque ele consiste em",
+    "answers": [
+      {
+        "l": "A",
+        "text": "uma descrição moral do estudante perfeito, que deveria ser imitada por todos.",
+        "correct": false,
+        "fb": "Incorreta. 'Ideal' não significa perfeito ou desejável."
+      },
+      {
+        "l": "B",
+        "text": "uma média estatística capaz de representar exatamente todos os indivíduos pesquisados.",
+        "correct": false,
+        "fb": "Incorreta. O tipo ideal não é uma média nem corresponde exatamente à totalidade dos casos."
+      },
+      {
+        "l": "C",
+        "text": "um modelo analítico que destaca características relevantes para comparar e interpretar a realidade.",
+        "correct": true,
+        "fb": "Correta! O tipo ideal é uma construção teórica usada como instrumento de análise. Ele não pretende copiar perfeitamente cada caso real."
+      },
+      {
+        "l": "D",
+        "text": "uma lei universal que prevê, sem exceções, o comportamento futuro de qualquer estudante.",
+        "correct": false,
+        "fb": "Incorreta. Trata-se de uma ferramenta comparativa, não de uma previsão determinista."
+      },
+      {
+        "l": "E",
+        "text": "uma opinião subjetiva do pesquisador, dispensada de critérios e evidências.",
+        "correct": false,
+        "fb": "Incorreta. A construção do tipo ideal exige seleção teórica rigorosa de características significativas."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "topic": "Max Weber — Racionalização e desencantamento",
+    "context": "Em uma instituição de saúde, decisões antes baseadas em costumes locais passam a seguir protocolos, registros digitais, especialização profissional e critérios científicos. O processo amplia a previsibilidade, mas também aumenta a dependência de regras e procedimentos.",
+    "text": "Na interpretação de Weber, essa transformação expressa",
+    "answers": [
+      {
+        "l": "A",
+        "text": "o retorno do pensamento mágico como principal forma de organizar a vida moderna.",
+        "correct": false,
+        "fb": "Incorreta. O processo descrito reduz o espaço das explicações mágicas e amplia critérios racionais."
+      },
+      {
+        "l": "B",
+        "text": "o desaparecimento completo das tradições e emoções nas sociedades modernas.",
+        "correct": false,
+        "fb": "Incorreta. Tradições e emoções continuam existindo, embora a racionalidade ganhe centralidade."
+      },
+      {
+        "l": "C",
+        "text": "a substituição das instituições por relações pessoais espontâneas e sem normas.",
+        "correct": false,
+        "fb": "Incorreta. O exemplo mostra justamente maior institucionalização."
+      },
+      {
+        "l": "D",
+        "text": "a racionalização da vida social, ligada ao desencantamento do mundo e à expansão da burocracia.",
+        "correct": true,
+        "fb": "Correta! Protocolos, especialização, cálculo e regras são marcas da racionalização moderna e da burocratização."
+      },
+      {
+        "l": "E",
+        "text": "a recusa moderna da ciência em favor de explicações exclusivamente religiosas.",
+        "correct": false,
+        "fb": "Incorreta. O cenário apresenta o fortalecimento de critérios científicos."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "topic": "Max Weber — Tipos de dominação",
+    "context": "Em uma comunidade, um chefe é obedecido por ocupar uma posição transmitida por costumes antigos. Em um movimento social, seguidores reconhecem em uma liderança qualidades consideradas extraordinárias. Em uma repartição, servidores obedecem ao responsável pelo cargo definido em lei.",
+    "text": "As fontes de legitimidade apresentadas correspondem, na mesma ordem, às dominações",
+    "answers": [
+      {
+        "l": "A",
+        "text": "carismática, tradicional e econômica.",
+        "correct": false,
+        "fb": "Incorreta. A ordem não corresponde aos exemplos, e 'econômica' não é um dos três tipos de dominação legítima."
+      },
+      {
+        "l": "B",
+        "text": "racional-legal, afetiva e tradicional.",
+        "correct": false,
+        "fb": "Incorreta. 'Afetiva' é tipo de ação social, não de dominação."
+      },
+      {
+        "l": "C",
+        "text": "tradicional, racional por fins e carismática.",
+        "correct": false,
+        "fb": "Incorreta. 'Racional por fins' classifica ações, não fontes de legitimidade."
+      },
+      {
+        "l": "D",
+        "text": "oligárquica, carismática e burocrática.",
+        "correct": false,
+        "fb": "Incorreta. Oligarquia não integra a tipologia weberiana de dominação legítima."
+      },
+      {
+        "l": "E",
+        "text": "tradicional, carismática e racional-legal.",
+        "correct": true,
+        "fb": "Correta! Costume, qualidades extraordinárias e normas legais são as bases dos três tipos de dominação legítima descritos por Weber."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "topic": "Max Weber — Estado e uso legítimo da força",
+    "context": "Após conflitos em uma região, grupos privados armados passam a impor regras próprias. O governo afirma que somente instituições autorizadas podem empregar coerção física dentro dos limites legais e territoriais do Estado.",
+    "text": "A afirmação do governo se aproxima da definição weberiana do Estado moderno como instituição que",
+    "answers": [
+      {
+        "l": "A",
+        "text": "elimina toda forma de violência por meio do consenso espontâneo entre os cidadãos.",
+        "correct": false,
+        "fb": "Incorreta. Weber não afirma que o Estado elimina a força, mas que reivindica seu uso legítimo."
+      },
+      {
+        "l": "B",
+        "text": "permite que qualquer grupo utilize a força, desde que alegue defender a ordem social.",
+        "correct": false,
+        "fb": "Incorreta. A legitimidade não decorre apenas da alegação de defender a ordem."
+      },
+      {
+        "l": "C",
+        "text": "reivindica o monopólio do uso legítimo da força física em determinado território.",
+        "correct": true,
+        "fb": "Correta! Para Weber, essa reivindicação é uma característica central do Estado moderno."
+      },
+      {
+        "l": "D",
+        "text": "substitui as leis por decisões pessoais de líderes reconhecidos como carismáticos.",
+        "correct": false,
+        "fb": "Incorreta. O Estado moderno está fortemente ligado à dominação racional-legal."
+      },
+      {
+        "l": "E",
+        "text": "exerce poder sem necessidade de reconhecimento social ou fundamento jurídico.",
+        "correct": false,
+        "fb": "Incorreta. A ideia de legitimidade é essencial para distinguir dominação de mera imposição."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "topic": "Max Weber — Ética protestante e capitalismo",
+    "context": "Em certos grupos religiosos da Europa moderna, o trabalho disciplinado, a vida sóbria, o controle dos gastos e o reinvestimento dos ganhos foram valorizados como sinais de uma conduta moralmente correta. Essas práticas favoreceram a organização racional da atividade econômica.",
+    "text": "A interpretação de Weber sobre esse processo sustenta que",
+    "answers": [
+      {
+        "l": "A",
+        "text": "o capitalismo surgiu exclusivamente de doutrinas religiosas, sem relação com fatores históricos e econômicos.",
+        "correct": false,
+        "fb": "Incorreta. Weber não propõe uma causa única para o capitalismo."
+      },
+      {
+        "l": "B",
+        "text": "a religião sempre impede a acumulação econômica e rejeita qualquer valorização do trabalho.",
+        "correct": false,
+        "fb": "Incorreta. O exemplo mostra uma ética religiosa que atribuiu valor positivo ao trabalho disciplinado."
+      },
+      {
+        "l": "C",
+        "text": "o lucro capitalista depende necessariamente da conversão religiosa de toda a sociedade.",
+        "correct": false,
+        "fb": "Incorreta. A tese trata de afinidades históricas entre práticas religiosas e condutas econômicas, não de uma exigência universal de conversão."
+      },
+      {
+        "l": "D",
+        "text": "a prosperidade material foi considerada suficiente para garantir automaticamente a salvação religiosa.",
+        "correct": false,
+        "fb": "Incorreta. A relação é mais complexa e não transforma riqueza em garantia automática de salvação."
+      },
+      {
+        "l": "E",
+        "text": "certas práticas protestantes contribuíram para formar disposições compatíveis com o espírito do capitalismo moderno.",
+        "correct": true,
+        "fb": "Correta! Weber identifica uma afinidade entre ascetismo, disciplina, trabalho metódico, reinvestimento e a formação histórica do espírito capitalista."
+      }
     ]
   }
 ];
@@ -878,9 +1318,9 @@ function showResults() {
 
   let emoji = '📜';
   let msg = 'Continue seus estudos — a sabedoria filosófica é construída com dedicação e reflexão.';
-  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre a filosofia platônica.'; }
+  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre Aristóteles e Max Weber.'; }
   else if (pct >= 70) { emoji = '⚖️'; msg = 'Ótimo desempenho! Reforce alguns conceitos e você chegará lá.'; }
-  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Revise os tópicos sobre idealismo, alegoria da caverna e télos.'; }
+  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Revise ética e política em Aristóteles, além de ação social e dominação em Weber.'; }
 
   const r = 66, cx = 80, cy = 80;
   const circ = 2 * Math.PI * r;
@@ -899,7 +1339,7 @@ function showResults() {
   document.getElementById('resultsInner').innerHTML = `
     <div class="results-ornament">${emoji}</div>
     <h2 class="results-heading">Quiz Concluído</h2>
-    <p class="results-subheading">Platão — ${questions.length} questões</p>
+    <p class="results-subheading">Aristóteles e Max Weber — ${questions.length} questões</p>
     <div class="score-ring-wrap">
       <div class="score-ring">
         <svg width="160" height="160" viewBox="0 0 160 160">
