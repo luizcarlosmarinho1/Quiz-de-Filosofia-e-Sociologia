@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz ENEM — Aristóteles e Max Weber</title>
+  <title>Quiz ENEM — Filosofia e Sociologia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
   <style>
@@ -20,9 +20,7 @@
       --cream: #fdf6ec;
       --shadow: rgba(26,18,8,0.18);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Lora', Georgia, serif;
       font-size: 17px;
@@ -31,7 +29,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     body::before {
       content: '';
       position: fixed;
@@ -43,7 +40,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
     body::after {
       content: '';
       position: fixed;
@@ -52,7 +48,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .page-wrapper {
       position: relative;
       z-index: 1;
@@ -62,13 +57,11 @@
       align-items: center;
       padding: 40px 20px 60px;
     }
-
     .header {
       text-align: center;
       margin-bottom: 36px;
       animation: fadeDown 0.8s ease both;
     }
-
     .header-ornament {
       color: var(--gold);
       font-size: 24px;
@@ -76,7 +69,6 @@
       margin-bottom: 12px;
       opacity: 0.7;
     }
-
     .header h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(32px, 5vw, 54px);
@@ -86,9 +78,7 @@
       letter-spacing: -0.5px;
       margin-bottom: 8px;
     }
-
     .header h1 span { color: var(--gold); font-style: italic; }
-
     .header-subtitle {
       font-family: 'Lora', serif;
       font-size: 17px;
@@ -97,21 +87,18 @@
       font-style: italic;
       letter-spacing: 1px;
     }
-
     .progress-section {
       width: 100%;
       max-width: 780px;
       margin-bottom: 28px;
       animation: fadeDown 0.8s 0.1s ease both;
     }
-
     .progress-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
     }
-
     .progress-label {
       font-family: 'Lora', serif;
       font-size: 14px;
@@ -120,34 +107,28 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
     .progress-dots { display: flex; gap: 5px; }
-
     .dot {
       width: 8px; height: 8px; border-radius: 50%;
       background: rgba(245,237,224,0.15);
       border: 1px solid rgba(184,145,42,0.3);
       transition: all 0.4s ease;
     }
-
     .dot.answered-correct { background: var(--sage); border-color: var(--sage); }
     .dot.answered-wrong { background: var(--wine-light); border-color: var(--wine-light); }
     .dot.current { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px var(--gold); }
-
     .progress-bar-wrap {
       height: 3px;
       background: rgba(245,237,224,0.1);
       border-radius: 2px;
       overflow: hidden;
     }
-
     .progress-bar-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--wine), var(--gold));
       border-radius: 2px;
       transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .quiz-card {
       width: 100%;
       max-width: 780px;
@@ -158,7 +139,6 @@
       animation: fadeUp 0.5s ease both;
       position: relative;
     }
-
     .quiz-card::before {
       content: '';
       position: absolute;
@@ -166,16 +146,13 @@
       height: 3px;
       background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
     }
-
     .card-inner { padding: 40px 44px 36px; }
-
     .q-header {
       display: flex;
       align-items: center;
       gap: 16px;
       margin-bottom: 24px;
     }
-
     .q-number-badge {
       font-family: 'Lora', serif;
       font-size: 12px;
@@ -189,12 +166,10 @@
       border-radius: 2px;
       white-space: nowrap;
     }
-
     .q-divider {
       flex: 1; height: 1px;
       background: linear-gradient(90deg, rgba(184,145,42,0.3), transparent);
     }
-
     .q-topic {
       font-family: 'Lora', serif;
       font-size: 13px;
@@ -203,7 +178,6 @@
       font-style: italic;
       letter-spacing: 0.5px;
     }
-
     .context-block {
       background: var(--parchment);
       border-left: 3px solid var(--gold);
@@ -212,7 +186,6 @@
       border-radius: 0 4px 4px 0;
       position: relative;
     }
-
     .context-block::before {
       content: '"';
       position: absolute;
@@ -223,7 +196,6 @@
       opacity: 0.25;
       line-height: 1;
     }
-
     .context-text {
       font-family: 'Lora', serif;
       font-size: 16px;
@@ -232,7 +204,15 @@
       color: rgba(26,18,8,0.78);
       line-height: 1.75;
     }
-
+    .context-source {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      color: rgba(26,18,8,0.5);
+      letter-spacing: 0.3px;
+    }
     .question-text {
       font-family: 'Playfair Display', serif;
       font-size: clamp(19px, 2.4vw, 22px);
@@ -241,14 +221,12 @@
       line-height: 1.5;
       margin-bottom: 28px;
     }
-
     .answers-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-bottom: 28px;
     }
-
     .answer-btn {
       display: flex;
       align-items: flex-start;
@@ -269,7 +247,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .answer-btn::before {
       content: '';
       position: absolute;
@@ -278,17 +255,13 @@
       opacity: 0;
       transition: opacity 0.25s;
     }
-
     .answer-btn:hover:not(:disabled)::before { opacity: 1; }
-
     .answer-btn:hover:not(:disabled) {
       border-color: var(--gold);
       box-shadow: 0 2px 12px rgba(184,145,42,0.15);
       transform: translateX(3px);
     }
-
     .answer-btn:disabled { cursor: default; }
-
     .letter-badge {
       font-family: 'Playfair Display', serif;
       font-size: 13px;
@@ -304,20 +277,15 @@
       flex-shrink: 0;
       transition: all 0.25s;
     }
-
     .answer-btn:hover:not(:disabled) .letter-badge {
       background: var(--gold);
       color: white;
     }
-
     .answer-btn.correct { background: #eaf5ec; border-color: #2d7a3a; }
     .answer-btn.correct .letter-badge { background: #2d7a3a; color: white; border-color: #2d7a3a; }
-
     .answer-btn.wrong { background: #fdf0f0; border-color: #c0392b; }
     .answer-btn.wrong .letter-badge { background: #c0392b; color: white; border-color: #c0392b; }
-
     .answer-btn.dim { opacity: 0.45; }
-
     .feedback-box {
       border-radius: 4px;
       padding: 16px 20px;
@@ -325,11 +293,9 @@
       display: none;
       animation: slideIn 0.35s ease;
     }
-
     .feedback-box.show { display: block; }
     .feedback-box.correct-fb { background: #eaf5ec; border-left: 4px solid #2d7a3a; }
     .feedback-box.wrong-fb { background: #fdf0f0; border-left: 4px solid #c0392b; }
-
     .feedback-title {
       font-family: 'Lora', serif;
       font-size: 15px;
@@ -339,10 +305,8 @@
       align-items: center;
       gap: 8px;
     }
-
     .feedback-box.correct-fb .feedback-title { color: #1a5c24; }
     .feedback-box.wrong-fb .feedback-title { color: #8b1a1a; }
-
     .feedback-body {
       font-family: 'Lora', serif;
       font-size: 15.5px;
@@ -351,7 +315,6 @@
       color: inherit;
       opacity: 0.9;
     }
-
     .retry-hint {
       margin-top: 10px;
       font-size: 14px;
@@ -359,7 +322,6 @@
       font-style: italic;
       opacity: 0.75;
     }
-
     .nav-row {
       display: flex;
       align-items: center;
@@ -368,7 +330,6 @@
       padding-top: 8px;
       border-top: 1px solid rgba(26,18,8,0.08);
     }
-
     .nav-btn {
       display: flex;
       align-items: center;
@@ -383,18 +344,13 @@
       letter-spacing: 0.3px;
       transition: all 0.25s ease;
     }
-
     .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; }
-
     .btn-prev { background: transparent; border-color: rgba(26,18,8,0.2); color: rgba(26,18,8,0.6); }
     .btn-prev:hover:not(:disabled) { border-color: var(--ink); color: var(--ink); }
-
     .btn-next { background: var(--wine); border-color: var(--wine); color: var(--parchment); margin-left: auto; }
     .btn-next:hover:not(:disabled) { background: var(--wine-light); border-color: var(--wine-light); transform: translateX(3px); }
-
     .btn-finish { background: var(--forest); border-color: var(--forest); color: var(--parchment); margin-left: auto; }
     .btn-finish:hover:not(:disabled) { background: var(--sage); border-color: var(--sage); transform: translateX(3px); }
-
     .results-card {
       width: 100%;
       max-width: 780px;
@@ -405,18 +361,14 @@
       overflow: hidden;
       display: none;
     }
-
     .results-card::before {
       content: '';
       display: block;
       height: 3px;
       background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
     }
-
     .results-inner { padding: 48px 44px; text-align: center; }
-
     .results-ornament { font-size: 36px; margin-bottom: 12px; }
-
     .results-heading {
       font-family: 'Playfair Display', serif;
       font-size: clamp(28px, 4vw, 40px);
@@ -424,7 +376,6 @@
       color: var(--ink);
       margin-bottom: 6px;
     }
-
     .results-subheading {
       font-family: 'Lora', serif;
       font-size: 16px;
@@ -433,12 +384,9 @@
       color: rgba(26,18,8,0.5);
       margin-bottom: 40px;
     }
-
     .score-ring-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
-
     .score-ring { position: relative; width: 160px; height: 160px; }
     .score-ring svg { transform: rotate(-90deg); }
-
     .score-ring-text {
       position: absolute;
       inset: 0;
@@ -447,7 +395,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .score-pct {
       font-family: 'Playfair Display', serif;
       font-size: 38px;
@@ -455,7 +402,6 @@
       color: var(--wine);
       line-height: 1;
     }
-
     .score-label {
       font-family: 'Lora', serif;
       font-size: 14px;
@@ -463,7 +409,6 @@
       color: rgba(26,18,8,0.5);
       letter-spacing: 0.5px;
     }
-
     .results-feedback-text {
       font-family: 'Lora', serif;
       font-size: 17px;
@@ -474,21 +419,18 @@
       margin: 0 auto 36px;
       line-height: 1.65;
     }
-
     .stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 40px;
     }
-
     .stat-block {
       background: var(--parchment);
       border: 1px solid rgba(184,145,42,0.2);
       border-radius: 4px;
       padding: 20px 16px;
     }
-
     .stat-block-value {
       font-family: 'Playfair Display', serif;
       font-size: 36px;
@@ -496,7 +438,6 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-
     .stat-block-label {
       font-family: 'Lora', serif;
       font-size: 13px;
@@ -505,9 +446,7 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
-
     .answer-review { margin-bottom: 40px; text-align: left; }
-
     .review-title {
       font-family: 'Playfair Display', serif;
       font-size: 16px;
@@ -518,16 +457,13 @@
       align-items: center;
       gap: 10px;
     }
-
     .review-title::after {
       content: '';
       flex: 1;
       height: 1px;
       background: rgba(26,18,8,0.1);
     }
-
     .review-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-
     .review-pip {
       width: 36px; height: 36px;
       border-radius: 3px;
@@ -539,10 +475,8 @@
       font-weight: 700;
       cursor: default;
     }
-
     .review-pip.ok { background: #eaf5ec; color: #2d7a3a; border: 1px solid #2d7a3a; }
     .review-pip.fail { background: #fdf0f0; color: #c0392b; border: 1px solid #c0392b; }
-
     .retry-btn {
       background: var(--wine);
       color: var(--parchment);
@@ -556,17 +490,14 @@
       cursor: pointer;
       transition: all 0.25s ease;
     }
-
     .retry-btn:hover {
       background: var(--wine-light);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(92,26,26,0.35);
     }
-
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       20% { transform: translateX(-6px); }
@@ -574,9 +505,7 @@
       60% { transform: translateX(-4px); }
       80% { transform: translateX(4px); }
     }
-
     .shake { animation: shake 0.4s ease; }
-
     @media (max-width: 600px) {
       .card-inner { padding: 28px 22px 24px; }
       .results-inner { padding: 32px 22px; }
@@ -588,610 +517,412 @@
 </head>
 <body>
 <div class="page-wrapper">
-
   <header class="header">
     <div class="header-ornament">✦ ✦ ✦</div>
     <h1>Quiz de Filosofia e Sociologia</h1>
-    <p class="header-subtitle">Aristóteles e Max Weber</p>
+    <p class="header-subtitle">Simulado ENEM — 10 questões comentadas</p>
   </header>
-
   <div class="progress-section" id="progressSection">
     <div class="progress-meta">
-      <span class="progress-label" id="progressLabel">Questão 1 de 15</span>
+      <span class="progress-label" id="progressLabel">Questão 1 de 10</span>
       <div class="progress-dots" id="progressDots"></div>
     </div>
     <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" id="progressFill" style="width:6.67%"></div>
+      <div class="progress-bar-fill" id="progressFill" style="width:10%"></div>
     </div>
   </div>
-
   <div class="quiz-card" id="quizCard">
     <div class="card-inner" id="cardInner"></div>
   </div>
-
   <div class="results-card" id="resultsCard">
     <div class="results-inner" id="resultsInner"></div>
   </div>
-
 </div>
-
 <script>
 const questions = [
   {
     "id": 1,
-    "topic": "Filosofia antiga — conhecimento",
-    "context": "Ao estudar diferentes espécies de animais, um pesquisador registra semelhanças e diferenças, compara seus órgãos e organiza os seres observados em grupos. A classificação não estava pronta antes da investigação, mas também não se limita a uma coleção de impressões isoladas.",
-    "text": "A produção de conhecimento descrita aproxima-se da filosofia aristotélica porque pressupõe que",
+    "topic": "Filosofia política — Auguste Comte",
+    "context": "O filósofo Auguste Comte (1798-1857) preenche sua doutrina com uma imagem do progresso social na qual se conjugam ciência e política: a ação política deve assumir o aspecto de uma ação científica e a política deve ser estudada de maneira científica (a física social). Desde que a Revolução Francesa favoreceu a integração do povo na vida social, o positivismo obstina-se no programa de uma comunidade pacífica. E o Estado, instituição do \"reino absoluto da lei\", é a garantia da ordem que impede o retorno potencial das revoluções e engendra o progresso.",
+    "text": "A característica do Estado positivo que lhe permite garantir não só a ordem, como também o desejado progresso das nações, é ser",
     "answers": [
       {
         "l": "A",
-        "text": "os sentidos produzem sozinhos conceitos universais, tornando desnecessária a atividade intelectual.",
+        "text": "espaço coletivo, onde as carências e desejos da população se realizam por meio das leis.",
         "correct": false,
-        "fb": "Incorreta. A experiência fornece os dados iniciais, mas o intelecto precisa organizá-los e abstrair características gerais."
+        "fb": "Incorreta. O texto destaca o Estado como instância que organiza e reprime, não como realizador direto dos desejos da população."
       },
       {
         "l": "B",
-        "text": "o contato com casos particulares permite ao intelecto elaborar conhecimentos gerais sobre a realidade.",
-        "correct": true,
-        "fb": "Correta! Em Aristóteles, o conhecimento começa na experiência com seres concretos e avança quando a razão identifica e organiza aspectos universais."
+        "text": "produto científico da física social, transcendendo e transformando as exigências da realidade.",
+        "correct": false,
+        "fb": "Incorreta. A física social estuda a política cientificamente, mas o Estado não é descrito como algo que transcende a realidade."
       },
       {
         "l": "C",
-        "text": "as classificações verdadeiras são recordações de modelos contemplados pela alma antes do nascimento.",
-        "correct": false,
-        "fb": "Incorreta. Essa explicação corresponde ao inatismo e à reminiscência platônica, não ao empirismo aristotélico."
+        "text": "elemento unificador, organizando e reprimindo, se necessário, as ações dos membros da comunidade.",
+        "correct": true,
+        "fb": "Correta! Para Comte, o Estado organiza a sociedade e, quando necessário, reprime ações que ameacem a ordem — condição para o progresso."
       },
       {
         "l": "D",
-        "text": "a diversidade dos seres impede qualquer conhecimento geral, restando apenas opiniões sobre casos particulares.",
+        "text": "programa necessário, tal como a Revolução Francesa, devendo portanto se manter aberto a novas insurreições.",
         "correct": false,
-        "fb": "Incorreta. Aristóteles considera possível construir conhecimento geral a partir da análise dos casos particulares."
+        "fb": "Incorreta. O positivismo defende justamente a ordem e a estabilidade, evitando o retorno de novas revoluções."
       },
       {
         "l": "E",
-        "text": "a verdade depende da utilidade prática de uma classificação, e não de sua correspondência com os seres estudados.",
+        "text": "agente repressor, tendo um papel importante a cada revolução, por impor pelo menos um curto período de ordem.",
         "correct": false,
-        "fb": "Incorreta. A investigação aristotélica procura compreender a realidade, não apenas produzir classificações úteis."
+        "fb": "Incorreta. Associar o Estado a revoluções contraria a defesa positivista da ordem permanente, não apenas de períodos curtos."
       }
     ]
   },
   {
     "id": 2,
-    "topic": "Filosofia antiga — vida coletiva",
-    "context": "Uma cidade cria espaços de participação comunitária nos quais os moradores discutem problemas do bairro, formulam propostas e assumem responsabilidades coletivas. A iniciativa parte da ideia de que o desenvolvimento humano não ocorre de forma plenamente isolada.",
-    "text": "Essa iniciativa expressa uma concepção aristotélica segundo a qual",
+    "topic": "Filosofia pré-socrática — Demócrito",
+    "context": "A representação de Demócrito é semelhante à de Anaxágoras, na medida em que um infinitamente múltiplo é a origem; mas nele a determinação dos princípios fundamentais aparece de maneira tal que contém aquilo que para o que foi formado não é, absolutamente, o aspecto simples para si. Por exemplo, partículas de carne e de ouro seriam princípios que, através de sua concentração, formam aquilo que aparece como figura.",
+    "text": "O texto faz uma apresentação crítica acerca do pensamento de Demócrito, segundo o qual o \"princípio constitutivo das coisas\" estava representado pelo(a)",
     "answers": [
       {
         "l": "A",
-        "text": "a vida política impede a felicidade, pois submete o indivíduo aos interesses da coletividade.",
+        "text": "número, que fundamenta a criação dos deuses.",
         "correct": false,
-        "fb": "Incorreta. Para Aristóteles, a vida coletiva é condição para o desenvolvimento humano e para a busca da felicidade."
+        "fb": "Incorreta. O número como princípio fundamental é característico dos pitagóricos, não de Demócrito."
       },
       {
         "l": "B",
-        "text": "a felicidade depende principalmente da acumulação de bens privados e do afastamento da vida pública.",
+        "text": "devir, que simboliza o constante movimento dos objetos.",
         "correct": false,
-        "fb": "Incorreta. A eudaimonia não se reduz à riqueza nem ao isolamento."
+        "fb": "Incorreta. A ideia de devir como princípio está associada a Heráclito."
       },
       {
         "l": "C",
-        "text": "a natureza humana é individualista, sendo a sociedade apenas um acordo artificial entre pessoas.",
+        "text": "água, que expressa a causa material da origem do universo.",
         "correct": false,
-        "fb": "Incorreta. Aristóteles entende a sociabilidade como parte da própria natureza humana."
+        "fb": "Incorreta. A água como princípio de todas as coisas é a tese de Tales de Mileto."
       },
       {
         "l": "D",
-        "text": "o ser humano realiza suas capacidades na convivência política, e a felicidade possui uma dimensão compartilhada.",
-        "correct": true,
-        "fb": "Correta! O ser humano é um animal político. A vida na comunidade permite desenvolver virtudes e buscar a eudaimonia."
+        "text": "imobilidade, que sustenta a existência do ser atemporal.",
+        "correct": false,
+        "fb": "Incorreta. A imobilidade do ser é a tese central de Parmênides."
       },
       {
         "l": "E",
-        "text": "a participação pública deve ser substituída pela contemplação privada, única atividade compatível com a razão.",
-        "correct": false,
-        "fb": "Incorreta. A reflexão é importante, mas Aristóteles não elimina a dimensão política da realização humana."
+        "text": "átomo, que explica o surgimento dos entes.",
+        "correct": true,
+        "fb": "Correta! Para Demócrito, tudo o que existe resulta da concentração e combinação de partículas fundamentais e indivisíveis: os átomos."
       }
     ]
   },
   {
     "id": 3,
-    "topic": "Filosofia antiga — ética",
-    "context": "Uma jornalista recebe informações verdadeiras sobre a vida privada de uma autoridade. Publicá-las poderia aumentar a audiência, mas também causar danos sem esclarecer nenhuma decisão pública. Omitir toda a investigação, por outro lado, poderia esconder fatos realmente relevantes. Antes de agir, ela avalia finalidade, circunstâncias e consequências.",
-    "text": "Segundo a ética de Aristóteles, uma decisão virtuosa nessa situação dependeria de",
+    "topic": "Sociologia clássica — Émile Durkheim",
+    "context": "A sociologia ainda não ultrapassou a era das construções e das sínteses filosóficas. Em vez de assumir a tarefa de lançar luz sobre uma parcela restrita do campo social, ela prefere buscar as brilhantes generalidades em que todas as questões são levantadas sem que nenhuma seja expressamente tratada. Não é com exames sumários e por meio de intuições rápidas que se pode chegar a descobrir as leis de uma realidade tão complexa. Sobretudo, generalizações às vezes tão amplas e tão apressadas não são suscetíveis de nenhum tipo de prova.",
+    "text": "O texto expressa o esforço de Émile Durkheim em construir uma sociologia com base na",
     "answers": [
       {
         "l": "A",
-        "text": "seguir sempre a opção que produza maior visibilidade, pois o sucesso demonstra excelência moral.",
+        "text": "vinculação com a filosofia como saber unificado.",
         "correct": false,
-        "fb": "Incorreta. Resultado, fama ou vantagem não são critérios suficientes para definir a virtude."
+        "fb": "Incorreta. Durkheim menciona a filosofia justamente para criticar suas explicações especulativas, não para adotá-las."
       },
       {
         "l": "B",
-        "text": "aplicar uma regra idêntica a todos os casos, sem considerar contexto, intenção ou efeitos.",
+        "text": "reunião de percepções intuitivas para demonstração.",
         "correct": false,
-        "fb": "Incorreta. A prudência exige examinar as circunstâncias concretas da ação."
+        "fb": "Incorreta. O texto rejeita explicitamente intuições rápidas como método de investigação."
       },
       {
         "l": "C",
-        "text": "usar a razão prática para evitar tanto a omissão irresponsável quanto a exposição excessiva, buscando a medida adequada ao caso.",
-        "correct": true,
-        "fb": "Correta! A virtude está no meio-termo racionalmente definido em relação às circunstâncias, e não em uma média automática entre duas opções."
+        "text": "formulação de hipóteses subjetivas sobre a vida social.",
+        "correct": false,
+        "fb": "Incorreta. Durkheim critica generalizações apressadas e sem prova, não as defende."
       },
       {
         "l": "D",
-        "text": "priorizar a intenção pessoal da jornalista, mesmo que a decisão prejudique injustamente outras pessoas.",
-        "correct": false,
-        "fb": "Incorreta. A ética aristotélica considera a ação no convívio e sua orientação para o bem."
+        "text": "adesão aos padrões de investigação típicos das ciências naturais.",
+        "correct": true,
+        "fb": "Correta! Durkheim busca aproximar a Sociologia dos padrões científicos: observação, investigação rigorosa e comprovação dos fatos."
       },
       {
         "l": "E",
-        "text": "escolher de forma espontânea, pois a reflexão racional enfraquece a autenticidade moral.",
+        "text": "incorporação de um conhecimento alimentado pelo engajamento político.", 
         "correct": false,
-        "fb": "Incorreta. A razão prática é indispensável para orientar a escolha virtuosa."
+        "fb": "Incorreta. O texto não menciona engajamento político como fundamento do método sociológico proposto."
       }
     ]
   },
   {
     "id": 4,
-    "topic": "Filosofia antiga — ação humana",
-    "context": "Uma seca prolongada reduz o nível dos reservatórios de uma cidade. A população não pode alterar imediatamente o regime de chuvas, mas precisa decidir como distribuir água, quais atividades restringir e que obras priorizar.",
-    "text": "A responsabilidade política presente nesse caso decorre, para Aristóteles, do fato de que",
+    "topic": "Filosofia antiga — Sócrates",
+    "context": "Uma conversação de tal natureza transforma o ouvinte; o contato de Sócrates paralisa e embaraça; leva a refletir sobre si mesmo, a imprimir à atenção uma direção incomum: os temperamentais, como Alcibíades, sabem que encontrarão junto dele todo o bem de que são capazes, mas fogem porque receiam essa influência poderosa, que os leva a se censurarem. É sobretudo a esses jovens, muitos quase crianças, que ele tenta imprimir sua orientação.",
+    "text": "O texto evidencia características do modo de vida socrático, que se baseava na",
     "answers": [
       {
         "l": "A",
-        "text": "as respostas humanas ao problema podem assumir caminhos diferentes e, por isso, devem ser objeto de escolha refletida.",
-        "correct": true,
-        "fb": "Correta! A deliberação se volta para ações contingentes, que podem ocorrer de modos diferentes e dependem de decisões humanas."
+        "text": "contemplação da tradição mítica.",
+        "correct": false,
+        "fb": "Incorreta. O texto não trata de mitos, mas do efeito do diálogo direto de Sócrates sobre seus interlocutores."
       },
       {
         "l": "B",
-        "text": "qualquer fenômeno natural pode ser modificado diretamente por uma decisão coletiva bem fundamentada.",
-        "correct": false,
-        "fb": "Incorreta. A deliberação não altera por si mesma fenômenos naturais necessários ou fora do controle humano."
+        "text": "sustentação do método dialético.",
+        "correct": true,
+        "fb": "Correta! Sócrates usava perguntas e diálogo para provocar embaraço, autocrítica e reflexão — o método dialético de investigação."
       },
       {
         "l": "C",
-        "text": "a reflexão prática deve determinar se a seca existiu, substituindo a observação dos fatos.",
+        "text": "relativização do saber verdadeiro.",
         "correct": false,
-        "fb": "Incorreta. Deliberar não significa decidir a realidade dos fatos, mas escolher como agir diante deles."
+        "fb": "Incorreta. Essa postura relativista é mais próxima dos sofistas do que do projeto socrático de busca da verdade."
       },
       {
         "l": "D",
-        "text": "somente decisões com resultado garantido podem ser consideradas moralmente responsáveis.",
+        "text": "valorização da argumentação retórica.",
         "correct": false,
-        "fb": "Incorreta. A ação prática ocorre em situações variáveis, nas quais não há garantia absoluta de resultado."
+        "fb": "Incorreta. A retórica busca persuadir; o diálogo socrático busca investigar e questionar, não convencer a qualquer custo."
       },
       {
         "l": "E",
-        "text": "a distribuição dos recursos deve seguir os desejos individuais, já que não há critérios racionais para a vida coletiva.",
+        "text": "investigação dos fundamentos da natureza.",
         "correct": false,
-        "fb": "Incorreta. Aristóteles atribui papel central à razão e ao bem comum na vida política."
+        "fb": "Incorreta. O texto trata do efeito do diálogo sobre o interlocutor, não de uma investigação sobre a natureza física."
       }
     ]
   },
   {
     "id": 5,
-    "topic": "Filosofia antiga — política",
-    "context": "Em dois países, o poder está concentrado em uma única pessoa. No primeiro, o governante respeita leis e orienta suas decisões para o interesse da comunidade. No segundo, governa de forma arbitrária e utiliza o cargo para benefício próprio.",
-    "text": "Segundo a classificação aristotélica das formas de governo, esses regimes correspondem, respectivamente, a",
+    "topic": "Sociologia clássica — Max Weber",
+    "context": "O impulso para o ganho, a perseguição do lucro, do dinheiro, da maior quantidade possível de dinheiro não tem, em si mesma, nada que ver com o capitalismo. Tal impulso existe e sempre existiu. Pode-se dizer que tem sido comum a toda sorte e condição humanas em todos os tempos e em todos os países, sempre que se tenha apresentada a possibilidade objetiva para tanto. O capitalismo, porém, identifica-se com a busca do lucro, do lucro sempre renovado por meio da empresa permanente, capitalista e racional.",
+    "text": "O capitalismo moderno, segundo Max Weber, apresenta como característica fundamental a",
     "answers": [
       {
         "l": "A",
-        "text": "aristocracia e oligarquia.",
+        "text": "competitividade decorrente da acumulação de capital.",
         "correct": false,
-        "fb": "Incorreta. Aristocracia e oligarquia são formas de governo exercidas por poucos."
+        "fb": "Incorreta. A competitividade pode existir no capitalismo, mas não é a ideia central destacada no fragmento."
       },
       {
         "l": "B",
-        "text": "monarquia e tirania.",
-        "correct": true,
-        "fb": "Correta! A monarquia é a forma orientada ao bem comum. Quando o governante usa o poder em interesse próprio e sem limites, ocorre a tirania."
+        "text": "implementação da flexibilidade produtiva e comercial.",
+        "correct": false,
+        "fb": "Incorreta. O texto não trata de flexibilidade produtiva, e sim de uma busca permanente e racional pelo lucro."
       },
       {
         "l": "C",
-        "text": "politeia e demagogia.",
-        "correct": false,
-        "fb": "Incorreta. Essas categorias se relacionam ao governo de muitos."
+        "text": "ação calculada e planejada para obter rentabilidade.",
+        "correct": true,
+        "fb": "Correta! Para Weber, o capitalismo moderno não é apenas o desejo de dinheiro, mas a busca do lucro de forma permanente, racional e calculada."
       },
       {
         "l": "D",
-        "text": "oligarquia e democracia.",
+        "text": "socialização das condições de produção.",
         "correct": false,
-        "fb": "Incorreta. Nenhuma das duas descreve adequadamente o governo de uma só pessoa."
+        "fb": "Incorreta. O texto não trata de socialização da produção, tema alheio ao fragmento de Weber."
       },
       {
         "l": "E",
-        "text": "democracia e aristocracia.",
+        "text": "mercantilização da força de trabalho.",
         "correct": false,
-        "fb": "Incorreta. A primeira corresponde ao governo de muitos e a segunda ao governo de poucos."
+        "fb": "Incorreta. O fragmento foca no caráter racional e calculado da busca do lucro, não na mercantilização do trabalho."
       }
     ]
   },
   {
     "id": 6,
-    "topic": "Filosofia antiga — natureza",
-    "context": "Para explicar uma escultura, um pesquisador identifica o bronze de que ela é feita, a forma que apresenta, o trabalho do escultor e a finalidade comemorativa para a qual foi produzida.",
-    "text": "A explicação mobiliza a teoria aristotélica das quatro causas ao relacionar, nessa ordem, as causas",
+    "topic": "Filosofia antiga — Platão",
+    "context": "Estamos, pois, de acordo quando, ao ver algum objeto, dizemos: \"Este objeto que estou vendo agora tem tendência para assemelhar-se a um outro ser, mas, por ter defeitos, não consegue ser tal como o ser em questão, e lhe é, pelo contrário, inferior\". Assim, para podermos fazer estas reflexões, é necessário que antes tenhamos tido ocasião de conhecer esse ser de que se aproxima o dito objeto, ainda que imperfeitamente.",
+    "text": "Na epistemologia platônica, conhecer um determinado objeto implica",
     "answers": [
       {
         "l": "A",
-        "text": "material, formal, eficiente e final.",
-        "correct": true,
-        "fb": "Correta! Bronze é a causa material; a configuração da obra é a formal; o escultor e seu trabalho constituem a eficiente; a comemoração é a causa final."
+        "text": "estabelecer semelhanças entre o que é observado em momentos distintos.",
+        "correct": false,
+        "fb": "Incorreta. Não se trata de comparar dois momentos de observação, mas de relacionar o objeto sensível com sua essência."
       },
       {
         "l": "B",
-        "text": "final, eficiente, formal e material.",
+        "text": "comparar o objeto observado com uma descrição detalhada dele.",
         "correct": false,
-        "fb": "Incorreta. A sequência apresentada começa pela matéria e termina pela finalidade."
+        "fb": "Incorreta. O texto não fala de descrições do objeto, mas da relação entre o objeto e o ser (forma) do qual ele se aproxima."
       },
       {
         "l": "C",
-        "text": "formal, material, final e eficiente.",
+        "text": "descrever corretamente as características do objeto observado.",
         "correct": false,
-        "fb": "Incorreta. A ordem não corresponde aos elementos apresentados no texto."
+        "fb": "Incorreta. A epistemologia platônica não se resume à descrição do objeto sensível."
       },
       {
         "l": "D",
-        "text": "eficiente, final, material e formal.",
-        "correct": false,
-        "fb": "Incorreta. O agente produtor aparece apenas no terceiro elemento do exemplo."
+        "text": "fazer correspondência entre o objeto observado e seu ser.",
+        "correct": true,
+        "fb": "Correta! Para Platão, o objeto sensível e imperfeito é reconhecido por referência à sua forma, ou essência — conhecemos algo ao relacioná-lo com seu modelo ideal."
       },
       {
         "l": "E",
-        "text": "material, eficiente, final e formal.",
+        "text": "identificar outro exemplar idêntico ao observado.",
         "correct": false,
-        "fb": "Incorreta. A forma é mencionada antes do trabalho do escultor, e a finalidade aparece ao final."
+        "fb": "Incorreta. O texto trata da relação entre o objeto sensível e sua essência, não da identificação de outro exemplar semelhante."
       }
     ]
   },
   {
     "id": 7,
-    "topic": "Filosofia antiga — mudança",
-    "context": "Uma jovem possui coordenação e estrutura física adequadas para a prática esportiva, mas só desenvolve alto desempenho após anos de treinamento. O resultado não aparece de maneira pronta, nem poderia surgir de qualquer organismo em qualquer condição.",
-    "text": "A explicação aristotélica para esse processo considera o desenvolvimento como",
+    "topic": "Filosofia moderna — Karl Marx",
+    "context": "Na produção social que os homens realizam, eles entram em determinadas relações indispensáveis e independentes de sua vontade; tais relações de produção correspondem a um estágio definido de desenvolvimento das suas forças materiais de produção. A totalidade dessas relações constitui a estrutura econômica da sociedade — fundamento real, sobre o qual se erguem as superestruturas política e jurídica, e ao qual correspondem determinadas formas de consciência social.",
+    "text": "Para o autor, a relação entre economia e política estabelecida no sistema capitalista faz com que",
     "answers": [
       {
         "l": "A",
-        "text": "criação de uma capacidade totalmente inexistente, sem vínculo com as características anteriores do indivíduo.",
+        "text": "o proletariado seja contemplado pelo processo de mais-valia.",
         "correct": false,
-        "fb": "Incorreta. O desenvolvimento parte de capacidades reais presentes no ser, ainda que não estejam plenamente realizadas."
+        "fb": "Incorreta. O texto não afirma que a mais-valia beneficia o proletariado."
       },
       {
         "l": "B",
-        "text": "substituição da identidade original por outra, pois toda mudança elimina aquilo que o ser era.",
-        "correct": false,
-        "fb": "Incorreta. Aristóteles explica a mudança sem afirmar que toda identidade anterior desaparece."
+        "text": "o trabalho se constitua como o fundamento real da produção material.",
+        "correct": true,
+        "fb": "Correta! O texto preserva a centralidade do trabalho e da produção material como fundamento real, sobre o qual se erguem política e direito."
       },
       {
         "l": "C",
-        "text": "efeito de um modelo perfeito externo, copiado pelo corpo durante o treinamento.",
+        "text": "a consolidação das forças produtivas seja compatível com o progresso humano.",
         "correct": false,
-        "fb": "Incorreta. Essa leitura se aproxima mais da relação platônica entre modelo e cópia."
+        "fb": "Incorreta. O fragmento não afirma que forças produtivas garantem progresso humano."
       },
       {
         "l": "D",
-        "text": "atualização, por meio de condições e atividades, de capacidades compatíveis com a natureza do indivíduo.",
-        "correct": true,
-        "fb": "Correta! A mudança é compreendida como passagem da potência ao ato: uma capacidade real se torna efetiva mediante determinadas condições."
+        "text": "a autonomia da sociedade civil seja proporcional ao desenvolvimento econômico.",
+        "correct": false,
+        "fb": "Incorreta. Essa relação de proporcionalidade não é o que o texto estabelece."
       },
       {
         "l": "E",
-        "text": "prova de que qualquer ser pode adquirir qualquer característica, desde que repita uma atividade por tempo suficiente.",
+        "text": "a burguesia revolucione o processo social de formação da consciência de classe.",
         "correct": false,
-        "fb": "Incorreta. A potência possui limites relacionados à natureza de cada ser."
+        "fb": "Incorreta. O texto trata da estrutura econômica como base das superestruturas, não de uma revolução da consciência de classe pela burguesia."
       }
     ]
   },
   {
     "id": 8,
-    "topic": "Sociologia clássica — ação humana",
-    "context": "Em uma empresa, dois funcionários permanecem no trabalho depois do horário. Um pretende conquistar uma promoção. O outro evita voltar para casa durante um conflito familiar. Um relatório que registre apenas o tempo trabalhado apresentará comportamentos iguais.",
-    "text": "Para Max Weber, esse relatório seria insuficiente para uma explicação sociológica completa porque",
+    "topic": "Filosofia antiga — Aristóteles",
+    "context": "Ninguém delibera sobre coisas que não podem ser de outro modo, nem sobre as que lhe é impossível fazer. Por conseguinte, como o conhecimento científico envolve demonstração, mas não há demonstração de coisas cujos primeiros princípios são variáveis (pois todas elas poderiam ser diferentemente), e como é impossível deliberar sobre coisas que são por necessidade, a sabedoria prática não pode ser ciência, nem arte: nem ciência, porque aquilo que se pode fazer é capaz de ser diferentemente, nem arte, porque o agir e o produzir são duas espécies diferentes de coisa. Resta, pois, a alternativa de ser ela uma capacidade verdadeira e raciocinada de agir com respeito às coisas que são boas ou más para o homem.",
+    "text": "Aristóteles considera a ética como pertencente ao campo do saber prático. Nesse sentido, ela difere-se dos outros saberes porque é caracterizada como",
     "answers": [
       {
         "l": "A",
-        "text": "condutas externamente semelhantes podem ser orientadas por motivos diferentes, que precisam ser interpretados.",
+        "text": "conduta definida pela capacidade racional de escolha.",
         "correct": true,
-        "fb": "Correta! A Sociologia Compreensiva investiga o sentido atribuído pelos indivíduos à ação, e não apenas sua aparência externa."
+        "fb": "Correta! Para Aristóteles, a ética não é ciência nem técnica, mas uma capacidade racional de deliberar e agir sobre o que é bom ou mau."
       },
       {
         "l": "B",
-        "text": "todo comportamento profissional resulta necessariamente de interesses econômicos conscientes.",
+        "text": "capacidade de escolher de acordo com padrões científicos.",
         "correct": false,
-        "fb": "Incorreta. Weber admite diferentes orientações da ação, inclusive afetivas, tradicionais e valorativas."
+        "fb": "Incorreta. O texto afirma explicitamente que a sabedoria prática não é ciência."
       },
       {
         "l": "C",
-        "text": "dados quantitativos não possuem qualquer utilidade para as ciências sociais.",
+        "text": "conhecimento das coisas importantes para a vida do homem.",
         "correct": false,
-        "fb": "Incorreta. Dados quantitativos podem ser úteis, mas não esgotam a compreensão dos sentidos da ação."
+        "fb": "Incorreta. A ética não é apenas conhecer o que importa; envolve deliberação e ação racional, não somente conhecimento."
       },
       {
         "l": "D",
-        "text": "a explicação sociológica deve ignorar indivíduos e considerar apenas estruturas coletivas.",
+        "text": "técnica que tem como resultado a produção de boas ações.",
         "correct": false,
-        "fb": "Incorreta. Weber parte da ação dos indivíduos para compreender processos sociais."
+        "fb": "Incorreta. O próprio texto afirma que a sabedoria prática não é arte/técnica, pois agir e produzir são espécies diferentes de coisa."
       },
       {
         "l": "E",
-        "text": "os motivos pessoais são inacessíveis e, por isso, devem ser substituídos por julgamentos morais do pesquisador.",
+        "text": "política estabelecida de acordo com padrões democráticos de deliberação.",
         "correct": false,
-        "fb": "Incorreta. A proposta é interpretar os sentidos da ação com rigor, não julgá-los moralmente."
+        "fb": "Incorreta. O texto trata da natureza da sabedoria prática (ética) em geral, não de padrões democráticos de deliberação política."
       }
     ]
   },
   {
     "id": 9,
-    "topic": "Sociologia clássica — formas de ação",
-    "context": "Em uma família, todos se reúnem no mesmo dia do ano porque essa prática é repetida há várias gerações. Durante o encontro, uma pessoa reage impulsivamente a uma ofensa e abandona o local tomada pela raiva.",
-    "text": "Os dois comportamentos são classificados por Weber, respectivamente, como ações",
+    "topic": "Filosofia política — Hobbes e Locke",
+    "context": "TEXTO I — Até aqui expus a natureza do homem (cujo orgulho e outras paixões o obrigaram a submeter-se ao governo), juntamente com o grande poder do seu governante, o qual comparei com o Leviatã (...). TEXTO II — Eu asseguro, tranquilamente, que o governo civil é a solução adequada para as inconveniências do estado de natureza, que devem certamente ser grandes quando os homens podem ser juízes em causa própria, pois é fácil imaginar que um homem tão injusto a ponto de lesar o irmão dificilmente será justo para condenar a si mesmo pela mesma ofensa.",
+    "text": "Thomas Hobbes e John Locke, importantes teóricos contratualistas, discutiram aspectos ligados à natureza humana e ao Estado. Thomas Hobbes, diferentemente de John Locke, entende o estado de natureza como um(a)",
     "answers": [
       {
         "l": "A",
-        "text": "racionais com relação a fins e racionais com relação a valores.",
-        "correct": false,
-        "fb": "Incorreta. O primeiro comportamento é guiado pelo costume, e o segundo, pela emoção."
+        "text": "condição de guerra de todos contra todos, miséria universal, insegurança e medo da morte violenta.",
+        "correct": true,
+        "fb": "Correta! Para Hobbes, sem um poder comum capaz de controlar os indivíduos, predominam o conflito, a insegurança e o medo da morte violenta."
       },
       {
         "l": "B",
-        "text": "afetivas e tradicionais.",
+        "text": "organização pré-social e pré-política em que o homem nasce com os direitos naturais: vida, liberdade, igualdade e propriedade.",
         "correct": false,
-        "fb": "Incorreta. A ordem está invertida."
+        "fb": "Incorreta. Essa é a concepção de Locke, associada aos direitos naturais, não a de Hobbes."
       },
       {
         "l": "C",
-        "text": "tradicionais e racionais com relação a fins.",
+        "text": "capricho típico da menoridade, que deve ser eliminado pela exigência moral, para que o homem possa constituir o Estado civil.",
         "correct": false,
-        "fb": "Incorreta. A reação motivada pela raiva é afetiva, não planejada em função de um objetivo."
+        "fb": "Incorreta. A ideia de menoridade remete a Kant, não a Hobbes."
       },
       {
         "l": "D",
-        "text": "racionais com relação a valores e afetivas.",
+        "text": "situação em que os homens nascem como detentores de livre-arbítrio, mas são feridos em sua livre decisão pelo pecado original.",
         "correct": false,
-        "fb": "Incorreta. A reunião ocorre por repetição de um costume, não necessariamente por um princípio conscientemente escolhido."
+        "fb": "Incorreta. Essa formulação não corresponde ao pensamento de Hobbes sobre o estado de natureza."
       },
       {
         "l": "E",
-        "text": "tradicionais e afetivas.",
-        "correct": true,
-        "fb": "Correta! A reunião é orientada pelo costume, enquanto a saída impulsiva é guiada por uma emoção."
+        "text": "estado de felicidade, saúde e liberdade que é destruído pela civilização, que perturba as relações sociais e violenta a humanidade.",
+        "correct": false,
+        "fb": "Incorreta. Essa visão de uma felicidade natural corrompida pela civilização é característica de Rousseau, não de Hobbes."
       }
     ]
   },
   {
     "id": 10,
-    "topic": "Sociologia clássica — racionalidade",
-    "context": "Uma candidata monta um cronograma, calcula o tempo de estudo e seleciona conteúdos com maior peso para elevar sua nota. Em outra situação, recusa-se a usar uma resposta vazada, mesmo sabendo que isso poderia beneficiá-la, porque considera a fraude moralmente errada.",
-    "text": "Na tipologia weberiana, as duas condutas correspondem, respectivamente, às ações racionais",
+    "topic": "Filosofia política — cidadania grega",
+    "context": "TEXTO I — Olhamos o homem alheio às atividades públicas não como alguém que cuida apenas de seus próprios interesses, mas como um inútil; nós, cidadãos atenienses, decidimos as questões públicas por nós mesmos (...). TEXTO II — Um cidadão integral pode ser definido por nada mais nada menos que pelo direito de administrar justiça e exercer funções públicas; algumas destas, todavia, são limitadas quanto ao tempo de exercício (...).",
+    "text": "Comparando os textos I e II, tanto para Tucídides (no século V a.C.) quanto para Aristóteles (no século IV a.C.), a cidadania era definida pelo(a)",
     "answers": [
       {
         "l": "A",
-        "text": "afetiva e tradicional.",
+        "text": "prestígio social.",
         "correct": false,
-        "fb": "Incorreta. As duas ações envolvem reflexão racional."
+        "fb": "Incorreta. O prestígio social não é o elemento comum destacado nos dois textos."
       },
       {
         "l": "B",
-        "text": "com relação a fins e com relação a valores.",
-        "correct": true,
-        "fb": "Correta! O cronograma organiza meios para alcançar uma meta. A recusa da fraude é orientada por um princípio ético."
+        "text": "acúmulo de riqueza.",
+        "correct": false,
+        "fb": "Incorreta. A riqueza não aparece como critério de cidadania nos fragmentos apresentados."
       },
       {
         "l": "C",
-        "text": "com relação a valores e com relação a fins.",
-        "correct": false,
-        "fb": "Incorreta. A ordem está invertida."
-      },
-      {
-        "l": "D",
-        "text": "tradicional e afetiva.",
-        "correct": false,
-        "fb": "Incorreta. Nenhuma das ações é explicada principalmente por costume ou emoção."
-      },
-      {
-        "l": "E",
-        "text": "afetiva e com relação a valores.",
-        "correct": false,
-        "fb": "Incorreta. O planejamento do estudo não é uma reação emocional."
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "topic": "Sociologia clássica — método",
-    "context": "Para estudar decisões econômicas, um pesquisador constrói a figura do agente que compara todas as alternativas disponíveis, calcula custos e escolhe sempre a opção mais vantajosa. Ele sabe que pessoas reais nem sempre agem assim, mas utiliza essa construção para observar aproximações e desvios.",
-    "text": "Na metodologia de Weber, a utilidade dessa construção está em",
-    "answers": [
-      {
-        "l": "A",
-        "text": "estabelecer um padrão moral de comportamento que deve ser imposto aos indivíduos estudados.",
-        "correct": false,
-        "fb": "Incorreta. O recurso metodológico não define como as pessoas deveriam agir."
-      },
-      {
-        "l": "B",
-        "text": "substituir a pesquisa empírica por uma descrição imaginária considerada verdadeira em todos os casos.",
-        "correct": false,
-        "fb": "Incorreta. A construção precisa ser comparada com a realidade investigada."
-      },
-      {
-        "l": "C",
-        "text": "oferecer uma referência conceitual para comparar ações concretas e tornar certos aspectos da realidade mais inteligíveis.",
+        "text": "participação política.",
         "correct": true,
-        "fb": "Correta! O tipo ideal acentua características para servir como instrumento de comparação e interpretação."
+        "fb": "Correta! Nos dois textos, o cidadão é aquele que participa dos debates, das decisões, da justiça e do exercício de funções públicas."
       },
       {
         "l": "D",
-        "text": "calcular a média estatística das escolhas e prever sem erro o comportamento de cada pessoa.",
+        "text": "local de nascimento.",
         "correct": false,
-        "fb": "Incorreta. O tipo ideal não é uma média e não produz previsões infalíveis."
+        "fb": "Incorreta. O nascimento não é o elemento comum destacado pelos dois autores nesses trechos."
       },
       {
         "l": "E",
-        "text": "demonstrar que somente ações econômicas podem ser analisadas cientificamente pela Sociologia.",
+        "text": "grupo de parentesco.",
         "correct": false,
-        "fb": "Incorreta. Weber aplica esse método a diversos fenômenos sociais, não apenas econômicos."
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "topic": "Sociologia clássica — modernidade",
-    "context": "Em uma instituição de saúde, decisões antes baseadas em costumes locais passam a seguir protocolos, registros digitais, especialização profissional e critérios científicos. O processo amplia a previsibilidade, mas também aumenta a dependência de regras e procedimentos.",
-    "text": "Na interpretação de Weber, essa transformação expressa",
-    "answers": [
-      {
-        "l": "A",
-        "text": "o retorno do pensamento mágico como principal forma de organizar a vida moderna.",
-        "correct": false,
-        "fb": "Incorreta. O processo descrito reduz o espaço das explicações mágicas e amplia critérios racionais."
-      },
-      {
-        "l": "B",
-        "text": "o desaparecimento completo das tradições e emoções nas sociedades modernas.",
-        "correct": false,
-        "fb": "Incorreta. Tradições e emoções continuam existindo, embora a racionalidade ganhe centralidade."
-      },
-      {
-        "l": "C",
-        "text": "a substituição das instituições por relações pessoais espontâneas e sem normas.",
-        "correct": false,
-        "fb": "Incorreta. O exemplo mostra justamente maior institucionalização."
-      },
-      {
-        "l": "D",
-        "text": "a racionalização da vida social, ligada ao desencantamento do mundo e à expansão da burocracia.",
-        "correct": true,
-        "fb": "Correta! Protocolos, especialização, cálculo e regras são marcas da racionalização moderna e da burocratização."
-      },
-      {
-        "l": "E",
-        "text": "a recusa moderna da ciência em favor de explicações exclusivamente religiosas.",
-        "correct": false,
-        "fb": "Incorreta. O cenário apresenta o fortalecimento de critérios científicos."
-      }
-    ]
-  },
-  {
-    "id": 13,
-    "topic": "Sociologia clássica — poder",
-    "context": "Em uma comunidade, um chefe é obedecido por ocupar uma posição transmitida por costumes antigos. Em um movimento social, seguidores reconhecem em uma liderança qualidades consideradas extraordinárias. Em uma repartição, servidores obedecem ao responsável pelo cargo definido em lei.",
-    "text": "As fontes de legitimidade apresentadas correspondem, na mesma ordem, às dominações",
-    "answers": [
-      {
-        "l": "A",
-        "text": "carismática, tradicional e econômica.",
-        "correct": false,
-        "fb": "Incorreta. A ordem não corresponde aos exemplos, e 'econômica' não é um dos três tipos de dominação legítima."
-      },
-      {
-        "l": "B",
-        "text": "racional-legal, afetiva e tradicional.",
-        "correct": false,
-        "fb": "Incorreta. 'Afetiva' é tipo de ação social, não de dominação."
-      },
-      {
-        "l": "C",
-        "text": "tradicional, racional por fins e carismática.",
-        "correct": false,
-        "fb": "Incorreta. 'Racional por fins' classifica ações, não fontes de legitimidade."
-      },
-      {
-        "l": "D",
-        "text": "oligárquica, carismática e burocrática.",
-        "correct": false,
-        "fb": "Incorreta. Oligarquia não integra a tipologia weberiana de dominação legítima."
-      },
-      {
-        "l": "E",
-        "text": "tradicional, carismática e racional-legal.",
-        "correct": true,
-        "fb": "Correta! Costume, qualidades extraordinárias e normas legais são as bases dos três tipos de dominação legítima descritos por Weber."
-      }
-    ]
-  },
-  {
-    "id": 14,
-    "topic": "Sociologia clássica — Estado",
-    "context": "Uma organização privada possui armas, integrantes treinados e capacidade de controlar uma área. Entretanto, suas ordens não são reconhecidas pelas instituições jurídicas, e seu uso da força é tratado como ilegal. Já a polícia atua sob normas públicas e pode responder judicialmente por abusos.",
-    "text": "Com base em Weber, a diferença decisiva entre as duas organizações está no fato de que",
-    "answers": [
-      {
-        "l": "A",
-        "text": "a organização privada possui poder, enquanto a polícia não interfere na conduta de outras pessoas.",
-        "correct": false,
-        "fb": "Incorreta. As duas organizações possuem capacidade de interferência; a questão central é a legitimidade."
-      },
-      {
-        "l": "B",
-        "text": "a polícia utiliza menos força física e, por isso, não precisa de fundamento legal para agir.",
-        "correct": false,
-        "fb": "Incorreta. O uso estatal da força depende justamente de normas e reconhecimento jurídico."
-      },
-      {
-        "l": "C",
-        "text": "a coerção policial é reivindicada como legítima dentro de uma ordem jurídica e de um território determinados.",
-        "correct": true,
-        "fb": "Correta! O Estado moderno reivindica o monopólio do uso legítimo da força física em seu território. A mera capacidade de coagir não cria legitimidade."
-      },
-      {
-        "l": "D",
-        "text": "qualquer organização armada se torna estatal quando controla uma área por tempo suficiente.",
-        "correct": false,
-        "fb": "Incorreta. Controle de fato não equivale automaticamente a reconhecimento legítimo."
-      },
-      {
-        "l": "E",
-        "text": "o Estado se define por proibir toda coerção, inclusive aquela prevista em lei.",
-        "correct": false,
-        "fb": "Incorreta. Weber não define o Estado pela ausência de força, mas por sua reivindicação legítima."
-      }
-    ]
-  },
-  {
-    "id": 15,
-    "topic": "Sociologia clássica — religião e economia",
-    "context": "Ao comparar regiões europeias, um pesquisador identifica, em determinados grupos religiosos, disciplina no trabalho, controle do consumo e reinvestimento frequente dos ganhos. Ele também reconhece a importância de mercados, instituições políticas, técnicas contábeis e transformações jurídicas.",
-    "text": "A interpretação weberiana desse quadro caracteriza-se por",
-    "answers": [
-      {
-        "l": "A",
-        "text": "reduzir o surgimento do capitalismo à decisão consciente de líderes religiosos.",
-        "correct": false,
-        "fb": "Incorreta. Weber não explica o capitalismo por uma decisão planejada nem por uma causa religiosa isolada."
-      },
-      {
-        "l": "B",
-        "text": "afirmar que a economia moderna se desenvolveu da mesma forma em qualquer tradição religiosa.",
-        "correct": false,
-        "fb": "Incorreta. A análise procura justamente relações históricas específicas entre determinados valores e condutas econômicas."
-      },
-      {
-        "l": "C",
-        "text": "considerar as crenças apenas como reflexos passivos de interesses materiais já constituídos.",
-        "correct": false,
-        "fb": "Incorreta. Weber reconhece que ideias e valores também podem influenciar práticas sociais."
-      },
-      {
-        "l": "D",
-        "text": "provar que a prosperidade econômica confirma a superioridade moral de uma religião.",
-        "correct": false,
-        "fb": "Incorreta. A análise sociológica não é uma avaliação da superioridade moral de uma crença."
-      },
-      {
-        "l": "E",
-        "text": "relacionar certos valores religiosos à formação de condutas favoráveis ao capitalismo, sem tratá-los como causa única.",
-        "correct": true,
-        "fb": "Correta! Weber investiga uma afinidade histórica entre ética religiosa e espírito capitalista, articulada a outros fatores sociais e econômicos."
+        "fb": "Incorreta. O parentesco não é apontado como definidor da cidadania nos textos analisados."
       }
     ]
   }
 ];
-
 let current = 0;
 let answers = {};
-
 function buildDots() {
   const wrap = document.getElementById('progressDots');
   wrap.innerHTML = '';
@@ -1202,7 +933,6 @@ function buildDots() {
     wrap.appendChild(d);
   });
 }
-
 function updateProgress() {
   const pct = ((current + 1) / questions.length) * 100;
   document.getElementById('progressFill').style.width = pct + '%';
@@ -1215,12 +945,10 @@ function updateProgress() {
     else if (answers[q.id]) d.classList.add(answers[q.id].correct ? 'answered-correct' : 'answered-wrong');
   });
 }
-
 function render() {
   const q = questions[current];
   const ans = answers[q.id];
   const isLast = current === questions.length - 1;
-
   let html = `
     <div class="q-header">
       <span class="q-number-badge">Questão ${q.id}</span>
@@ -1233,7 +961,6 @@ function render() {
     <div class="question-text">${q.text}</div>
     <div class="answers-list" id="answersList">
   `;
-
   q.answers.forEach(a => {
     let cls = 'answer-btn';
     let disabled = '';
@@ -1249,9 +976,7 @@ function render() {
       </button>
     `;
   });
-
   html += `</div>`;
-
   if (ans) {
     const chosen = q.answers.find(a => a.l === ans.letter);
     const fbClass = chosen.correct ? 'correct-fb' : 'wrong-fb';
@@ -1265,10 +990,8 @@ function render() {
       </div>
     `;
   }
-
   const nextDisabled = !ans || !ans.correct ? 'disabled' : '';
   const prevDisabled = current === 0 ? 'disabled' : '';
-
   html += `
     <div class="nav-row">
       <button class="nav-btn btn-prev" ${prevDisabled} onclick="go(-1)">← Anterior</button>
@@ -1278,11 +1001,9 @@ function render() {
       }
     </div>
   `;
-
   document.getElementById('cardInner').innerHTML = html;
   updateProgress();
 }
-
 function pick(qId, letter, correct) {
   const prev = answers[qId];
   if (prev && prev.correct) return;
@@ -1297,7 +1018,6 @@ function pick(qId, letter, correct) {
   }
   render();
 }
-
 function go(dir) {
   current = Math.max(0, Math.min(questions.length - 1, current + dir));
   const ci = document.getElementById('cardInner');
@@ -1311,35 +1031,29 @@ function go(dir) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 150);
 }
-
 function showResults() {
   const correct = Object.values(answers).filter(a => a.correct).length;
   const pct = Math.round((correct / questions.length) * 100);
-
   let emoji = '📜';
   let msg = 'Continue seus estudos — a sabedoria filosófica é construída com dedicação e reflexão.';
-  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre Aristóteles e Max Weber.'; }
+  if (pct >= 90) { emoji = '🏛️'; msg = 'Excelente! Você demonstra domínio sólido sobre os autores de Filosofia e Sociologia.'; }
   else if (pct >= 70) { emoji = '⚖️'; msg = 'Ótimo desempenho! Reforce alguns conceitos e você chegará lá.'; }
-  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Releia os textos-base e revise como cada autor explica conhecimento, ética, ação e poder.'; }
-
+  else if (pct >= 50) { emoji = '🔍'; msg = 'Bom começo! Releia os textos-base e revise a tese central de cada autor.'; }
   const r = 66, cx = 80, cy = 80;
   const circ = 2 * Math.PI * r;
   const dash = (pct / 100) * circ;
-
   document.getElementById('quizCard').style.display = 'none';
   document.getElementById('progressSection').style.opacity = '0.4';
   document.getElementById('resultsCard').style.display = 'block';
-
   const reviewPips = questions.map(q => {
     const a = answers[q.id];
     const cls = a && a.correct ? 'ok' : 'fail';
     return `<div class="review-pip ${cls}" title="Questão ${q.id}: ${q.topic}">${q.id}</div>`;
   }).join('');
-
   document.getElementById('resultsInner').innerHTML = `
     <div class="results-ornament">${emoji}</div>
     <h2 class="results-heading">Quiz Concluído</h2>
-    <p class="results-subheading">Aristóteles e Max Weber — ${questions.length} questões</p>
+    <p class="results-subheading">Filosofia e Sociologia — ${questions.length} questões</p>
     <div class="score-ring-wrap">
       <div class="score-ring">
         <svg width="160" height="160" viewBox="0 0 160 160">
@@ -1376,7 +1090,6 @@ function showResults() {
     <button class="retry-btn" onclick="restart()">Recomeçar o Quiz</button>
   `;
 }
-
 function restart() {
   current = 0;
   answers = {};
@@ -1387,7 +1100,6 @@ function restart() {
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 buildDots();
 render();
 </script>
